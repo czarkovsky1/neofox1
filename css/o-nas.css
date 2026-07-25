@@ -1,0 +1,353 @@
+/* ===== TYMCZASOWO UKRYTE ===== */
+.quote { display: none; }
+
+/* ===== O NAS — HERO ===== */
+
+.onas-hero {
+  position: relative;
+  height: 510px;
+}
+
+.onas-hero-photos {
+  display: flex;
+  height: 100%;
+}
+
+.onas-hero-photo {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.onas-hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.onas-hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.onas-hero-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: var(--color-orange);
+  font-family: var(--font-heading);
+  font-size: 100px;
+  letter-spacing: 1px;
+  padding: 14px 40px;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* ===== O NAS — ABOUT (obraz lewo / tekst prawo) ===== */
+
+.onas-about {
+  display: flex;
+  min-height: 580px;
+}
+
+.onas-about-image {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.onas-about-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.onas-about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* prawa krawędź kolumny = prawa krawędź .container (1200px grid) */
+  padding: 100px calc(max(40px, (100vw - 1200px) / 2)) 100px 60px;
+  max-width: calc(600px + max(40px, (100vw - 1200px) / 2) + 60px);
+}
+
+.onas-about-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+
+.onas-about-heading .accent {
+  color: var(--color-orange);
+}
+
+.onas-about-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.onas-about-btn {
+  margin-top: 32px;
+  align-self: flex-start;
+}
+
+/* ===== O NAS — DISTINGUISH (tekst lewo / zdjęcie prawo) ===== */
+
+.onas-distinguish {
+  display: flex;
+  min-height: 580px;
+}
+
+.onas-distinguish-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 60px 100px calc(max(40px, (100vw - 1200px) / 2));
+}
+
+.onas-distinguish-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+
+.onas-distinguish-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.onas-distinguish-text p + p {
+  margin-top: 24px;
+}
+
+.onas-distinguish-image {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.onas-distinguish-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== O NAS — CONTACT (info lewo / mapa prawo) ===== */
+
+.onas-contact {
+  display: flex;
+  min-height: 520px;
+}
+
+.onas-contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 80px 60px 80px calc(max(40px, (100vw - 1200px) / 2));
+  background: #fff;
+}
+
+.onas-contact-logo {
+  display: block;
+  margin-bottom: 28px;
+}
+
+.onas-contact-logo img {
+  height: 48px;
+  width: auto;
+}
+
+.onas-contact-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.onas-contact-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  margin-bottom: 32px;
+}
+
+.onas-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.onas-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--color-gray-text);
+  line-height: 1.5;
+}
+
+.onas-contact-list li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-orange);
+  margin-top: 2px;
+}
+
+.onas-contact-list a {
+  color: var(--color-gray-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.onas-contact-list a:hover {
+  color: var(--color-orange);
+}
+
+.onas-contact-nip {
+  font-size: 14px;
+  color: #888;
+}
+
+.onas-contact-map {
+  flex: 0 0 50%;
+  position: relative;
+  min-height: 520px;
+}
+
+.onas-contact-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ===== O NAS — PROCESS (4 kroki) ===== */
+
+.onas-process {
+  background: #f4f4f4;
+  padding: 80px 0;
+}
+
+.onas-process-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.onas-process-item {
+  flex: 1;
+  text-align: center;
+}
+
+.onas-process-icon {
+  width: 68px;
+  height: 68px;
+  color: var(--color-orange);
+  margin: 0 auto 24px;
+}
+
+.onas-process-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.onas-process-title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 12px;
+}
+
+.onas-process-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+/* ===== O NAS — SPECJALIZUJEMY ===== */
+
+.onas-specialize {
+  background: #fff;
+  padding: 87px 0 60px;
+  text-align: center;
+}
+
+.onas-specialize-heading {
+  font-family: var(--font-heading);
+  font-size: 80px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+}
+
+.onas-specialize-heading .accent {
+  color: var(--color-orange);
+}
+
+/* ===== O NAS — INTRO ===== */
+
+.onas-intro {
+  background: #fff;
+  padding: 87px 0;
+  text-align: center;
+}
+
+.onas-intro-heading {
+  font-family: var(--font-heading);
+  font-size: 80px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+
+.onas-intro-heading .accent {
+  color: var(--color-orange);
+}
+
+.onas-intro-text {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  text-align: center;
+}
+
+.onas-intro-text p + p {
+  margin-top: 24px;
+}
