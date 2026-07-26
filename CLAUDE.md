@@ -11,27 +11,55 @@ robiona w kolejnym etapie, więc nie ma jeszcze media queries.
 index.html          – strona główna
 o-nas.html          – podstrona "O nas"
 kontakt.html        – podstrona "Kontakt"
+galeria.html        – podstrona "Galeria"
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
 css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css)
 css/kontakt.css      – style specyficzne dla podstrony kontakt (ładowane po style.css)
+css/galeria.css      – style specyficzne dla podstrony galeria (ładowane po style.css)
 js/main.js            – hero slider + karuzela opinii (vanilla JS, bez zależności)
 assets/logo/          – logo (logoneofox.svg)
 assets/images/         – zdjęcia sekcji + podmienione zdjęcia kafelków (webp/jpg/JPG)
 assets/images/tiles/   – oryginalne zdjęcia kafelków (PNG, niska rozdzielczość — zastępowane)
+dodatkowe-zdjecia/    – zdjęcia i filmy źródłowe (niektóre >100 MB) — NIE commitować do git
 koszyk.svg, ludzik.svg, lupka.svg, serce.svg  – ikony header (cart/user/search/heart),
   na razie NIEUŻYWANE — w HTML ikony header są inline SVG. Do podpięcia na życzenie.
-.claude/launch.json    – konfiguracja lokalnego serwera podglądu (npx serve, port 5173)
+.claude/launch.json    – konfiguracja lokalnego serwera podglądu (PowerShell, port 5173)
+.claude/serve.ps1      – serwer statyczny PowerShell (HttpListener) na port 5173
 ```
 
 Brak systemu budowania — otwiera się `index.html` bezpośrednio albo przez
-prosty statyczny serwer (`npx serve .`).
+serwer PowerShell: `.claude/serve.ps1` (uruchamiany przez `.claude/launch.json`).
+`npx` NIE jest dostępne w środowisku — używamy wyłącznie PowerShell HttpListener.
 
 ## Nawigacja między podstronami
 
-- `index.html` → "O nas" → `o-nas.html`, "Kontakt" → `kontakt.html`
-- `o-nas.html` → logo → `index.html`, "O nas" ma `aria-current="page"`, "Kontakt" → `kontakt.html`
+- `index.html` → "O nas" → `o-nas.html`, "Kontakt" → `kontakt.html`, "Galeria" → `galeria.html`
+- `o-nas.html` → logo → `index.html`, "O nas" ma `aria-current="page"`
 - `kontakt.html` → logo → `index.html`, "Kontakt" ma `aria-current="page"`
-- Pozostałe linki w menu (Sklep, Oferta B2B, Galeria) są tymczasowo `#`
+- `galeria.html` → logo → `index.html`, "Galeria" ma `aria-current="page"`
+- "Sklep" jest tymczasowo `#`
+- "Oferta B2B" — **nie jest linkiem** (`<span>`), po najechaniu rozwija dropdown
+  z 8 pozycjami (patrz sekcja "Dropdown nawigacji" poniżej)
+
+## Dropdown nawigacji (Oferta B2B)
+
+"Oferta B2B" w menu to `<li class="has-dropdown">` z `<span>` (nie `<a>`) +
+chevron SVG + `<ul class="dropdown">` z 8 pozycjami:
+- Neony LED
+- Litery 3D podświetlane
+- Litery z efektem halo
+- Litery 3D niepodświetlane
+- Logo z plexi
+- Montaż i instalacja
+- Wynajem neonów
+- Kasetony i semafory reklamowe
+
+Dropdown pojawia się przy `:hover` na `li.has-dropdown`, z animacją opacity +
+translateY. Style w `css/style.css` sekcja `/* Dropdown */`.
+
+**Pułapka:** `.main-nav ul` ma `display: flex`, co dziedziczy `.dropdown ul`.
+Dlatego `.dropdown` ma `flex-direction: column !important; align-items: stretch !important; gap: 0 !important`
+żeby pozycje były pionowo, nie poziomo.
 
 ## Wzorzec podstron
 
@@ -196,9 +224,8 @@ nie ustawiaj paddingu/font-size lokalnie.
      kolor `rgba(255,255,255,0.55)`, hover: `var(--color-orange)`.
    - `.footer-copy`, `.footer-legal a` — `font-size: 13px`, `color: rgba(255,255,255,0.35)`.
 
-   **Uwaga:** footer w `index.html` nadal ma placeholder dane kontaktowe (+48 123 456 789,
-   biuro@neofox.pl, ul. Przykładowa 12). Footery w `o-nas.html` i `kontakt.html` mają
-   już prawdziwe dane (patrz sekcja "Dane kontaktowe NEOFOX" poniżej).
+   **Uwaga:** footer w `index.html` nadal ma placeholder dane kontaktowe.
+   Footery w `o-nas.html`, `kontakt.html` i `galeria.html` mają prawdziwe dane NEOFOX.
 
 ## Podstrona O nas (`o-nas.html` + `css/o-nas.css`)
 
@@ -310,6 +337,43 @@ Stare pliki w `assets/images/tiles/*.png` już nie są używane w `o-nas.html`.
 
 7. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
 
+## Podstrona Galeria (`galeria.html` + `css/galeria.css`)
+
+### Sekcje galeria.html (w kolejności)
+
+1. **Header** — "Galeria" ma `aria-current="page"`.
+
+2. **Hero** (`.galeria-hero`) — identyczny wzorzec jak o-nas/kontakt.
+   Zdjęcie: `mionetto-neons.jpg`, nagłówek "GALERIA", podtytuł.
+
+3. **Sekcja A** (`.galeria-section-a`) — tekst po lewej / zdjęcie po prawej.
+   Zdjęcie: `dodatkowe-zdjecia/IMG_0057.JPG`. Nagłówek "GALERIA" 54px.
+
+4. **Sekcja B** (`.galeria-section-b`) — zdjęcie po lewej / tekst po prawej. Tło `#f9f9f9`.
+   Zdjęcie: `dodatkowe-zdjecia/IMG_1067.JPG`.
+   Nagłówek: "Projekty indywidualne: Autorskie neony i grafiki w technologii LED".
+
+5. **Instagram** (`.galeria-ig`) — tło `#f4f4f4`. Header wewnątrz `.container`:
+   ikona IG (gradient SVG) + nagłówek "Zobacz więcej na naszym Instagramie" po lewej,
+   strzałki `#ig-prev` / `#ig-next` po prawej (dosunięte do prawej krawędzi 1200px,
+   **bez przycisku "Obserwuj nas"**).
+   Karuzela 6 kart 260px × 9:16, `scroll-snap`, scrollbar ukryty, JS w inline `<script>`.
+   Zdjęcia z `dodatkowe-zdjecia/`.
+
+6. **CTA** (`.galeria-cta`) — białe tło, `padding: 100px 0`, wyśrodkowany nagłówek +
+   tekst + `.btn-primary` → `index.html#wycena`.
+
+7. **Grid** (`.galeria-grid-section`) — reużywa `.gallery-grid` / `.gallery-item`
+   ze `style.css`, 12 zdjęć z `dodatkowe-zdjecia/`, lightbox inline JS.
+
+8. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
+
+### Pułapka: scrollbar w karuzeli IG
+
+`.galeria-ig-track-wrap` ma `scrollbar-width: none` + `::-webkit-scrollbar { display: none }`.
+Track jest `<div>` (nie `<ul>`), ma `overflow-x: auto` — działa bo nie jest flex-childem
+z `min-width: auto`.
+
 ## Zasady współpracy / rzeczy do pamiętania
 
 - Zdjęcia są dostarczane przez użytkownika **do folderu `assets/images/`** lub głównego
@@ -318,12 +382,12 @@ Stare pliki w `assets/images/tiles/*.png` już nie są używane w `o-nas.html`.
 - Pracujemy **sekcja po sekcji** na podstawie zrzutów ekranu z Figmy —
   użytkownik wkleja screen, ja odtwarzam proporcje/kolory/fonty, potem
   dostrajam na podstawie kolejnych poprawek.
-- Serwer podglądu: `.claude/launch.json` uruchamia `npx serve .` na porcie
-  5173. Narzędzie Bash nie ma dostępu do `npx` — serwer uruchamiamy przez
-  PowerShell lub ręcznie w terminalu użytkownika. Jeśli serwer nie startuje,
-  otwieramy pliki bezpośrednio przez `file://` w przeglądarce.
-- Git push wymaga uwierzytelnienia — wykonuje użytkownik samodzielnie
-  w swoim terminalu (`cd Desktop\NEOFOX-strona && git push origin master`).
-  Repozytorium: `https://github.com/czarkovsky1/neofox1.git`.
+- Serwer podglądu: `.claude/launch.json` uruchamia `.claude/serve.ps1` (PowerShell
+  HttpListener) na porcie 5173. `npx` NIE jest dostępne — nie używać.
+- Git push: repozytorium `https://github.com/czarkovsky1/neofox1.git`, branch `master`.
+  Push działa bez dodatkowego uwierzytelnienia w tym środowisku.
 - Folder `dodatkowe-zdjecia/` zawiera zdjęcia i filmy źródłowe (niektóre >100 MB)
   — **nie commitować do git** (GitHub odrzuca pliki >100 MB).
+- **Uwaga:** footer w `index.html` nadal ma placeholder dane (+48 123 456 789,
+  biuro@neofox.pl). Footery w `o-nas.html`, `kontakt.html` i `galeria.html` mają
+  prawdziwe dane NEOFOX.
