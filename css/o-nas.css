@@ -12,6 +12,7 @@
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  border-radius: 0 0 24px 24px;
 }
 
 .onas-hero-new-img {
@@ -128,6 +129,8 @@
 .onas-about-image {
   flex: 0 0 50%;
   position: relative;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .onas-about-image img {
@@ -215,6 +218,8 @@
 .onas-distinguish-image {
   flex: 0 0 50%;
   position: relative;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .onas-distinguish-image img {
@@ -314,6 +319,8 @@
   flex: 0 0 50%;
   position: relative;
   min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .onas-contact-map iframe {
@@ -330,6 +337,8 @@
 .onas-process {
   background: #f4f4f4;
   padding: 80px 0;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .onas-process-grid {
@@ -398,7 +407,7 @@
 
 .onas-intro {
   background: #fff;
-  padding: 87px 0;
+  padding: 67px 0;
   text-align: center;
 }
 
