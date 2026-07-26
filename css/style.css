@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --color-orange: #f5821f;
   --color-orange-dark: #e06f0f;
@@ -445,7 +449,7 @@ img {
 .quote-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
 .form-row {
@@ -470,11 +474,12 @@ img {
   font-family: var(--font-body);
   font-size: 16px;
   color: var(--color-black);
-  background: #fdece2;
-  border: 1px solid transparent;
+  background: #fafafa;
+  border: 1.5px solid var(--color-border);
   border-radius: 6px;
-  padding: 14px 16px;
-  transition: border-color 0.2s ease;
+  padding: 14px 18px;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
 }
 
 .quote-form textarea {
@@ -538,6 +543,119 @@ img {
 
 .quote-form .btn-primary {
   align-self: flex-start;
+}
+
+/* ===== SHARED FORM COMPONENTS (kf-*) ===== */
+
+.kf-row {
+  display: flex;
+  gap: 20px;
+}
+
+.kf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.kf-field-full {
+  flex: none;
+}
+
+.kf-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-black);
+  letter-spacing: 0.3px;
+}
+
+.kf-field input,
+.kf-field textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-black);
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+.kf-field input::placeholder,
+.kf-field textarea::placeholder {
+  color: #aaa;
+}
+
+.kf-field input:focus,
+.kf-field textarea:focus {
+  border-color: var(--color-orange);
+  background: #fff;
+}
+
+.kf-field textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.kf-field select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-black);
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+.kf-field select:focus {
+  border-color: var(--color-orange);
+  background-color: #fff;
+}
+
+.kf-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--color-gray-text);
+  user-select: none;
+}
+
+.kf-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--color-orange);
+  cursor: pointer;
+}
+
+.kf-lokalizacja {
+  display: none;
+}
+
+.kf-lokalizacja.is-visible {
+  display: flex;
+}
+
+.kf-actions {
+  display: flex;
+  gap: 16px;
+  padding-top: 4px;
 }
 
 /* Coop / "Jak wygląda współpraca z nami?" */
@@ -611,9 +729,9 @@ img {
   object-fit: cover;
 }
 
-/* Realizacje mosaic */
+/* Realizacje */
 .realizations-inner {
-  padding: 80px 40px;
+  padding: 80px 40px 48px;
 }
 
 .realizations-row {
@@ -621,7 +739,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .realizations-heading {
@@ -634,35 +752,58 @@ img {
   white-space: nowrap;
 }
 
-.mosaic {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
-  grid-template-rows: 220px 220px;
-  gap: 16px;
+.realizations-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
 }
 
-.mosaic-a { grid-area: 1 / 1 / 2 / 2; }
-.mosaic-b { grid-area: 1 / 2 / 3 / 3; }
-.mosaic-c { grid-area: 1 / 3 / 2 / 4; }
-.mosaic-d { grid-area: 2 / 1 / 3 / 2; }
-.mosaic-e { grid-area: 2 / 3 / 3 / 4; }
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 350px;
+}
 
-.mosaic-item {
-  position: relative;
+.gallery-item {
   display: block;
   overflow: hidden;
-  border-radius: 8px;
+  cursor: zoom-in;
 }
 
-.mosaic-item img {
+.gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.mosaic-item:hover img {
-  transform: scale(1.06);
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 /* Google reviews carousel */

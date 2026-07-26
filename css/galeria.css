@@ -1,0 +1,334 @@
+/* ===== GALERIA — HERO ===== */
+
+.galeria-hero {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.galeria-hero-img {
+  position: absolute;
+  inset: 0;
+}
+
+.galeria-hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.galeria-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+}
+
+.galeria-hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.galeria-hero-heading {
+  font-family: var(--font-heading);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.galeria-hero-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== GALERIA — SEKCJA 1: tekst lewo / zdjęcie prawo ===== */
+
+.galeria-section-a {
+  display: flex;
+  min-height: 580px;
+}
+
+.galeria-section-a-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 60px 100px calc(max(40px, (100vw - 1200px) / 2));
+}
+
+.galeria-section-a-image {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.galeria-section-a-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ===== GALERIA — SEKCJA 2: zdjęcie lewo / tekst prawo ===== */
+
+.galeria-section-b {
+  display: flex;
+  min-height: 580px;
+  background: #f9f9f9;
+}
+
+.galeria-section-b-image {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.galeria-section-b-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.galeria-section-b-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px calc(max(40px, (100vw - 1200px) / 2)) 100px 60px;
+}
+
+/* ===== WSPÓLNE STYLE TEKSTU ===== */
+
+.galeria-section-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+
+.galeria-section-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.galeria-section-text + .galeria-section-text {
+  margin-top: 20px;
+}
+
+/* ===== GALERIA — SEKCJA INSTAGRAM ===== */
+
+.galeria-ig {
+  padding: 80px 0 100px;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.galeria-ig-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.galeria-ig-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.galeria-ig-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.galeria-ig-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.galeria-ig-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.galeria-ig-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.galeria-ig-arrow:hover {
+  border-color: var(--color-orange);
+  background: var(--color-orange);
+  color: #fff;
+}
+
+.galeria-ig-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.galeria-ig-btn {
+  flex-shrink: 0;
+}
+
+/* Track — pełna szerokość z paddingiem siatki po lewej */
+
+.galeria-ig-track-wrap {
+  overflow-x: auto;
+  padding-left: calc(max(40px, (100vw - 1200px) / 2));
+  scrollbar-width: none;
+}
+
+.galeria-ig-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria-ig-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  scroll-snap-type: x mandatory;
+}
+
+/* Karta — proporcje 9:16 jak rolka */
+
+.galeria-ig-card {
+  position: relative;
+  width: 260px;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: block;
+  text-decoration: none;
+}
+
+.galeria-ig-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.galeria-ig-card:hover img {
+  transform: scale(1.04);
+}
+
+.galeria-ig-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-ig-card:hover .galeria-ig-overlay {
+  opacity: 1;
+}
+
+.galeria-ig-overlay svg {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+/* ===== SHARED ===== */
+
+.galeria-instagram {
+  margin-top: 20px;
+}
+
+.galeria-intro-link {
+  color: var(--color-orange);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.galeria-intro-link:hover {
+  color: var(--color-orange-dark);
+}
+
+/* ===== GALERIA — GRID ===== */
+
+.galeria-grid-section {
+  /* brak paddingu — grid rozciąga się na całą szerokość jak na index.html */
+}
+
+/* ===== GALERIA — CTA ===== */
+
+.galeria-cta {
+  padding: 50px 0 100px;
+  background: #fff;
+  text-align: center;
+}
+
+.galeria-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.galeria-cta-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.galeria-cta-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  max-width: 520px;
+}

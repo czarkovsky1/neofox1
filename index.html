@@ -23,8 +23,8 @@
         <li><a href="o-nas.html">O nas</a></li>
         <li><a href="#">Sklep</a></li>
         <li><a href="#">Oferta B2B</a></li>
-        <li><a href="#">Galeria</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
     </nav>
 
@@ -97,7 +97,7 @@
 <section class="tiles">
   <div class="tiles-grid">
     <a href="#" class="tile">
-      <img src="assets/images/tiles/neony-led.png" alt="Neony LED" class="tile-image">
+      <img src="assets/images/neony-led.webp" alt="Neony LED" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Neony LED</h3>
@@ -106,7 +106,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/litery-3d-podswietlane.png" alt="Litery 3D podświetlane" class="tile-image">
+      <img src="assets/images/litery-podswietlane.webp" alt="Litery 3D podświetlane" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Litery 3D podświetlane</h3>
@@ -115,7 +115,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/litery-efekt-halo.png" alt="Litery z efektem halo" class="tile-image">
+      <img src="assets/images/freixenet-halo.jpg" alt="Litery z efektem halo" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Litery z efektem halo</h3>
@@ -124,7 +124,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/litery-3d-niepodswietlane.png" alt="Litery 3D niepodświetlane" class="tile-image">
+      <img src="assets/images/litery-3d.webp" alt="Litery 3D niepodświetlane" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Litery 3D niepodświetlane</h3>
@@ -133,7 +133,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/logo-plexi.png" alt="Logo z plexi" class="tile-image">
+      <img src="assets/images/juamo-logo-plexi.jpg" alt="Logo z plexi" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Logo z plexi</h3>
@@ -142,7 +142,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/montaz-instalacja.png" alt="Montaż i instalacja" class="tile-image">
+      <img src="assets/images/montaz-instalacja.jpg" alt="Montaż i instalacja" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Montaż i instalacja</h3>
@@ -151,7 +151,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/wynajem-neonow.png" alt="Wynajem neonów" class="tile-image">
+      <img src="assets/images/wynajem-neonow.webp" alt="Wynajem neonów" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Wynajem neonów</h3>
@@ -160,7 +160,7 @@
     </a>
 
     <a href="#" class="tile">
-      <img src="assets/images/tiles/kasetony-semafory.png" alt="Kasetony i semafory reklamowe" class="tile-image">
+      <img src="assets/images/kasetony.JPG" alt="Kasetony i semafory reklamowe" class="tile-image">
       <div class="tile-overlay"></div>
       <div class="tile-content">
         <h3 class="tile-title">Kasetony i semafory reklamowe</h3>
@@ -183,75 +183,63 @@
         Wycenimy Twój projekt indywidualnie!
       </p>
 
-      <form class="quote-form" action="#" method="post">
-        <div class="form-row form-row-2">
-          <div class="form-field">
-            <label for="q-name" class="sr-only">Imię</label>
-            <input type="text" id="q-name" name="name" placeholder="Imię">
+      <form class="quote-form" action="#" method="post" novalidate>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="q-name" class="kf-label">Imię i nazwisko</label>
+            <input type="text" id="q-name" name="name" placeholder="np. Jan Kowalski" required>
           </div>
-          <div class="form-field">
-            <label for="q-email" class="sr-only">Email</label>
-            <input type="email" id="q-email" name="email" placeholder="Email">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="q-phone" class="sr-only">Numer telefonu</label>
-            <input type="tel" id="q-phone" name="phone" placeholder="Numer telefonu">
+          <div class="kf-field">
+            <label for="q-email" class="kf-label">Adres e-mail</label>
+            <input type="email" id="q-email" name="email" placeholder="twoj@email.pl" required>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="q-topic" class="sr-only">Czego dotyczy zapytanie?</label>
-            <select id="q-topic" name="topic">
-              <option value="" selected disabled>Czego dotyczy zapytanie?</option>
-              <option value="neon">Neon reklamowy</option>
-              <option value="kasetony">Kasetony i litery przestrzenne</option>
-              <option value="montaz">Montaż i instalacja</option>
-              <option value="wynajem">Wynajem neonów</option>
-              <option value="inne">Inne</option>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="q-phone" class="kf-label">Numer telefonu</label>
+            <input type="tel" id="q-phone" name="phone" placeholder="+48 000 000 000">
+          </div>
+          <div class="kf-field">
+            <label for="q-product" class="kf-label">Produkt</label>
+            <select id="q-product" name="product">
+              <option value="" disabled selected>Wybierz produkt</option>
+              <option value="neon-led">Neon LED</option>
+              <option value="kaseton-semafor">Kaseton / semafor</option>
+              <option value="litery-halo">Litery z efektem halo / backlit</option>
+              <option value="litery-3d-podswietlane">Litery 3D podświetlane / litery blokowe LED / frontlit</option>
+              <option value="litery-3d-niepodswietlane">Litery 3D niepodświetlane / litery z plexi, styroduru i PCV</option>
+              <option value="logo-plexi">Logo z plexi</option>
+              <option value="wynajem-neonow">Wynajem neonów</option>
+              <option value="inny">Inny produkt</option>
             </select>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="q-details" class="sr-only">Opis zapytania</label>
-            <textarea id="q-details" name="details" rows="4" placeholder="Tutaj opisz czego potrzebujesz... tekst, wymiary, opis zamówienia..."></textarea>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <label class="checkbox-field">
-            <input type="checkbox" id="q-installation" name="installation">
-            <span>Czy potrzebujesz montażu?</span>
+        <div class="kf-field kf-field-full">
+          <label class="kf-checkbox">
+            <input type="checkbox" id="q-montaz" name="montaz">
+            <span>Jestem zainteresowany/a montażem</span>
           </label>
         </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="q-location" class="sr-only">Lokalizacja montażu</label>
-            <input type="text" id="q-location" name="location" placeholder="Lokalizacja montażu">
-          </div>
+        <div class="kf-field kf-field-full kf-lokalizacja" id="q-lokalizacja-wrap">
+          <label for="q-lokalizacja" class="kf-label">Lokalizacja montażu</label>
+          <input type="text" id="q-lokalizacja" name="lokalizacja" placeholder="np. Poznań, ul. Przykładowa 1">
         </div>
-
-        <div class="form-row">
+        <div class="kf-field kf-field-full">
+          <label for="q-details" class="kf-label">Treść wiadomości</label>
+          <textarea id="q-details" name="details" rows="5" placeholder="Opisz swoje zapytanie..."></textarea>
+        </div>
+        <div class="kf-actions">
           <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
         </div>
-
-        <div class="form-row">
-          <label class="checkbox-field checkbox-fine-print">
-            <input type="checkbox" id="q-consent" name="consent" required>
-            <span>
-              Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
-              w formularzu kontaktowym w celu otrzymania odpowiedzi na przesłane
-              zapytanie oraz w celu nawiązania i utrzymania kontaktu, zgodnego z
-              ofertą. <a href="#">Polityka prywatności*</a>
-            </span>
-          </label>
-        </div>
+        <label class="checkbox-field checkbox-fine-print">
+          <input type="checkbox" id="q-consent" name="consent" required>
+          <span>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
+            w formularzu kontaktowym w celu otrzymania odpowiedzi na przesłane
+            zapytanie oraz w celu nawiązania i utrzymania kontaktu, zgodnego z
+            ofertą. <a href="#">Polityka prywatności*</a>
+          </span>
+        </label>
       </form>
     </div>
   </div>
@@ -288,28 +276,56 @@
   <div class="container realizations-inner">
     <div class="realizations-row">
       <h2 class="realizations-heading">Zobacz nasze realizacje</h2>
-      <a href="#wycena" class="btn btn-primary">Wyceń swój projekt</a>
+      <a href="#" class="btn btn-outline">Zobacz galerię realizacji</a>
     </div>
+    <p class="realizations-text">
+      Setki projektów zrealizowanych dla firm z całej Polski — od kameralnych neonów kawiarnianych po wielkoformatowe szyldy sieciowe.
+    </p>
+  </div>
 
-    <div class="mosaic">
-      <a href="#" class="mosaic-item mosaic-a">
-        <img src="assets/images/tiles/neony-led.png" alt="Realizacja — neony LED">
-      </a>
-      <a href="#" class="mosaic-item mosaic-b">
-        <img src="assets/images/dwanoze.png" alt="Realizacja — neon Dwa Noże">
-      </a>
-      <a href="#" class="mosaic-item mosaic-c">
-        <img src="assets/images/tiles/litery-efekt-halo.png" alt="Realizacja — litery z efektem halo">
-      </a>
-      <a href="#" class="mosaic-item mosaic-d">
-        <img src="assets/images/tiles/logo-plexi.png" alt="Realizacja — logo z plexi">
-      </a>
-      <a href="#" class="mosaic-item mosaic-e">
-        <img src="assets/images/hejpiekna.png" alt="Realizacja — neon Cześć piękna">
-      </a>
-    </div>
+  <div class="gallery-grid">
+    <a href="assets/images/ciasno-neon.jpg" class="gallery-item">
+      <img src="assets/images/ciasno-neon.jpg" alt="Realizacja NEOFOX — neon Ciasno">
+    </a>
+    <a href="assets/images/black-crown-litery.jpg" class="gallery-item">
+      <img src="assets/images/black-crown-litery.jpg" alt="Realizacja NEOFOX — Black Crown">
+    </a>
+    <a href="assets/images/tunnel-litery-led.jpg" class="gallery-item">
+      <img src="assets/images/tunnel-litery-led.jpg" alt="Realizacja NEOFOX — Tunnel litery LED">
+    </a>
+    <a href="assets/images/neony-rury-rosliny.jpg" class="gallery-item">
+      <img src="assets/images/neony-rury-rosliny.jpg" alt="Realizacja NEOFOX — neony z roślinami">
+    </a>
+    <a href="assets/images/neony-krzyz.jpg" class="gallery-item">
+      <img src="assets/images/neony-krzyz.jpg" alt="Realizacja NEOFOX — neony krzyż">
+    </a>
+    <a href="assets/images/veni-andro-szyld.jpg" class="gallery-item">
+      <img src="assets/images/veni-andro-szyld.jpg" alt="Realizacja NEOFOX — Veni Andro">
+    </a>
+    <a href="assets/images/project-beauty-kaseton.jpg" class="gallery-item">
+      <img src="assets/images/project-beauty-kaseton.jpg" alt="Realizacja NEOFOX — Project Beauty kaseton">
+    </a>
+    <a href="assets/images/guilty-pleasure-litery.jpg" class="gallery-item">
+      <img src="assets/images/guilty-pleasure-litery.jpg" alt="Realizacja NEOFOX — Guilty Pleasure litery">
+    </a>
+    <a href="assets/images/zesmashowani-kaseton.jpg" class="gallery-item">
+      <img src="assets/images/zesmashowani-kaseton.jpg" alt="Realizacja NEOFOX — Zesmashowani">
+    </a>
+    <a href="assets/images/juamo-kaseton-okragly.jpg" class="gallery-item">
+      <img src="assets/images/juamo-kaseton-okragly.jpg" alt="Realizacja NEOFOX — JUAMO kaseton okrągły">
+    </a>
+    <a href="assets/images/aququ-litery-fasada.jpg" class="gallery-item">
+      <img src="assets/images/aququ-litery-fasada.jpg" alt="Realizacja NEOFOX — AqUqU fasada">
+    </a>
+    <a href="assets/images/mionetto-produkcja.jpg" class="gallery-item">
+      <img src="assets/images/mionetto-produkcja.jpg" alt="Realizacja NEOFOX — Mionetto produkcja">
+    </a>
   </div>
 </section>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+  <img id="lightbox-img" src="" alt="">
+</div>
 
 <section class="reviews">
   <div class="container reviews-inner">
@@ -450,7 +466,7 @@
         <li><a href="#">Galeria realizacji</a></li>
         <li><a href="#">Sklep</a></li>
         <li><a href="#">Oferta B2B</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="#">Polityka prywatności</a></li>
         <li><a href="#">Regulamin</a></li>
       </ul>
@@ -489,5 +505,33 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  const qMontaz = document.getElementById('q-montaz');
+  const qLokalizacja = document.getElementById('q-lokalizacja-wrap');
+  qMontaz.addEventListener('change', function () {
+    qLokalizacja.classList.toggle('is-visible', this.checked);
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      lightboxImg.src = this.getAttribute('href');
+      lightbox.classList.add('is-open');
+    });
+  });
+  lightbox.addEventListener('click', function () {
+    this.classList.remove('is-open');
+    lightboxImg.src = '';
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('is-open');
+      lightboxImg.src = '';
+    }
+  });
+</script>
 </body>
 </html>

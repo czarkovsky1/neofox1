@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — NEOFOX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/kontakt.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/logo/logoneofox.svg" alt="NEOFOX — producent reklam" class="logo-image">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="#">Sklep</a></li>
+        <li><a href="#">Oferta B2B</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Szukaj">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Konto">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Ulubione">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.2-4.5-9.6-9C.7 7.8 2 4.5 5.4 3.8c2-.4 3.8.5 5 2.3.9.9 1.3 1.7 1.6 2.3.3-.6.7-1.4 1.6-2.3 1.2-1.8 3-2.7 5-2.3 3.4.7 4.7 4 3 7.2-2.4 4.5-9.6 9-9.6 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Koszyk">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/><circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/></svg>
+      </button>
+      <a href="index.html#wycena" class="btn btn-primary">Wyceń swój projekt</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="kontakt-hero">
+  <div class="kontakt-hero-img">
+    <img src="assets/images/showroom-neony.jpg" alt="NEOFOX showroom">
+  </div>
+  <div class="kontakt-hero-overlay"></div>
+  <div class="kontakt-hero-content">
+    <h1 class="kontakt-hero-heading">KONTAKT</h1>
+    <p class="kontakt-hero-sub">Napisz do nas lub zadzwoń — jesteśmy tu, żeby pomóc.</p>
+  </div>
+</section>
+
+<!-- FORMULARZ + DANE -->
+<section class="kontakt-main">
+  <div class="container kontakt-inner">
+
+    <!-- LEWA: formularz -->
+    <div class="kontakt-form-col">
+      <p class="kontakt-col-label">NAPISZ DO NAS</p>
+      <h2 class="kontakt-col-heading">Wyślij wiadomość</h2>
+
+      <form class="kontakt-form" action="#" method="post" novalidate>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="k-name" class="kf-label">Imię i nazwisko</label>
+            <input type="text" id="k-name" name="name" placeholder="np. Jan Kowalski" required>
+          </div>
+          <div class="kf-field">
+            <label for="k-email" class="kf-label">Adres e-mail</label>
+            <input type="email" id="k-email" name="email" placeholder="twoj@email.pl" required>
+          </div>
+        </div>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="k-phone" class="kf-label">Numer telefonu</label>
+            <input type="tel" id="k-phone" name="phone" placeholder="+48 000 000 000">
+          </div>
+          <div class="kf-field">
+            <label for="k-product" class="kf-label">Produkt</label>
+            <select id="k-product" name="product">
+              <option value="" disabled selected>Wybierz produkt</option>
+              <option value="neon-led">Neon LED</option>
+              <option value="kaseton-semafor">Kaseton / semafor</option>
+              <option value="litery-halo">Litery z efektem halo / backlit</option>
+              <option value="litery-3d-podswietlane">Litery 3D podświetlane / litery blokowe LED / frontlit</option>
+              <option value="litery-3d-niepodswietlane">Litery 3D niepodświetlane / litery z plexi, styroduru i PCV</option>
+              <option value="logo-plexi">Logo z plexi</option>
+              <option value="wynajem-neonow">Wynajem neonów</option>
+              <option value="inny">Inny produkt</option>
+            </select>
+          </div>
+        </div>
+        <div class="kf-field kf-field-full">
+          <label class="kf-checkbox">
+            <input type="checkbox" id="k-montaz" name="montaz">
+            <span>Jestem zainteresowany/a montażem</span>
+          </label>
+        </div>
+        <div class="kf-field kf-field-full kf-lokalizacja" id="k-lokalizacja-wrap">
+          <label for="k-lokalizacja" class="kf-label">Lokalizacja montażu</label>
+          <input type="text" id="k-lokalizacja" name="lokalizacja" placeholder="np. Poznań, ul. Przykładowa 1">
+        </div>
+        <div class="kf-field kf-field-full">
+          <label for="k-message" class="kf-label">Treść wiadomości</label>
+          <textarea id="k-message" name="message" rows="5" placeholder="Opisz swoje zapytanie..." required></textarea>
+        </div>
+        <div class="kf-actions">
+          <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+        </div>
+        <label class="checkbox-field checkbox-fine-print">
+          <input type="checkbox" id="k-consent" name="consent" required>
+          <span>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
+            w formularzu kontaktowym w celu otrzymania odpowiedzi na przesłane
+            zapytanie oraz w celu nawiązania i utrzymania kontaktu, zgodnego z
+            ofertą. <a href="#">Polityka prywatności*</a>
+          </span>
+        </label>
+      </form>
+    </div>
+
+    <!-- PRAWA: dane kontaktowe -->
+    <div class="kontakt-info-col">
+      <p class="kontakt-col-label">POTRZEBUJESZ POMOCY?</p>
+      <h2 class="kontakt-col-heading">Skontaktuj się z nami</h2>
+      <p class="kontakt-info-desc">
+        Chętnie odpowiemy na wszystkie pytania dotyczące neonów, szyldów i reklam świetlnych.
+        Napisz, zadzwoń lub wpadnij do nas osobiście.
+      </p>
+
+      <div class="kontakt-cards">
+        <div class="kontakt-card">
+          <div class="kontakt-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.4c.9.3 1.9.5 2.9.7A2 2 0 0 1 22 17z"/></svg>
+          </div>
+          <div class="kontakt-card-text">
+            <strong>Zadzwoń do nas</strong>
+            <a href="tel:+48730627143">+48 730 627 143</a>
+          </div>
+        </div>
+
+        <div class="kontakt-card">
+          <div class="kontakt-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="kontakt-card-text">
+            <strong>Napisz e-mail</strong>
+            <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="kontakt-card">
+          <div class="kontakt-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="kontakt-card-text">
+            <strong>Odwiedź nas</strong>
+            <span>ul. Garbary 46/U1<br>61-869 Poznań</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kontakt-hours">
+        <h3 class="kontakt-hours-heading">Godziny otwarcia</h3>
+        <div class="kontakt-hours-cols">
+          <div class="kontakt-hours-block">
+            <p class="kontakt-hours-name">Infolinia</p>
+            <p>Pn.–Pt.: <strong>10:00–20:00</strong></p>
+            <p>Sob.–Ndz.: nieczynna</p>
+          </div>
+          <div class="kontakt-hours-block">
+            <p class="kontakt-hours-name">Sklep stacjonarny</p>
+            <p>Pn.–Pt.: <strong>11:00–18:00</strong></p>
+            <p>Sob.–Ndz. i święta: nieczynny</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kontakt-nip">NIP: 782 283 9206</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAPA -->
+<div class="kontakt-map">
+  <iframe
+    src="https://maps.google.com/maps?q=Garbary+46,+Pozna%C5%84&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="NEOFOX — mapa dojazdu, ul. Garbary 46/U1, Poznań"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/logo/logoneofox.svg" alt="NEOFOX">
+      </a>
+      <p class="footer-tagline">Producent reklamy świetlnej, przestrzennej i wizualnej dla firm z całej Polski.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2a3 3 0 0 0-2.1-2.1C18.6 3.6 12 3.6 12 3.6s-6.6 0-8.4.5a3 3 0 0 0-2.1 2.1C1 8 1 12 1 12s0 4 .5 5.8a3 3 0 0 0 2.1 2.1c1.8.5 8.4.5 8.4.5s6.6 0 8.4-.5a3 3 0 0 0 2.1-2.1C23 16 23 12 23 12s0-4-.5-5.8zM9.8 15.2V8.8L16 12l-6.2 3.2z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">Oferta</h4>
+      <ul class="footer-links">
+        <li><a href="#">Neony LED</a></li>
+        <li><a href="#">Litery 3D podświetlane</a></li>
+        <li><a href="#">Litery z efektem halo</a></li>
+        <li><a href="#">Litery 3D niepodświetlane</a></li>
+        <li><a href="#">Logo z plexi</a></li>
+        <li><a href="#">Kasetony i semafory</a></li>
+        <li><a href="#">Wynajem neonów</a></li>
+        <li><a href="#">Montaż i instalacja</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">Firma</h4>
+      <ul class="footer-links">
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="#">Galeria realizacji</a></li>
+        <li><a href="#">Sklep</a></li>
+        <li><a href="#">Oferta B2B</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="#">Polityka prywatności</a></li>
+        <li><a href="#">Regulamin</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-col-contact">
+      <h4 class="footer-col-title">Kontakt</h4>
+      <ul class="footer-contact-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.4c.9.3 1.9.5 2.9.7A2 2 0 0 1 22 17z"/></svg>
+          <a href="tel:+48730627143">+48 730 627 143</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>ul. Garbary 46/U1<br>61-869 Poznań</span>
+        </li>
+      </ul>
+      <a href="index.html#wycena" class="btn btn-primary footer-btn">Wyceń swój projekt</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">&copy; 2024 NEOFOX. Wszelkie prawa zastrzeżone.</p>
+      <p class="footer-legal">
+        <a href="#">Polityka prywatności</a>
+        <a href="#">Regulamin</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  const montazCheckbox = document.getElementById('k-montaz');
+  const lokalizacjaWrap = document.getElementById('k-lokalizacja-wrap');
+  montazCheckbox.addEventListener('change', function () {
+    lokalizacjaWrap.classList.toggle('is-visible', this.checked);
+  });
+</script>
+</body>
+</html>
