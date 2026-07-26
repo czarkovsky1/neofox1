@@ -102,6 +102,19 @@
 
 /* ===== LEWA: FORMULARZ ===== */
 
+.kontakt-form input,
+.kontakt-form select,
+.kontakt-form textarea {
+  border: none;
+}
+
+.kontakt-form input:focus,
+.kontakt-form select:focus,
+.kontakt-form textarea:focus {
+  border: none;
+  outline: none;
+}
+
 .kontakt-form-col {
   flex: 1.1;
 }

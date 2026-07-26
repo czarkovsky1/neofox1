@@ -1,5 +1,6 @@
 $root = Split-Path $PSScriptRoot -Parent
-$prefix = "http://localhost:5173/"
+$port = if ($env:PORT) { $env:PORT } else { "5173" }
+$prefix = "http://localhost:$port/"
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add($prefix)
 $listener.Start()
@@ -19,6 +20,8 @@ $mimeTypes = @{
   ".woff2"= "font/woff2"
   ".woff" = "font/woff"
   ".ttf"  = "font/ttf"
+  ".mp4"  = "video/mp4"
+  ".webm" = "video/webm"
 }
 
 while ($listener.IsListening) {

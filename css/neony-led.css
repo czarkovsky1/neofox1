@@ -1,0 +1,514 @@
+/* ===== NEONY LED — HERO ===== */
+
+.neony-hero {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.neony-hero-img {
+  position: absolute;
+  inset: 0;
+}
+
+.neony-hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.neony-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+}
+
+.neony-hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.neony-hero-heading {
+  font-family: var(--font-heading);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+/* ===== SEKCJA 1: KORZYŚCI ===== */
+
+.nl-intro {
+  background: #fff;
+  padding: 100px 0;
+}
+
+.nl-intro-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.nl-intro-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+  margin-bottom: 28px;
+}
+
+.nl-intro-lead {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-gray-text);
+  margin-bottom: 64px;
+}
+
+.nl-benefits {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.nl-benefit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.nl-benefit-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.nl-benefit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nl-benefit-title {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.nl-benefit-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+/* ===== WSPÓLNY NAGŁÓWEK SEKCJI ===== */
+
+.nl-section-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+/* ===== SEKCJA 2: DLACZEGO MY? ===== */
+
+.nl-why {
+  display: flex;
+  min-height: 580px;
+  background: #fff;
+}
+
+.nl-why-content {
+  flex: 1;
+  padding: 80px 60px 80px calc(max(40px, (100vw - 1200px) / 2));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nl-why-image {
+  flex: 1;
+  position: relative;
+}
+
+.nl-why-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nl-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.nl-feature {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.nl-feature-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: var(--color-orange);
+  margin-top: 2px;
+}
+
+.nl-feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nl-feature-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.nl-feature-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  margin: 0;
+}
+
+/* ===== SEKCJA 3: DETALE TECHNICZNE ===== */
+
+.nl-tech {
+  display: flex;
+  min-height: 520px;
+  background: #fff;
+}
+
+.nl-tech-image {
+  flex: 1;
+  position: relative;
+}
+
+.nl-tech-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nl-tech-content {
+  flex: 1;
+  padding: 80px calc(max(40px, (100vw - 1200px) / 2)) 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nl-tech-list {
+  margin: 36px 0 0;
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nl-tech-list li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.nl-tech-list strong {
+  color: var(--color-black);
+}
+
+/* ===== SEKCJA 4: DWA TYPY KLIENTA ===== */
+
+.nl-paths {
+  background: #f4f4f4;
+  padding: 100px 0;
+}
+
+.nl-paths-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.nl-paths-grid {
+  display: flex;
+  gap: 32px;
+}
+
+.nl-path-card {
+  flex: 1;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.nl-path-title {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.nl-path-sub {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-gray-text);
+}
+
+.nl-path-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  flex: 1;
+  margin: 0;
+}
+
+.nl-path-card .btn {
+  align-self: flex-start;
+}
+
+/* ===== PASEK ZDJĘĆ ===== */
+
+.nl-photo-strip {
+  display: flex;
+  height: 360px;
+}
+
+.nl-photo-strip-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.nl-photo-strip-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.nl-photo-strip-item:hover img {
+  transform: scale(1.04);
+}
+
+/* ===== SEKCJA 5: PROCES ===== */
+
+.nl-process {
+  background: #fff;
+  padding: 80px 0;
+}
+
+.nl-process-heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.nl-process-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.nl-process-item {
+  flex: 1;
+  text-align: center;
+}
+
+.nl-process-icon {
+  width: 68px;
+  height: 68px;
+  color: var(--color-orange);
+  margin: 0 auto 20px;
+}
+
+.nl-process-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nl-process-title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 12px;
+}
+
+.nl-process-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+  margin: 0;
+}
+
+.nl-process-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ===== SEKCJA 6: CTA + FORMULARZ ===== */
+
+.nl-cta {
+  background: var(--color-black);
+  padding: 100px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.nl-cta-inner {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.nl-cta-left {
+  flex: 1;
+  padding-top: 8px;
+}
+
+.nl-cta-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.nl-cta-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.60);
+  margin-bottom: 32px;
+}
+
+.nl-cta-phone {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 44px;
+  letter-spacing: 1px;
+  color: var(--color-orange);
+  text-decoration: none;
+  margin-bottom: 36px;
+  transition: color 0.2s ease;
+}
+
+.nl-cta-phone:hover {
+  color: var(--color-orange-dark);
+}
+
+.nl-cta-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nl-cta-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+}
+
+.nl-cta-card svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-orange);
+}
+
+.nl-cta-form-col {
+  flex: 1.1;
+}
+
+/* Formularz na ciemnym tle */
+.nl-cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.nl-cta-form .kf-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.nl-cta-form input,
+.nl-cta-form select,
+.nl-cta-form textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: none;
+  color: #fff;
+}
+
+.nl-cta-form input::placeholder,
+.nl-cta-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.30);
+}
+
+.nl-cta-form input:focus,
+.nl-cta-form select:focus,
+.nl-cta-form textarea:focus {
+  border-color: var(--color-orange);
+  outline: none;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.nl-cta-form select option {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.nl-cta-consent {
+  color: rgba(255, 255, 255, 0.40) !important;
+}
+
+.nl-cta-consent a {
+  color: rgba(255, 255, 255, 0.60);
+}
+
+/* ===== HERO ===== */
+
+.neony-hero-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  line-height: 1.6;
+}
