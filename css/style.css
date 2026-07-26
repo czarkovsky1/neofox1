@@ -255,6 +255,8 @@ img {
   left: calc(50% - 600px + var(--content-offset));
   z-index: 1;
   background: linear-gradient(135deg, #2a1a3a 0%, #4a1f4a 50%, #7a2050 100%);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .hero-inner {
@@ -293,6 +295,7 @@ img {
   background: #fff;
   padding: 0 6px;
   margin-left: -6px;
+  border-radius: 8px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -415,6 +418,12 @@ img {
   background: linear-gradient(160deg, #3a2a4a 0%, #6a2a55 100%);
 }
 
+/* Corner tiles — outer rounded corners only */
+.tile:nth-child(1) { border-radius: 24px 0 0 0; }
+.tile:nth-child(4) { border-radius: 0 24px 0 0; }
+.tile:nth-child(5) { border-radius: 0 0 0 24px; }
+.tile:nth-child(8) { border-radius: 0 0 24px 0; }
+
 .tile:nth-child(8n + 2) { background: linear-gradient(160deg, #2a3a4a 0%, #1f2a55 100%); }
 .tile:nth-child(8n + 3) { background: linear-gradient(160deg, #2a2a2a 0%, #454545 100%); }
 .tile:nth-child(8n + 4) { background: linear-gradient(160deg, #103a3a 0%, #0f5555 100%); }
@@ -489,6 +498,8 @@ img {
   flex: 0 0 50%;
   max-width: 50%;
   position: relative;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .quote-image {
@@ -745,6 +756,7 @@ img {
 .coop {
   display: flex;
   align-items: stretch;
+  padding-top: 40px;
 }
 
 .coop-content-col {
@@ -802,6 +814,8 @@ img {
   flex: 0 0 50%;
   max-width: 50%;
   position: relative;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .coop-image {
@@ -854,6 +868,11 @@ img {
   cursor: zoom-in;
 }
 
+.gallery-item:nth-child(1)  { border-radius: 24px 0 0 0; }
+.gallery-item:nth-child(4)  { border-radius: 0 24px 0 0; }
+.gallery-item:nth-child(9)  { border-radius: 0 0 0 24px; }
+.gallery-item:nth-child(12) { border-radius: 0 0 24px 0; }
+
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -892,10 +911,22 @@ img {
 /* Google reviews carousel */
 .reviews {
   background: #f4f4f4;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .reviews-inner {
   padding: 80px 40px;
+}
+
+.reviews-heading {
+  font-family: var(--font-heading);
+  font-size: 54px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+  margin-bottom: 48px;
+  text-align: center;
 }
 
 .reviews-carousel {
