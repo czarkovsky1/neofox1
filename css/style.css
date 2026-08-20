@@ -104,7 +104,7 @@ img {
 }
 
 .logo-image {
-  height: 48px;
+  height: 68px;
   width: auto;
 }
 
@@ -275,7 +275,7 @@ img {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 100px;
-  line-height: 0.85;
+  line-height: 0.72;
   letter-spacing: 0.5px;
   color: var(--color-black);
   margin-bottom: 28px;
@@ -289,12 +289,16 @@ img {
   white-space: nowrap;
 }
 
+.hero-headline .line-1 {
+  margin-bottom: 20px;
+}
+
 .accent {
   color: var(--color-orange);
   background: #fff;
-  padding: 0 6px;
+  padding: 0 22px 0 6px;
   margin-left: -6px;
-  border-radius: 8px;
+  line-height: 0.58;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -303,7 +307,7 @@ img {
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-gray-text);
-  max-width: 460px;
+  max-width: 520px;
   margin-bottom: 32px;
 }
 
@@ -367,6 +371,65 @@ img {
 .dot.is-active {
   background: #fff;
   transform: scale(1.2);
+}
+
+/* Features bar */
+.features-bar {
+  margin-top: 40px;
+}
+
+.features-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 28px 40px;
+  background: #f4f4f4;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  padding: 0 24px;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(57%) sepia(80%) saturate(600%) hue-rotate(350deg) brightness(102%);
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-black);
+}
+
+.feature-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-gray-text);
+  line-height: 1.4;
 }
 
 /* Intro / "Niech Twoja firma zabłyśnie z nami" */
