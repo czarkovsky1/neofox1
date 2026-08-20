@@ -469,7 +469,7 @@ img {
 /* Tiles gallery — full-bleed grid, no side gutters */
 .tiles-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .tile {
@@ -1156,7 +1156,20 @@ img {
   font-size: 24px;
   letter-spacing: 0.066em;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+}
+
+.footer-hours {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+}
+
+.footer-nip {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
 }
 
 .footer-links {
