@@ -155,6 +155,9 @@
   padding: 20px 24px;
   background: #f8f8f8;
   transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .kontakt-card:hover {
