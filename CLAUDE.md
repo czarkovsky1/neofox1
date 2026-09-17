@@ -12,14 +12,35 @@ index.html          – strona główna
 o-nas.html          – podstrona "O nas"
 kontakt.html        – podstrona "Kontakt"
 galeria.html        – podstrona "Galeria"
+sklep.html          – podstrona "Sklep" (listing produktów z filtrami po kategoriach)
+produkt-happy-birthday.html – karta produktu "Happy Birthday" Neon LED (jedyna
+  istniejąca karta produktu — pozostałe produkty w sklep.html nie są klikalne)
+koszyk.html         – podstrona "Koszyk" — statyczna makieta (patrz sekcja niżej)
+checkout.html       – podstrona "Zamówienie" (checkout) — statyczna makieta,
+  niefunkcjonalna (patrz sekcja niżej)
+neony-led.html, backlit-halo.html, frontlit-litery-3d.html,
+kasetony-semafory.html, litery-niepodswietlane.html, logo-plexi.html,
+banery.html, oklejanie-witryn.html, montaz-instalacja.html
+  – 9 podstron usługowych z dropdownu "Oferta B2B" (patrz sekcja
+  "Podstrony usługowe" niżej). "Wynajem neonów" z dropdownu celowo NIE ma
+  jeszcze swojej podstrony (link zostaje "#").
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
 css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css)
 css/kontakt.css      – style specyficzne dla podstrony kontakt (ładowane po style.css)
 css/galeria.css      – style specyficzne dla podstrony galeria (ładowane po style.css)
+css/sklep.css        – style specyficzne dla podstrony sklep (ładowane po style.css)
+css/produkt.css      – style specyficzne dla karty produktu (ładowane po style.css)
+css/koszyk.css       – style specyficzne dla podstrony koszyk (ładowane po style.css)
+css/checkout.css     – style specyficzne dla podstrony checkout (ładowane po style.css)
+css/neony-led.css    – **wspólny szablon** dla wszystkich 9 podstron usługowych
+  (neony-led.html + 8 nowych), ładowany po style.css. Klasy `.nl-*` i
+  `.neony-hero*` (nazwa historyczna po pierwszej podstronie) są celowo
+  generyczne — każda podstrona różni się tylko treścią HTML, nie CSS-em.
 js/main.js            – hero slider + karuzela opinii (vanilla JS, bez zależności)
 assets/logo/          – logo (logoneofox.svg)
 assets/images/         – zdjęcia sekcji + podmienione zdjęcia kafelków (webp/jpg/JPG)
 assets/images/tiles/   – oryginalne zdjęcia kafelków (PNG, niska rozdzielczość — zastępowane)
+assets/images/products/ – prawdziwe zdjęcia produktów pobrane z neofox.pl (np. happy-birthday-*.jpg)
 dodatkowe-zdjecia/    – zdjęcia i filmy źródłowe (niektóre >100 MB) — NIE commitować do git
 koszyk.svg, ludzik.svg, lupka.svg, serce.svg  – ikony header (cart/user/search/heart),
   na razie NIEUŻYWANE — w HTML ikony header są inline SVG. Do podpięcia na życzenie.
@@ -33,29 +54,38 @@ serwer PowerShell: `.claude/serve.ps1` (uruchamiany przez `.claude/launch.json`)
 
 ## Nawigacja między podstronami
 
-- `index.html` → "O nas" → `o-nas.html`, "Kontakt" → `kontakt.html`, "Galeria" → `galeria.html`
+- `index.html` → "O nas" → `o-nas.html`, "Sklep" → `sklep.html`, "Kontakt" → `kontakt.html`, "Galeria" → `galeria.html`
 - `o-nas.html` → logo → `index.html`, "O nas" ma `aria-current="page"`
 - `kontakt.html` → logo → `index.html`, "Kontakt" ma `aria-current="page"`
 - `galeria.html` → logo → `index.html`, "Galeria" ma `aria-current="page"`
-- "Sklep" jest tymczasowo `#`
+- `sklep.html` → logo → `index.html`, "Sklep" ma `aria-current="page"`; pierwszy kafelek
+  ("Happy Birthday" Neon LED) linkuje do `produkt-happy-birthday.html`, pozostałe 9
+  kafelków to mockupy (nie są klikalne — nie mają jeszcze kart produktu)
 - "Oferta B2B" — **nie jest linkiem** (`<span>`), po najechaniu rozwija dropdown
-  z 8 pozycjami (patrz sekcja "Dropdown nawigacji" poniżej)
+  z 10 pozycjami (patrz sekcja "Dropdown nawigacji" poniżej)
+- `koszyk.html` → "Przejdź do płatności" (`.koszyk-checkout-btn`) → `checkout.html`
 
 ## Dropdown nawigacji (Oferta B2B)
 
 "Oferta B2B" w menu to `<li class="has-dropdown">` z `<span>` (nie `<a>`) +
-chevron SVG + `<ul class="dropdown">` z 8 pozycjami:
-- Neony LED
-- Litery 3D podświetlane
-- Litery z efektem halo
-- Litery 3D niepodświetlane
-- Logo z plexi
-- Montaż i instalacja
-- Wynajem neonów
-- Kasetony i semafory reklamowe
+chevron SVG + `<ul class="dropdown">` z 10 pozycjami — **te same nazwy i ta sama
+kolejność co 10 kafelków w sekcji `.tiles` na `index.html`/`o-nas.html`**:
+- Neony LED → `neony-led.html`
+- Backlit — litery z efektem „HALO" → `backlit-halo.html`
+- Frontlit — litery 3D podświetlane → `frontlit-litery-3d.html`
+- Kasetony i semafory reklamowe → `kasetony-semafory.html`
+- Litery z tworzyw sztucznych, styroduru, PCV → `litery-niepodswietlane.html`
+- Logo z plexi → `logo-plexi.html`
+- Banery → `banery.html`
+- Oklejanie witryn, naklejki na szyby → `oklejanie-witryn.html`
+- Montaż i instalacja → `montaz-instalacja.html`
+- Wynajem neonów → **jedyna pozycja bez podstrony**, `href="#"` (pominięta na
+  życzenie użytkownika)
 
 Dropdown pojawia się przy `:hover` na `li.has-dropdown`, z animacją opacity +
-translateY. Style w `css/style.css` sekcja `/* Dropdown */`.
+translateY. Style w `css/style.css` sekcja `/* Dropdown */` (`min-width: 300px`
+żeby dłuższe nazwy jak "Litery z tworzyw sztucznych, styroduru, PCV" mieściły
+się w jednej linii).
 
 **Pułapka:** `.main-nav ul` ma `display: flex`, co dziedziczy `.dropdown ul`.
 Dlatego `.dropdown` ma `flex-direction: column !important; align-items: stretch !important; gap: 0 !important`
@@ -373,6 +403,269 @@ Stare pliki w `assets/images/tiles/*.png` już nie są używane w `o-nas.html`.
 `.galeria-ig-track-wrap` ma `scrollbar-width: none` + `::-webkit-scrollbar { display: none }`.
 Track jest `<div>` (nie `<ul>`), ma `overflow-x: auto` — działa bo nie jest flex-childem
 z `min-width: auto`.
+
+## Podstrona Sklep (`sklep.html` + `css/sklep.css`)
+
+### Sekcje sklep.html (w kolejności)
+
+1. **Header** — "Sklep" ma `aria-current="page"`.
+
+2. **Hero** (`.sklep-hero`) — identyczny wzorzec jak pozostałe podstrony.
+   Zdjęcie: `medicadent-nocna.jpg`, nagłówek "SKLEP", podtytuł.
+
+3. **Filtry** (`.sklep-filters`) — nagłówek "NASZE PRODUKTY" + licznik produktów
+   (`#sklep-count`, aktualizowany przez JS) w jednym rzędzie, pod spodem rząd
+   pigułkowych przycisków filtrów (`.sklep-filter-btn`, `flex-wrap: wrap`) —
+   14 kategorii wziętych z neofox.pl/kategoria-produktu/wszystkie-produkty/
+   (Wszystkie produkty, Do domu, Do pokoju dziecka, Gamingowe, Ślubne, Świąteczne,
+   Dla biznesu, Bary & Kluby, Gastronomia, Barbershopy, Salony Beauty,
+   Siłownie & Sport, Neony Print Art, OUTLET).
+
+4. **Siatka produktów** (`.sklep-grid`) — pełna szerokość ekranu (bez `.container`),
+   5 kolumn, `gap: 0` — kafelki **stykają się** ze sobą (bez odstępów, bez
+   border-radius, zgodnie z resztą design systemu). Każdy `.sklep-card` ma
+   zdjęcie + badge (Bestseller/Nowość/Promocja/…) + nazwę + kategorię (etykieta
+   kategorii filtrującej, np. "Bary & Kluby, Gastronomia" — **nie** typ produktu)
+   + cenę. **Bez opisu i bez ocen/gwiazdek.** Wiersz ceny: stara cena
+   (przekreślona) → nowa cena → etykieta "Wyprzedaż" dosunięta do prawej
+   (`margin-left: auto`). `data-category` na każdej karcie (spacja-
+   separated sluggi) — filtrowanie po stronie klienta w inline `<script>`
+   (pokazuje/ukrywa `.sklep-card`, aktualizuje licznik, pokazuje `.sklep-empty`
+   gdy brak wyników w danej kategorii).
+   9 z 10 kart to **mockupy** (wymyślone nazwy/ceny, zdjęcia z `assets/images/`
+   cyklicznie powtórzone z 5 realizacji) — nie są klikalne (`<article>`).
+   **Pierwsza karta** ("Happy Birthday" Neon LED) to prawdziwy produkt z
+   neofox.pl — jest owinięta w `<a href="produkt-happy-birthday.html">` i ma
+   prawdziwe dane (cena, brak fałszywej "starej ceny"/rabatu, brak wymyślonej oceny).
+
+5. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
+
+## Karta produktu (`produkt-happy-birthday.html` + `css/produkt.css`)
+
+Jedyna istniejąca karta produktu na razie.
+
+**Wszystkie dane produktowe są prawdziwe**, pobrane z
+neofox.pl/produkt/happy-birthday-neon-led-2/ — **nie dodawać nowych
+parametrów ani nie brać danych ze stron konkurencji**. Prawdziwe dane: cena
+1500 zł brutto, wymiary 98×72 cm, kolor światła "ciepła biel", kategorie
+Do domu/Świąteczne, opis produktu, dostawa (DPD, 3 dni robocze realizacji,
+1–2 dni PL / 4+ dni Europa, ubezpieczona paczka kartonowa, faktura w dniu
+wysyłki). "24 miesiące gwarancji" to ogólna polityka firmy (patrz sekcja
+"coop" na `index.html`), nie parametr tego produktu.
+
+### Kolumna informacyjna (`.product-info`) — kolejność ustalona przez użytkownika
+
+1. `.product-category` — kategoria pomarańczowym tekstem uppercase
+2. `.product-title` — nazwa produktu (Bebas Neue)
+3. `.product-price` — cena
+4. `.product-params` — **tylko dwa parametry**: Rozmiar i Kolor, każdy jako
+   `.product-param-label` + `.product-param-chip` (pigułka z pomarańczowym
+   obrysem). Nie pokazujemy tu kodu produktu, typu ani pełnej palety kolorów —
+   to zostało celowo uproszczone (wcześniejsza wersja z 12 kolorami do wyboru
+   i osobną listą specyfikacji została usunięta na życzenie użytkownika).
+5. `.product-purchase-row` — licznik ilości (`.product-qty` +/- działający
+   przez inline JS, min. 1) + `.btn.btn-primary.product-add-cart` "Dodaj do
+   koszyka" + `.btn.btn-outline.product-add-fav` "Dodaj do ulubionych"
+   (serce SVG, JS przełącza `.is-active` — wypełnienie na pomarańczowo).
+   **Oba przyciski są dekoracyjne** (`type="button"`, bez realnej logiki
+   koszyka) — spójne z resztą strony, gdzie ikony koszyka/serca w headerze
+   też są tylko wizualne (patrz sekcja "Struktura plików").
+
+### Sekcja z tabami (`.product-tabs-section`) — wzorowana na neofox.pl/produkt/happy-birthday-neon-led-3/
+
+Trzy zakładki przełączane JS (`.product-tab-btn` + `.product-tab-panel`,
+`data-tab` ↔ `id="tab-*"`):
+- **Opis** — treść opisowa produktu + lista cech (przeniesione ze starej
+  osobnej sekcji "Opis produktu").
+- **Opinie** — **stan pusty zgodny z prawdziwą stroną referencyjną**:
+  rozkład 5★–1★ wszystkie "0" (`.product-reviews-bar-fill` width:0%) +
+  tekst "Na razie nie ma opinii o tym produkcie." Świadomie **nie** używamy
+  tu generycznych opinii firmowych (`.reviews` z `js/main.js`) — dla tego
+  konkretnego produktu nie mamy prawdziwych opinii, więc pokazujemy uczciwy
+  stan pusty zamiast fabrykować treść.
+- **Wysyłka** — tekst o dostawie + `.product-trust` (3 ikony: DPD, realizacja
+  3 dni, 24 mies. gwarancji) — przeniesione ze starej osobnej sekcji
+  "Dostawa i realizacja" i z paska zaufania pod CTA.
+
+Poniżej tabów zostaje sekcja "Może Cię zainteresować" (`.product-related`) —
+używa mockowych produktów z `sklep.html`, niekliknalna (bez realnych stron
+docelowych dla tamtych produktów).
+
+Zdjęcia produktu: prawdziwe, pobrane z neofox.pl do
+`assets/images/products/happy-birthday-1.jpg` … `happy-birthday-4.jpg`.
+Galeria (`.product-gallery-main` + `.product-gallery-thumbs`) przełącza główne
+zdjęcie po kliknięciu miniatury (inline `<script>` na dole pliku).
+
+## Podstrona Koszyk (`koszyk.html` + `css/koszyk.css`)
+
+**Statyczna makieta** (decyzja użytkownika) — nie zapisuje stanu między
+odwiedzinami (brak localStorage), ale **jest w pełni interaktywna w obrębie
+jednej wizyty**: licznik ilości przelicza sumy na żywo, zmiana metody wysyłki
+przelicza `Łącznie`, usunięcie produktu pokazuje stan pustego koszyka, pole
+kuponu pokazuje komunikat zwrotny (zawsze "nieprawidłowy kod" — nie ma
+prawdziwych kuponów, więc nie udajemy że którykolwiek działa).
+
+Ikona koszyka w headerze (`aria-label="Koszyk"`) jest teraz prawdziwym linkiem
+`<a href="koszyk.html">` na **wszystkich** podstronach (wcześniej był to
+dekoracyjny `<button>` bez akcji, tak jak ikony szukaj/konto/ulubione — te
+trzy pozostają dekoracyjne).
+
+Wypełniona przykładowym, prawdziwym produktem ("Happy Birthday" Neon LED,
+1500 zł, wariant "Rozmiar: 98 × 72 cm · Kolor: Ciepła biel" — zgodnie z
+parametrami z karty produktu).
+
+### Sekcje koszyk.html (w kolejności)
+
+1. **Breadcrumb** — Strona główna / Koszyk.
+2. **Nagłówek** — "KOSZYK (X produkt/y/ów)" — licznik aktualizowany przez JS
+   (uwaga na poprawną polską odmianę: 1 = produkt, 2–4 = produkty, 0 i 5+ =
+   produktów — ten sam wzorzec co licznik filtrów w `sklep.html`).
+3. **Layout dwukolumnowy** (`.koszyk-layout`): lewa = lista pozycji (`flex: 1`),
+   prawa = podsumowanie (`flex: 0 0 380px`, `position: sticky`).
+4. **Lista pozycji** (`.koszyk-items`) — każda pozycja: przycisk usuń (×) |
+   miniatura + nazwa (link do karty produktu) + wariant | cena jednostkowa |
+   stepper ilości | kwota (cena × ilość, przeliczana na żywo).
+5. **Pod tabelą**: pole kuponu + przycisk "Wykorzystaj kupon" (z komunikatem
+   zwrotnym) po lewej, link "← Kontynuuj zakupy" → `sklep.html` po prawej.
+6. **Podsumowanie** (`.koszyk-summary`, tło `#f9f9f9`, sticky): Kwota (subtotal)
+   → wybór wysyłki (radio: Kurier DPD 40 zł / Odbiór osobisty 0 zł) + notka
+   o czasie realizacji → Łącznie → `.btn-primary` "Przejdź do płatności"
+   (prowadzi do `checkout.html` — patrz sekcja "Podstrona Checkout" niżej)
+   → metody płatności jako proste pigułki tekstowe (bez logotypów marek)
+   → "14-dniowa gwarancja zwrotu".
+7. **Stan pustego koszyka** (`.koszyk-empty`) — pokazywany zamiast
+   `.koszyk-layout`, gdy usunięto ostatnią pozycję: komunikat + przycisk
+   "Przejdź do sklepu".
+8. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
+
+## Podstrona Checkout (`checkout.html` + `css/checkout.css`)
+
+**Statyczna makieta, celowo niefunkcjonalna** — to jedyny cel tej strony:
+pokazać jak będzie wyglądał checkout, bez integracji z prawdziwą bramką
+płatności. Wzorowana na obecnym checkoucie `neofox.pl/zamowienie/`
+(WooCommerce: adres dostawy, płatność i wysyłka, "Kupuję i płacę") ale
+przeprojektowana w stylu wizualnym NEOFOX i uproszczona do jednej strony
+(bez logowania/rejestracji jako osobnego kroku — tylko dyskretny link
+"Zaloguj się" nad formularzem).
+
+Układ dwukolumnowy identyczny jak `koszyk.html`: lewa kolumna (`flex: 1`) —
+formularz w 3 numerowanych sekcjach, prawa kolumna (`flex: 0 0 380px`,
+`position: sticky`) — podsumowanie zamówienia. Numeracja sekcji
+(`.checkout-section-num`) to zwykły pomarańczowy tekst Bebas Neue ("1"/"2"/"3"),
+**nie** okrągła plakietka — zgodnie z regułą "brak border-radius poza
+przyciskami/polami formularza".
+
+### Sekcje formularza (`.checkout-form-col`)
+
+1. **Dane do wysyłki** — pola imię/nazwisko, ulica + nr mieszkania
+   (opcjonalnie), miasto + kod pocztowy, telefon + e-mail (wzorzec `.kf-row`/
+   `.kf-field` z `css/style.css`, ten sam co w `kontakt.html`), uwagi
+   opcjonalne. Checkbox "Chcę otrzymać fakturę VAT na firmę" pokazuje pola
+   Nazwa firmy/NIP (`#co-nip-wrap`, toggle inline JS — ten sam wzorzec co
+   pole lokalizacji montażu w `kontakt.html`).
+2. **Sposób dostawy** — te same dwie opcje co `koszyk.html` (Kurier DPD 40 zł /
+   Odbiór osobisty — Poznań 0 zł), stylizowane jako `.checkout-option` (radio +
+   opis + cena, bez border-radius, separator `border-bottom`).
+3. **Metoda płatności** — 4 opcje w tym samym stylu listy: Przelew bankowy
+   (domyślnie zaznaczony), Karta płatnicza, BLIK, Przelewy24 — **bez logotypów
+   marek** (zgodnie z konwencją z koszyka), każda z opisem który rozwija się
+   inline pod zaznaczoną opcją (`.checkout-payment-note`, JS przełącza
+   `.is-active` na `.checkout-payment-option`).
+
+Poniżej: checkbox zgody na regulamin (wymagany, wzorzec `.checkbox-fine-print`
+z `kontakt.html`) i przycisk `.btn-primary.checkout-submit-btn` "Złóż
+zamówienie". Kliknięcie **nie wysyła żadnego zamówienia** — JS przechwytuje
+submit i pokazuje komunikat `.checkout-submit-msg` informujący wprost, że to
+makieta bez integracji płatności.
+
+### Podsumowanie (`.checkout-summary-col`, sticky, tło `#f8f8f8`)
+
+Powtarza pozycję z koszyka (Happy Birthday Neon LED, 1500 zł) jako pozycję
+tylko do odczytu (link "Edytuj koszyk" → `koszyk.html` zamiast stepper/usuń) +
+Produkty/Dostawa/Do zapłaty (dostawa i suma przeliczają się na żywo w
+zależności od wybranej opcji w sekcji 2 — ten sam mechanizm co `koszyk.html`)
++ notka "Bezpieczna, szyfrowana transakcja" + "14-dniowa gwarancja zwrotu".
+
+**Uwaga:** dane w formularzu (imię, adres, telefon...) to tylko placeholdery
+w polach — nie ma żadnej walidacji wysyłanej dokądkolwiek, to zgodne z decyzją
+użytkownika że ta strona ma być wyłącznie wizualną makietą.
+
+## Podstrony usługowe (dropdown "Oferta B2B")
+
+9 podstron — `neony-led.html` (istniała już wcześniej) + 8 nowych:
+`backlit-halo.html`, `frontlit-litery-3d.html`, `kasetony-semafory.html`,
+`litery-niepodswietlane.html`, `logo-plexi.html`, `banery.html`,
+`oklejanie-witryn.html`, `montaz-instalacja.html`. Razem odpowiadają 9 z 10
+pozycji dropdownu "Oferta B2B" — **"Wynajem neonów" celowo pominięty** (na
+życzenie użytkownika, link zostaje `#`).
+
+**Wszystkie mają identyczną strukturę HTML i ten sam plik stylów**
+(`css/neony-led.css` — patrz sekcja "Struktura plików"). Różni je tylko
+treść: nagłówki, teksty, zdjęcia i domyślnie zaznaczona opcja w select
+produktu. Kolejność sekcji (identyczna na każdej):
+
+1. **Hero** (`.neony-hero`) — zdjęcie pełnoekranowe 420px + nakładka 60% +
+   nagłówek Bebas Neue 100px + podtytuł.
+2. **Korzyści** (`.nl-intro`) — nagłówek + lead paragraph + 3 kafelki korzyści
+   z ikoną SVG.
+3. **Dlaczego my?** (`.nl-why`) — lista 4 cech z ikonami po lewej, zdjęcie
+   bleed po prawej.
+4. **Dwa typy klienta** (`.nl-paths`) — 2 karty: "Zobacz nasze realizacje"
+   (→ `galeria.html`) i "Twój projekt" (→ `index.html#wycena`, ciemna karta).
+   **Uwaga:** w przeciwieństwie do oryginalnego `neony-led.html` (które linkuje
+   pierwszą kartę do sklepu, bo neony LED faktycznie sprzedajemy w
+   `sklep.html`), pozostałe 8 podstron **nie ma odpowiednika w sklepie** —
+   dlatego ich pierwsza karta zawsze prowadzi do galerii, nigdy do sklepu.
+5. **Detale techniczne** (`.nl-tech`) — zdjęcie bleed po lewej, lista 3
+   parametrów technicznych po prawej.
+6. Pasek 4 zdjęć (`.nl-photo-strip`) — zdjęcia realizacji w rzędzie.
+7. **Proces** (`.nl-process`) — 4 kroki "od pomysłu do realizacji" z ikonami.
+8. **CTA + formularz** (`.nl-cta`) — ciemne tło, telefon + dane kontaktowe po
+   lewej, formularz zapytania (`.kf-row`/`.kf-field`) po prawej z selectem
+   produktu (10 opcji, ta sama lista co dropdown, z domyślnie zaznaczoną
+   opcją odpowiadającą danej podstronie).
+
+### Źródło treści
+
+Treści (nagłówki, paragrafy, listy cech) są **inspirowane prawdziwymi
+podstronami usługowymi neofox.pl**, odwiedzonymi i przeanalizowanymi podczas
+budowy tych stron:
+- `neofox.pl/litery-przestrzenne-3d-z-led/` → `frontlit-litery-3d.html`
+- `neofox.pl/litery-przestrzenne-3d/` → `litery-niepodswietlane.html`
+- `neofox.pl/instalacja-i-podlaczenie/` → `montaz-instalacja.html`
+- `neofox.pl/ciecie-frezowanie-cnc/` → `logo-plexi.html`
+- `neofox.pl/semafory-reklamowe/` + `neofox.pl/kasetony-reklamowe/` →
+  `kasetony-semafory.html` (połączone w jedną podstronę, tak jak w naszym
+  dropdownie)
+
+Dla **`backlit-halo.html`, `banery.html` i `oklejanie-witryn.html`** neofox.pl
+**nie ma dedykowanych podstron** — te trzy kategorie istnieją na prawdziwej
+stronie tylko jako pozycje w formularzu kontaktowym (`neofox.pl/wlasny-projekt/`),
+nie jako pełne podstrony z treścią. Dla backlit/halo wykorzystano wzmianki
+o efekcie halo znalezione na stronach kasetonów/semaforów; dla banerów i
+oklejania witryn treść jest ogólną, wiarygodną wiedzą branżową w tym samym
+tonie co reszta strony — **nie są to więc parametry/fakty przepisane z
+neofox.pl**, tylko prawdopodobny, spójny stylistycznie opis usługi (podobnie
+jak mockowe produkty w `sklep.html` nie mają wymyślonych fałszywych
+parametrów, tak i tu unikano zmyślania konkretnych, sprawdzalnych danych).
+
+### Zdjęcia
+
+Każda podstrona używa jako hero tego samego zdjęcia, co odpowiadający jej
+kafelek w sekcji `.tiles` na `index.html`/`o-nas.html` (np. `freixenet-halo.jpg`
+dla backlitu, `juamo-logo-plexi.jpg` dla logo z plexi) — zachowuje to spójność
+wizualną między kafelkiem na stronie głównej a podstroną docelową. Pozostałe
+zdjęcia (`.nl-why-image`, `.nl-tech-image`, pasek 4 zdjęć) to zdjęcia realizacji
+z `assets/images/` dobrane tematycznie i **powtarzane cyklicznie między
+podstronami** (ten sam wzorzec co mockowe karty w `sklep.html` — nie mamy
+osobnej sesji zdjęciowej na każdą z 9 usług).
+
+### Nawigacja
+
+Dropdown "Oferta B2B" i kolumna "Oferta" w stopce na **wszystkich** podstronach
+serwisu (łącznie z tymi 9) linkują teraz do prawdziwych plików zamiast `#`.
+Kolejność w stopce ujednolicono do tej samej co w dropdownie (10 pozycji,
+"Wynajem neonów" na końcu jako jedyny nadal `#`).
 
 ## Zasady współpracy / rzeczy do pamiętania
 

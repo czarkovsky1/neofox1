@@ -1,0 +1,238 @@
+/* ===== SKLEP — HERO ===== */
+
+.sklep-hero {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sklep-hero-img {
+  position: absolute;
+  inset: 0;
+}
+
+.sklep-hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.sklep-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+}
+
+.sklep-hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.sklep-hero-heading {
+  font-family: var(--font-heading);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.sklep-hero-sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== SKLEP — FILTRY ===== */
+
+.sklep-filters {
+  padding: 56px 0 32px;
+}
+
+.sklep-filters-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.sklep-filters-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+.sklep-filters-count {
+  font-size: 16px;
+  color: var(--color-gray-text);
+}
+
+.sklep-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sklep-filter-btn {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  color: var(--color-black);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.sklep-filter-btn:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.sklep-filter-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: #fff;
+}
+
+/* ===== SKLEP — SIATKA PRODUKTÓW (pełna szerokość, kafelki się stykają) ===== */
+
+.sklep-grid-section {
+  background: #fff;
+}
+
+.sklep-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sklep-empty {
+  display: none;
+  padding: 120px 40px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--color-gray-text);
+}
+
+.sklep-empty.is-visible {
+  display: block;
+}
+
+.sklep-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.sklep-card-media-link {
+  display: block;
+}
+
+.sklep-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.sklep-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.sklep-card:hover .sklep-card-img {
+  transform: scale(1.04);
+}
+
+.sklep-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px 28px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sklep-card:nth-child(5n) .sklep-card-info {
+  border-right: none;
+}
+
+.sklep-card-title-link {
+  display: block;
+}
+
+.sklep-card-title-link:hover .sklep-card-name {
+  color: var(--color-orange);
+}
+
+.sklep-card-name {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.sklep-card-cat {
+  font-size: 13px;
+  color: var(--color-gray-text);
+}
+
+.sklep-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.sklep-card-price-label {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sklep-card-price-old {
+  font-size: 14px;
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+
+.sklep-card-price-new {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.sklep-card-cta {
+  width: 100%;
+  justify-content: center;
+}

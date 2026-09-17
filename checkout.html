@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zamówienie — NEOFOX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a href="index.html" class="logo">
+      <img src="assets/logo/logoneofox.svg" alt="NEOFOX — producent reklam" class="logo-image">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="sklep.html">Sklep</a></li>
+        <li class="has-dropdown">
+          <span>Oferta B2B
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <ul class="dropdown">
+            <li><a href="neony-led.html">Neony LED</a></li>
+            <li><a href="backlit-halo.html">Backlit — litery z efektem „HALO"</a></li>
+            <li><a href="frontlit-litery-3d.html">Frontlit — litery 3D podświetlane</a></li>
+            <li><a href="kasetony-semafory.html">Kasetony i semafory reklamowe</a></li>
+            <li><a href="litery-niepodswietlane.html">Litery z tworzyw sztucznych, styroduru, PCV</a></li>
+            <li><a href="logo-plexi.html">Logo z plexi</a></li>
+            <li><a href="banery.html">Banery</a></li>
+            <li><a href="oklejanie-witryn.html">Oklejanie witryn, naklejki na szyby</a></li>
+            <li><a href="montaz-instalacja.html">Montaż i instalacja</a></li>
+            <li><a href="#">Wynajem neonów</a></li>
+          </ul>
+        </li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Szukaj">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Konto">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Ulubione">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.2-4.5-9.6-9C.7 7.8 2 4.5 5.4 3.8c2-.4 3.8.5 5 2.3.9.9 1.3 1.7 1.6 2.3.3-.6.7-1.4 1.6-2.3 1.2-1.8 3-2.7 5-2.3 3.4.7 4.7 4 3 7.2-2.4 4.5-9.6 9-9.6 9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <a href="koszyk.html" class="icon-btn" aria-label="Koszyk">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20.5" r="1.4" fill="currentColor"/><circle cx="17.5" cy="20.5" r="1.4" fill="currentColor"/></svg>
+      </a>
+      <a href="index.html#wycena" class="btn btn-primary">Wyceń swój projekt</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="checkout-breadcrumb">
+  <div class="container checkout-breadcrumb-inner">
+    <a href="index.html">Strona główna</a> / <a href="koszyk.html">Koszyk</a> / <span class="current">Zamówienie</span>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<section class="checkout-main">
+  <div class="container">
+
+    <h1 class="checkout-heading">ZAMÓWIENIE</h1>
+
+    <p class="checkout-login-note">Masz już konto? <a href="#">Zaloguj się</a>, aby przyspieszyć zakupy.</p>
+
+    <form class="checkout-layout" id="checkout-form" novalidate>
+
+      <div class="checkout-form-col">
+
+        <!-- 1. DANE DO WYSYŁKI -->
+        <div class="checkout-section">
+          <div class="checkout-section-head">
+            <span class="checkout-section-num">1</span>
+            <h2 class="checkout-section-title">Dane do wysyłki</h2>
+          </div>
+
+          <div class="checkout-fields">
+            <div class="kf-row">
+              <div class="kf-field">
+                <label for="co-imie" class="kf-label">Imię*</label>
+                <input type="text" id="co-imie" name="imie" placeholder="Jan" required>
+              </div>
+              <div class="kf-field">
+                <label for="co-nazwisko" class="kf-label">Nazwisko*</label>
+                <input type="text" id="co-nazwisko" name="nazwisko" placeholder="Kowalski" required>
+              </div>
+            </div>
+            <div class="kf-row">
+              <div class="kf-field">
+                <label for="co-ulica" class="kf-label">Ulica i numer*</label>
+                <input type="text" id="co-ulica" name="ulica" placeholder="np. Garbary 46/U1" required>
+              </div>
+              <div class="kf-field">
+                <label for="co-lokal" class="kf-label">Nr mieszkania / lokalu (opcjonalnie)</label>
+                <input type="text" id="co-lokal" name="lokal" placeholder="np. 12">
+              </div>
+            </div>
+            <div class="kf-row">
+              <div class="kf-field">
+                <label for="co-miasto" class="kf-label">Miasto*</label>
+                <input type="text" id="co-miasto" name="miasto" placeholder="Poznań" required>
+              </div>
+              <div class="kf-field">
+                <label for="co-kod" class="kf-label">Kod pocztowy*</label>
+                <input type="text" id="co-kod" name="kod" placeholder="61-869" required>
+              </div>
+            </div>
+            <div class="kf-row">
+              <div class="kf-field">
+                <label for="co-telefon" class="kf-label">Numer telefonu*</label>
+                <input type="tel" id="co-telefon" name="telefon" placeholder="+48 000 000 000" required>
+              </div>
+              <div class="kf-field">
+                <label for="co-email" class="kf-label">Adres e-mail*</label>
+                <input type="email" id="co-email" name="email" placeholder="twoj@email.pl" required>
+              </div>
+            </div>
+            <div class="kf-field kf-field-full">
+              <label for="co-uwagi" class="kf-label">Uwagi do zamówienia (opcjonalnie)</label>
+              <textarea id="co-uwagi" name="uwagi" rows="3" placeholder="np. informacje o dostarczeniu przesyłki"></textarea>
+            </div>
+
+            <label class="kf-checkbox">
+              <input type="checkbox" id="co-faktura">
+              <span>Chcę otrzymać fakturę VAT na firmę</span>
+            </label>
+
+            <div class="kf-row checkout-nip-row" id="co-nip-wrap">
+              <div class="kf-field">
+                <label for="co-firma" class="kf-label">Nazwa firmy</label>
+                <input type="text" id="co-firma" name="firma" placeholder="Nazwa firmy">
+              </div>
+              <div class="kf-field">
+                <label for="co-nip" class="kf-label">NIP</label>
+                <input type="text" id="co-nip" name="nip" placeholder="000-000-00-00">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SPOSÓB DOSTAWY -->
+        <div class="checkout-section">
+          <div class="checkout-section-head">
+            <span class="checkout-section-num">2</span>
+            <h2 class="checkout-section-title">Sposób dostawy</h2>
+          </div>
+
+          <div class="checkout-options" id="checkout-shipping">
+            <label class="checkout-option">
+              <span class="checkout-option-left">
+                <input type="radio" name="checkout-shipping" value="40" checked>
+                <span class="checkout-option-text">
+                  <strong>Kurier DPD</strong>
+                  <small>Dostawa w ciągu 3 dni roboczych od złożenia zamówienia</small>
+                </span>
+              </span>
+              <span class="checkout-option-price">40,00 zł</span>
+            </label>
+            <label class="checkout-option">
+              <span class="checkout-option-left">
+                <input type="radio" name="checkout-shipping" value="0">
+                <span class="checkout-option-text">
+                  <strong>Odbiór osobisty — Poznań</strong>
+                  <small>ul. Garbary 46/U1, 61-869 Poznań</small>
+                </span>
+              </span>
+              <span class="checkout-option-price">0,00 zł</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3. METODA PŁATNOŚCI -->
+        <div class="checkout-section">
+          <div class="checkout-section-head">
+            <span class="checkout-section-num">3</span>
+            <h2 class="checkout-section-title">Metoda płatności</h2>
+          </div>
+
+          <div class="checkout-options" id="checkout-payment">
+            <div class="checkout-payment-option is-active">
+              <label class="checkout-option">
+                <span class="checkout-option-left">
+                  <input type="radio" name="checkout-payment" value="przelew" checked>
+                  <strong>Przelew bankowy</strong>
+                </span>
+              </label>
+              <p class="checkout-payment-note">Prosimy o wpłatę bezpośrednio na nasze konto bankowe, korzystając z numeru zamówienia jako tytułu przelewu. Zamówienie zrealizujemy po zaksięgowaniu wpłaty.</p>
+            </div>
+            <div class="checkout-payment-option">
+              <label class="checkout-option">
+                <span class="checkout-option-left">
+                  <input type="radio" name="checkout-payment" value="karta-payu">
+                  <strong>Płatność kartą z PayU</strong>
+                  <span class="checkout-payment-pills">
+                    <span class="checkout-payment-pill">Visa</span>
+                    <span class="checkout-payment-pill">Mastercard</span>
+                  </span>
+                </span>
+              </label>
+              <p class="checkout-payment-note">Bezpieczna płatność online kartą Visa lub Mastercard za pośrednictwem operatora PayU.</p>
+            </div>
+            <div class="checkout-payment-option">
+              <label class="checkout-option">
+                <span class="checkout-option-left">
+                  <input type="radio" name="checkout-payment" value="online-payu">
+                  <strong>Płatność online z PayU</strong>
+                  <span class="checkout-payment-pills">
+                    <span class="checkout-payment-pill">PayU</span>
+                  </span>
+                </span>
+              </label>
+              <p class="checkout-payment-note">Szybki przelew online obsługiwany przez operatora PayU.</p>
+            </div>
+            <div class="checkout-payment-option">
+              <label class="checkout-option">
+                <span class="checkout-option-left">
+                  <input type="radio" name="checkout-payment" value="blik">
+                  <strong>Blik</strong>
+                  <span class="checkout-payment-pills">
+                    <span class="checkout-payment-pill">BLIK</span>
+                  </span>
+                </span>
+              </label>
+              <p class="checkout-payment-note">Zapłać szybko sześciocyfrowym kodem BLIK wygenerowanym w aplikacji swojego banku.</p>
+            </div>
+          </div>
+        </div>
+
+        <label class="checkbox-field checkbox-fine-print checkout-terms">
+          <input type="checkbox" id="co-regulamin" required>
+          <span>Zapoznałem/am się i akceptuję <a href="#">regulamin sklepu</a> oraz <a href="#">politykę prywatności</a>*</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary checkout-submit-btn" id="checkout-submit">Złóż zamówienie</button>
+        <p class="checkout-submit-msg" id="checkout-submit-msg">To jest makieta strony — zamówienie nie zostało złożone, a płatność nie została pobrana. W finalnej wersji nastąpiłoby tu przekierowanie do bramki płatności.</p>
+
+      </div>
+
+      <div class="checkout-summary-col">
+        <div class="checkout-summary">
+          <div class="checkout-summary-head">
+            <h2 class="checkout-summary-heading">Podsumowanie zamówienia</h2>
+            <a href="koszyk.html" class="checkout-edit-link">Edytuj koszyk</a>
+          </div>
+
+          <div class="checkout-summary-item">
+            <div class="checkout-summary-item-media">
+              <img src="assets/images/products/happy-birthday-1.jpg" alt='"Happy Birthday" Neon LED'>
+            </div>
+            <div class="checkout-summary-item-info">
+              <p class="checkout-summary-item-name">"Happy Birthday" Neon LED</p>
+              <p class="checkout-summary-item-variant">Rozmiar: 98 × 72 cm &middot; Kolor: Ciepła biel</p>
+              <p class="checkout-summary-item-qty">Ilość: 1</p>
+            </div>
+            <span class="checkout-summary-item-price">1500,00 zł</span>
+          </div>
+
+          <div class="checkout-summary-row">
+            <span>Produkty (1)</span>
+            <span id="checkout-subtotal">1500,00 zł</span>
+          </div>
+          <div class="checkout-summary-row">
+            <span>Dostawa</span>
+            <span id="checkout-shipping-cost">40,00 zł</span>
+          </div>
+
+          <div class="checkout-total-row">
+            <span class="checkout-total-label">Do zapłaty</span>
+            <span class="checkout-total-value" id="checkout-total">1540,00 zł</span>
+          </div>
+
+          <div class="checkout-secure">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="0"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            Bezpieczna, szyfrowana transakcja
+          </div>
+
+          <div class="checkout-guarantee">
+            <p class="checkout-guarantee-heading">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v5.3c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V5.5L12 2z"/></svg>
+              14-dniowa gwarancja zwrotu
+            </p>
+            <p class="checkout-guarantee-text">Jeśli neon nie spełni Twoich oczekiwań, masz 14 dni na zwrot od momentu dostawy — bez zbędnych pytań.</p>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">
+        <img src="assets/logo/neofox bialo pomaranczowe .svg" alt="NEOFOX">
+      </a>
+      <p class="footer-tagline">Producent reklamy świetlnej, przestrzennej i wizualnej dla firm z całej Polski.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+        </a>
+        <a href="#" aria-label="WhatsApp" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok" class="footer-social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3.4A4.9 4.9 0 0 1 15.6 1h-3.4v15.1a2.9 2.9 0 0 1-2.9 2.5 2.9 2.9 0 0 1-2.9-2.9 2.9 2.9 0 0 1 2.9-2.9c.3 0 .6 0 .8.1V9.4a6.4 6.4 0 0 0-.8-.1 6.3 6.3 0 0 0-6.3 6.3 6.3 6.3 0 0 0 6.3 6.3 6.3 6.3 0 0 0 6.3-6.3V8.6a8.3 8.3 0 0 0 4.8 1.5V6.7a4.9 4.9 0 0 1-2.8-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">Oferta</h4>
+      <ul class="footer-links">
+        <li><a href="neony-led.html">Neony LED</a></li>
+        <li><a href="frontlit-litery-3d.html">Litery 3D podświetlane</a></li>
+        <li><a href="backlit-halo.html">Litery z efektem halo</a></li>
+        <li><a href="litery-niepodswietlane.html">Litery 3D niepodświetlane</a></li>
+        <li><a href="logo-plexi.html">Logo z plexi</a></li>
+        <li><a href="kasetony-semafory.html">Kasetony i semafory</a></li>
+        <li><a href="banery.html">Banery</a></li>
+        <li><a href="oklejanie-witryn.html">Oklejanie witryn</a></li>
+        <li><a href="montaz-instalacja.html">Montaż i instalacja</a></li>
+        <li><a href="#">Wynajem neonów</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="footer-col-title">Nawigacja</h4>
+      <ul class="footer-links">
+        <li><a href="o-nas.html">O nas</a></li>
+        <li><a href="galeria.html">Galeria realizacji</a></li>
+        <li><a href="sklep.html">Sklep</a></li>
+        <li><a href="#">Oferta B2B</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="#">Paleta kolorów</a></li>
+        <li><a href="#">Polityka prywatności</a></li>
+        <li><a href="#">Regulamin</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-col-contact">
+      <h4 class="footer-col-title">Kontakt</h4>
+      <ul class="footer-contact-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.4c.9.3 1.9.5 2.9.7A2 2 0 0 1 22 17z"/></svg>
+          <a href="tel:+48730627143">+48 730 627 143</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>ul. Garbary 46/U1<br>61-869 Poznań</span>
+        </li>
+      </ul>
+      <a href="index.html#wycena" class="btn btn-primary footer-btn">Wyceń swój projekt</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-copy">&copy; 2024 NEOFOX. Wszelkie prawa zastrzeżone.</p>
+      <p class="footer-legal">
+        <a href="#">Polityka prywatności</a>
+        <a href="#">Regulamin</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    var fakturaCheckbox = document.getElementById('co-faktura');
+    var nipWrap = document.getElementById('co-nip-wrap');
+    fakturaCheckbox.addEventListener('change', function () {
+      nipWrap.classList.toggle('is-visible', this.checked);
+    });
+
+    var shippingRadios = document.querySelectorAll('input[name="checkout-shipping"]');
+    var shippingCostEl = document.getElementById('checkout-shipping-cost');
+    var totalEl = document.getElementById('checkout-total');
+    var subtotal = 1500;
+
+    function formatPLN(value) {
+      return value.toFixed(2).replace('.', ',') + ' zł';
+    }
+
+    function recalcTotals() {
+      var checked = document.querySelector('input[name="checkout-shipping"]:checked');
+      var shippingCost = checked ? parseFloat(checked.value) : 0;
+      shippingCostEl.textContent = formatPLN(shippingCost);
+      totalEl.textContent = formatPLN(subtotal + shippingCost);
+    }
+
+    shippingRadios.forEach(function (radio) {
+      radio.addEventListener('change', recalcTotals);
+    });
+
+    var paymentOptions = document.querySelectorAll('.checkout-payment-option');
+    paymentOptions.forEach(function (option) {
+      var radio = option.querySelector('input[type="radio"]');
+      radio.addEventListener('change', function () {
+        paymentOptions.forEach(function (opt) {
+          opt.classList.remove('is-active');
+        });
+        option.classList.add('is-active');
+      });
+    });
+
+    var form = document.getElementById('checkout-form');
+    var submitMsg = document.getElementById('checkout-submit-msg');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitMsg.classList.add('is-visible');
+    });
+  })();
+</script>
+</body>
+</html>
