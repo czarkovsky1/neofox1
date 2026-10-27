@@ -1,0 +1,1032 @@
+/* ===== PODSTRONY OFERTOWE (przebudowane z briefów klienta) =====
+   Używane przez wszystkie 9 podstron ofertowych z dropdownu „Oferta B2B” (neony-led.html, backlit-halo.html,
+   frontlit-litery-3d.html, kasetony-semafory.html, litery-niepodswietlane.html, logo-plexi.html, banery.html,
+   oklejanie-witryn.html, montaz-instalacja.html).
+   Kolejne przebudowywane podstrony
+   oferty składamy z tych samych klas — różni je tylko treść HTML.
+   (css/neony-led.css to starszy wspólny szablon podstron usługowych — stąd brane są
+   tylko hero .neony-hero* i sekcja CTA .nl-cta.)
+   Reużywamy komponentów z style.css (.tiles-grid, .kf-*, .gallery-grid, .lightbox),
+   dokładając tylko to, czego tam nie ma. Prefiks klas: .neon-* (nazwa historyczna).
+   Warianty dodane dla kolejnych podstron mają modyfikatory (--dark, --stacked, --white, …)
+   albo nowe klasy, więc nie zmieniają wyglądu wcześniejszych stron. */
+
+.neon-page section[id] {
+  scroll-margin-top: 96px; /* sticky header */
+}
+
+/* ===== WSPÓLNE: nagłówki, teksty, sekcje ===== */
+
+.neon-section {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.neon-section--gray {
+  background: #f4f4f4;
+}
+
+/* wszystkie h2 na tej stronie: 74px (ustalone z klientem); balance — równe linie w wąskich kolumnach split */
+.neon-heading {
+  font-family: var(--font-heading);
+  font-size: 74px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+  text-wrap: balance;
+}
+
+/* akcent zawsze od nowej linii — fraza nie łamie się w połowie ("13 / kolorów") */
+.neon-heading .accent-text {
+  display: block;
+  color: var(--color-orange);
+}
+
+.neon-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.neon-text + .neon-text {
+  margin-top: 16px;
+}
+
+/* body2 — mniejszy tekst pomocniczy (np. zdanie porównania w kartach BASIC / EXCLUSIVE) */
+.neon-text--small {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.neon-fine-print {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8a8a8a;
+}
+
+/* śródtytuł z briefu wewnątrz sekcji (np. „Kolory i warianty boków liter 3D” na frontlit-litery-3d.html) */
+.neon-subheading {
+  margin-top: 40px;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+/* śródtytuł pod układem nagłówek | tekst, nad kartami — większy odstęp od tekstu, mniejszy od kart */
+.neon-head-row + .neon-subheading {
+  margin-top: 96px;
+}
+
+.neon-subheading + .neon-apps-grid {
+  margin-top: 32px;
+}
+
+/* grupy kart pod wyśrodkowanym nagłówkiem: śródtytuł + krótki opis + karty
+   (np. „Litery cienkie…” / „Litery grube…” na litery-niepodswietlane.html) */
+.neon-head-center + .neon-subheading {
+  margin-top: 72px;
+}
+
+.neon-subheading + .neon-text {
+  max-width: 760px;
+  margin-top: 12px;
+}
+
+.neon-subheading + .neon-text + .neon-apps-grid {
+  margin-top: 32px;
+}
+
+.neon-apps-grid + .neon-subheading {
+  margin-top: 88px;
+}
+
+/* karty bezpośrednio pod wyśrodkowanym nagłówkiem (np. „Litery wolnostojące…” na litery-niepodswietlane.html) */
+.neon-head-center + .neon-apps-grid {
+  margin-top: 32px;
+}
+
+/* Nagłówek po lewej, tekst po prawej — w siatce 1200px */
+.neon-head-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.neon-head-row--center {
+  align-items: center;
+}
+
+/* dwa układy nagłówek | tekst jeden pod drugim w tej samej sekcji (np. rozdz. 13 i 14 na logo-plexi.html) */
+.neon-head-row + .neon-head-row {
+  margin-top: 96px;
+}
+
+/* wariant lustrzany: tekst po lewej, nagłówek po prawej, wyrównany do prawej krawędzi siatki
+   (np. Kolorystyka i Podkłady na backlit-halo.html). W HTML nagłówek zostaje pierwszy —
+   kolumny zamienia tylko CSS, więc kolejność czytania się nie zmienia */
+.neon-head-row--reverse > .neon-heading {
+  order: 2;
+  text-align: right;
+}
+
+/* wariant: pierwsza kolumna w HTML (nagłówek z tekstem pod nim) ląduje po prawej, druga (np. lista)
+   po lewej — kolejność czytania bez zmian (np. Kolory boków na frontlit-litery-3d.html) */
+.neon-head-row--swap > :first-child {
+  order: 2;
+}
+
+.neon-head-row--swap .neon-heading {
+  margin-bottom: 24px;
+}
+
+/* wyjątek od reguły wyżej: cały nagłówek w jednym wierszu (np. Technologia) */
+.neon-heading--one-line .accent-text {
+  display: inline;
+}
+
+/* Nagłówek z tekstem pod spodem, wyśrodkowane nad treścią sekcji.
+   Szerokość ograniczona tylko tekstowi — nagłówek może zająć całą siatkę 1200px */
+.neon-head-center {
+  text-align: center;
+}
+
+.neon-head-center .neon-heading {
+  margin-bottom: 24px;
+}
+
+/* margin-left/right osobno — skrót kasowałby odstęp 16px między kolejnymi akapitami */
+.neon-head-center .neon-text {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Zdjęcie w ramce: img position:absolute, więc o wysokości decyduje ramka (patrz CLAUDE.md, "Ważna pułapka") */
+.neon-photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+.neon-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neon-photo figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 48px 20px 18px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 100%);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+}
+
+/* ===== HERO =====
+   Reużywa .neony-hero* z neony-led.css (ten sam układ co hero pozostałych podstron usługowych:
+   poziome zdjęcie 420px, nakładka 60%, wyśrodkowany nagłówek). Tu tylko kadr zdjęcia
+   i rozmiar nagłówka. */
+
+/* zdjęcie ostre (bez rozmycia — decyzja użytkownika); kadr pod środek neonu */
+.neon-hero .neony-hero-img img {
+  object-position: 50% 48%;
+}
+
+/* świecący napis na zdjęciu leży dokładnie za nagłówkiem, więc nakładka jest ciemniejsza niż 60%
+   z szablonu (.neony-hero-overlay w neony-led.css — klasy hero i CTA stamtąd są wspólne dla wszystkich podstron) */
+.neon-hero .neony-hero-overlay {
+  background: rgba(0, 0, 0, 0.70);
+}
+
+.neon-hero .neony-hero-content {
+  padding: 0 40px;
+}
+
+/* pełny tytuł z briefu w 3 liniach — 100px z szablonu nie mieści drugiej linii w siatce 1200px */
+.neon-hero .neony-hero-heading {
+  font-size: 80px;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+/* podtytuł pod H1 = ostatnie zdanie briefu (dawny tagline z sekcji Zamów) — jedna linia na szerokość nagłówka */
+.neon-hero .neony-hero-sub {
+  max-width: none;
+  margin-top: 24px;
+}
+
+/* ===== INTRO + PASEK ZDJĘĆ ===== */
+
+.neon-intro {
+  padding: 100px 0 120px;
+}
+
+/* pas pod paskiem zdjęć: górna połowa biała, dolna szara (= tło sekcji Technologia),
+   ten sam efekt co .neon-materials-band / .neon-tiles-band */
+.neon-strip-band {
+  background: linear-gradient(180deg, transparent 50%, #f4f4f4 50%);
+}
+
+/* wariant, gdy pod paskiem jest czarna sekcja (.neon-colors) */
+.neon-strip-band--dark {
+  background: linear-gradient(180deg, transparent 50%, var(--color-black) 50%);
+}
+
+/* 4 zdjęcia w siatce 1200px; proporcje 9:16 = proporcje zdjęć, więc kadry są nieprzycięte */
+.neon-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.neon-strip .neon-photo {
+  aspect-ratio: 9 / 16;
+}
+
+/* ===== 1. TECHNOLOGIA — karty 6 mm / 8 mm ===== */
+
+/* 1.5× standardowego paddingu sekcji (100px) — więcej oddechu pod paskiem zdjęć */
+.neon-tech {
+  padding: 150px 0;
+}
+
+.neon-flex-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.neon-flex-card {
+  display: flex;
+  background: #fff;
+}
+
+.neon-flex-card-media {
+  flex: 0 0 48%;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.neon-flex-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neon-flex-card-body {
+  flex: 1;
+  padding: 32px 32px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.neon-flex-title {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+/* rozmiar linii jako duża liczba pod nazwą "Neon Flex" */
+.neon-flex-size {
+  display: block;
+  margin-top: 4px;
+  font-size: 56px;
+  line-height: 0.95;
+  white-space: nowrap;
+  color: var(--color-orange);
+}
+
+.neon-flex-tag {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  border: 1.5px solid var(--color-orange);
+  border-radius: 999px; /* pigułka — ten sam kształt co .product-param-chip */
+  padding: 4px 12px;
+}
+
+/* wypunktowanie: krótka pomarańczowa kreska przed punktem (ten sam akcent co nad .neon-material),
+   linie między punktami jak w .neon-spec-list — np. odcienie światła białego i kolory boków na
+   frontlit-litery-3d.html, wykończenia płyt na kasetony-semafory.html. Bez próbek kolorów
+   (decyzja użytkownika) */
+.neon-bullet-list {
+  margin-top: 12px;
+}
+
+.neon-bullet-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-black);
+}
+
+.neon-bullet-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 14px;
+  height: 2px;
+  background: var(--color-orange);
+}
+
+.neon-bullet-list li:last-child {
+  padding-bottom: 0;
+}
+
+.neon-bullet-list li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+/* wariant w 2 kolumnach (np. 10 kolorów boków na frontlit-litery-3d.html, 7 wykończeń płyt na
+   kasetony-semafory.html): czyta się z góry na dół, potem druga kolumna — kolumny CSS same dzielą
+   dowolną liczbę punktów; każdy wiersz z linią pod spodem */
+.neon-bullet-list--2col {
+  column-count: 2;
+  column-gap: 40px;
+  margin-top: 16px;
+}
+
+.neon-bullet-list--2col li,
+.neon-bullet-list--2col li:last-child {
+  break-inside: avoid;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.neon-bullet-list--2col li + li {
+  border-top: 0;
+}
+
+/* lista numerowana /1, /2… (.coop-list ze style.css) pod zdaniem wprowadzającym w kolumnie tekstu
+   (np. „Do wyceny prześlij:” na banery.html) */
+.neon-text + .coop-list {
+  margin-top: 20px;
+}
+
+.neon-page .coop-list:last-child {
+  margin-bottom: 0;
+}
+
+/* wypunktowanie pod zdaniem wprowadzającym (np. „Prosimy o:” na montaz-instalacja.html) */
+.neon-text + .neon-bullet-list--text {
+  margin-top: 8px;
+}
+
+/* dopisek pod listą (np. „Zależnie od dostępności…” na kasetony-semafory.html) */
+.neon-bullet-list + .neon-text {
+  margin-top: 16px;
+}
+
+/* wariant pionowy karty (zdjęcie nad tekstem) — dla dłuższych opisów, np. BASIC / EXCLUSIVE */
+.neon-flex-card--stacked {
+  flex-direction: column;
+}
+
+.neon-flex-card--stacked .neon-flex-card-media {
+  flex: none;
+  aspect-ratio: 3 / 2;
+}
+
+.neon-flex-card--stacked .neon-flex-card-body {
+  justify-content: flex-start;
+  padding: 36px 40px 40px;
+}
+
+/* lista parametrów w karcie: etykieta (jak nagłówki tabeli .neon-size-table) + tekst.
+   Linie tylko MIĘDZY punktami — nad pierwszym oddziela pigułka, pod ostatnim koniec karty */
+.neon-spec-list {
+  margin-top: 12px;
+}
+
+.neon-spec-list > div {
+  padding: 16px 0;
+}
+
+.neon-spec-list > div:last-child {
+  padding-bottom: 0;
+}
+
+.neon-spec-list > div + div {
+  border-top: 1px solid var(--color-border);
+}
+
+.neon-spec-list dt {
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.neon-spec-list dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+.neon-flex-note {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 40px;
+  max-width: 900px;
+}
+
+.neon-flex-note-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  color: var(--color-orange);
+}
+
+/* wariant wyśrodkowany: ikona nad tekstem, tekst na całą szerokość treści (1200px) */
+.neon-flex-note--center {
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: none;
+  margin-top: 56px;
+  text-align: center;
+}
+
+.neon-flex-note--center .neon-flex-note-icon {
+  width: 32px;
+  height: 32px;
+  margin-top: 0;
+}
+
+/* ===== 2. PODKŁADY — nagłówek, siatka 3×2 materiałów, galeria zdjęć ===== */
+
+/* bez dolnego paddingu — sekcja kończy się w połowie galerii czarnym pasem, który przechodzi w sekcję Kolory */
+.neon-materials {
+  padding: 150px 0 0;
+  background: #fff;
+}
+
+.neon-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.neon-material {
+  background: #f4f4f4;
+  padding: 36px 32px 40px;
+}
+
+/* krótka pomarańczowa kreska nad nazwą (ten sam akcent co przed punktami .neon-bullet-list) */
+.neon-material::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: var(--color-orange);
+}
+
+.neon-material-title {
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: var(--color-black);
+}
+
+/* pas na całą szerokość ekranu: górna połowa biała, dolna czarna (= tło sekcji Kolory) —
+   zdjęcia galerii leżą na granicy, więc czarne tło "najeżdża" na nie od dołu */
+.neon-materials-band {
+  margin-top: 56px;
+  background: linear-gradient(180deg, transparent 50%, var(--color-black) 50%);
+}
+
+.neon-materials-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.neon-materials-gallery .neon-photo {
+  aspect-ratio: 3 / 4;
+}
+
+/* wariant bez galerii pod kafelkami — sekcja zamyka się zwykłym dolnym paddingiem */
+.neon-materials--no-gallery {
+  padding-bottom: 150px;
+}
+
+/* warianty dla sekcji Druk UV (ten sam układ co Podłoża): 4 kafelki w rzędzie,
+   3 zdjęcia, a pod galerią szare tło sekcji Wnętrza i zewnątrz zamiast czarnego */
+.neon-materials-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 2 szersze kafelki obok siebie (np. Pleksi | Dibond na logo-plexi.html) */
+.neon-materials-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* kafelki bez nagłówka sekcji nad nimi — tytuły rozdziałów briefu są w kafelkach (np. rodzaje materiałów na banery.html) */
+.container > .neon-materials-grid:first-child {
+  margin-top: 0;
+}
+
+.neon-materials-gallery--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 2 poziome zdjęcia 3:2 bezpośrednio w sekcji (bez pasa), np. moduły / taśmy LED na frontlit-litery-3d.html */
+.neon-materials-gallery--2 {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 56px;
+}
+
+.neon-materials-gallery--2 .neon-photo {
+  aspect-ratio: 3 / 2;
+}
+
+.neon-materials-band--gray {
+  background: linear-gradient(180deg, transparent 50%, #f4f4f4 50%);
+}
+
+/* wariant dla sekcji Akcesoria: szare tło z białymi kafelkami, siatka 3×2 — 5 kafelków
+   z tekstem + zdjęcie elementów montażowych jako szósty kafelek (wysokość = wysokość rzędu) */
+.neon-materials--gray {
+  padding-bottom: 150px;
+  background: #f4f4f4;
+}
+
+.neon-materials--gray .neon-material {
+  background: #fff;
+}
+
+/* szare tło z białymi kafelkami, ale z pasem zdjęć pod spodem (bez dolnego paddingu, w przeciwieństwie
+   do --gray) — np. Kolory i wykończenia na litery-niepodswietlane.html, gdy sekcja wyżej jest biała */
+.neon-materials--on-gray {
+  background: #f4f4f4;
+}
+
+.neon-materials--on-gray .neon-material {
+  background: #fff;
+}
+
+/* wypunktowanie wewnątrz kafelka (np. listy wykończeń) — ciaśniejsze wiersze niż w kolumnie tekstu */
+.neon-material .neon-bullet-list li {
+  padding: 10px 0;
+}
+
+.neon-material .neon-bullet-list li:last-child {
+  padding-bottom: 0;
+}
+
+/* wariant dla dłuższych punktów (całe zdania z briefu, np. rodzaje pleksi na logo-plexi.html):
+   zwykły tekst zamiast pogrubionych nazw, kreska przy pierwszej linii zamiast na środku */
+.neon-bullet-list--text li {
+  align-items: flex-start;
+  font-weight: 400;
+  color: var(--color-gray-text);
+}
+
+.neon-bullet-list--text li::before {
+  margin-top: 12px;
+}
+
+.neon-material-photo {
+  min-height: 240px;
+}
+
+/* ===== 3. KOLORY — ciemna sekcja, zdjęcie w siatce 1200px ===== */
+
+.neon-colors {
+  padding: 150px 0;
+  background: var(--color-black);
+}
+
+.neon-colors-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.neon-colors-media {
+  aspect-ratio: 1 / 1;
+}
+
+.neon-colors .neon-heading {
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.neon-colors .neon-text {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.neon-colors .neon-fine-print {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ===== 4. PERSONALIZACJA — reużywa .tiles-grid / .tile ze style.css ===== */
+
+.neon-personal-head {
+  padding: 100px 0 56px;
+}
+
+/* kafelki (.tile ze style.css) w siatce 1200px: rząd 3 + rząd 2, ta sama wysokość */
+.neon-tiles {
+  display: grid;
+  gap: 24px;
+}
+
+.neon-tiles--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.neon-tiles--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.neon-tiles .tile {
+  aspect-ratio: auto;
+  height: 460px;
+  cursor: default;
+}
+
+/* pas pod drugim rzędem: górna połowa biała, dolna szara (= tło sekcji Wymiary),
+   ten sam efekt co .neon-materials-band */
+.neon-tiles-band {
+  margin-top: 24px;
+  background: linear-gradient(180deg, transparent 50%, #f4f4f4 50%);
+}
+
+.neon-tiles .tile-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+.neon-tiles .tile-content {
+  gap: 8px;
+}
+
+.neon-tile-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== 5. WYMIARY — tabela ===== */
+
+/* szare tło, którego górna krawędź leży w połowie kafelków personalizacji (patrz .neon-tiles-band);
+   zdjęcie w siatce 1200px — jak w sekcji Kolory — rozciągnięte na wysokość tekstu obok */
+.neon-sizes {
+  padding: 150px 0;
+  background: #f4f4f4;
+}
+
+.neon-sizes-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: stretch;
+}
+
+.neon-sizes .neon-heading {
+  margin-bottom: 24px;
+}
+
+/* wariant dla krótszego tekstu (bez tabeli): kwadratowe zdjęcie, tekst wyrównany do górnej krawędzi zdjęcia.
+   Kolejność kolumn wynika z HTML — figure pierwsza = zdjęcie po lewej */
+.neon-sizes-inner--top {
+  align-items: start;
+}
+
+.neon-sizes-media--square {
+  aspect-ratio: 1 / 1;
+}
+
+/* ten sam układ na białym tle — gdy sąsiednie sekcje są szare (np. Logo na frontlit-litery-3d.html) */
+.neon-sizes--white {
+  background: #fff;
+}
+
+.neon-size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+}
+
+.neon-size-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gray-text);
+  padding: 0 0 12px;
+  border-bottom: 2px solid var(--color-black);
+}
+
+.neon-size-table td {
+  padding: 14px 0;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-gray-text);
+  vertical-align: middle;
+}
+
+.neon-size-table td:first-child {
+  width: 190px;
+  padding-right: 24px;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: var(--color-orange);
+  white-space: nowrap;
+}
+
+/* ===== 7. WNĘTRZA I ZEWNĄTRZ — dwa panele 50/50 ===== */
+
+.neon-env-head {
+  padding: 100px 0 56px;
+}
+
+/* dwa poziome panele w siatce 1200px, jeden pod drugim */
+.neon-env-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.neon-env-panel {
+  height: 560px;
+}
+
+.neon-env-panel figcaption {
+  padding: 120px 48px 44px;
+}
+
+.neon-env-title {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.neon-env-panel .neon-env-text {
+  display: block;
+  max-width: 520px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.neon-env-note {
+  padding-top: 8px;
+  padding-bottom: 100px;
+}
+
+/* wariant bez notki pod panelami (np. kasetony-semafory.html) — sekcja zamyka się dolnym paddingiem */
+.neon-env--no-note {
+  padding-bottom: 100px;
+}
+
+/* ===== 8. ZASILANIE — infografika zasilaczy ===== */
+
+.neon-power-figure {
+  max-width: 980px;
+  margin: 56px auto 0;
+  background: #fff;
+}
+
+.neon-power-figure img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== 10. ZASTOSOWANIA — 6 kart ===== */
+
+.neon-apps-heading {
+  margin-bottom: 48px;
+}
+
+.neon-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 32px;
+}
+
+.neon-app-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.neon-app-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.neon-app:hover .neon-app-media img {
+  transform: scale(1.04);
+}
+
+.neon-app-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 6px;
+}
+
+/* ===== 11. GALERIA — wyśrodkowany nagłówek + .gallery-grid ze style.css (wszystkie zdjęcia, bez filtrów) ===== */
+
+.neon-gallery-head {
+  padding: 100px 0 64px;
+}
+
+.neon-gallery .gallery-grid {
+  grid-auto-rows: 380px;
+}
+
+.neon-gallery .gallery-item {
+  position: relative;
+}
+
+.neon-gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 56px 20px 18px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  color: #fff;
+  pointer-events: none;
+}
+
+.neon-gallery-caption strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.neon-gallery-caption span {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== 12. FAQ ===== */
+
+.neon-faq-inner {
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.neon-faq-intro {
+  position: sticky;
+  top: 136px;
+}
+
+.neon-faq-intro .neon-heading {
+  margin-bottom: 28px;
+}
+
+.neon-faq-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.neon-faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.neon-faq-item summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 48px 22px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-black);
+  transition: color 0.2s ease;
+}
+
+.neon-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.neon-faq-item summary:hover {
+  color: var(--color-orange);
+}
+
+/* plus → minus */
+.neon-faq-item summary::before,
+.neon-faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 16px;
+  height: 2px;
+  background: var(--color-orange);
+  transition: transform 0.2s ease;
+}
+
+.neon-faq-item summary::after {
+  transform: rotate(90deg);
+}
+
+.neon-faq-item[open] summary::after {
+  transform: rotate(0deg);
+}
+
+.neon-faq-item p {
+  padding: 0 48px 24px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-gray-text);
+}
+
+/* ===== 13. CTA + FORMULARZ — reużywa .nl-cta z neony-led.css ===== */
+
+/* h2 sekcji CTA — ten sam rozmiar co .neon-heading (74px); nadpisane tylko tutaj, bo .nl-cta-heading jest wspólne dla 8 podstron */
+.neon-cta .nl-cta-heading {
+  font-size: 74px;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.neon-cta .accent-text {
+  display: block;
+  color: var(--color-orange);
+}
+
+.neon-cta .nl-cta-text + .nl-cta-text {
+  margin-top: -16px;
+}
+
+.neon-cta .nl-cta-card a:hover {
+  color: var(--color-orange);
+}
+
+/* .nl-cta-form select ustawia skrót "background", który kasuje strzałkę z .kf-field select — przywracamy ją w jasnym kolorze */
+.neon-cta .nl-cta-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-opacity='0.6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  /* miejsce na strzałkę — długa wybrana opcja (np. Backlit) nie wchodzi pod nią, tylko kończy się wielokropkiem */
+  padding-right: 44px;
+  text-overflow: ellipsis;
+}
+
+/* zastrzeżenie drobnym drukiem pod danymi kontaktowymi (np. "Ważne: …" z briefu Backlit) */
+.neon-cta .neon-fine-print {
+  margin-top: 32px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* checkbox "Jestem zainteresowany/a montażem" (.kf-checkbox ze style.css) na ciemnym tle */
+.nl-cta-form .kf-checkbox {
+  color: rgba(255, 255, 255, 0.75);
+}

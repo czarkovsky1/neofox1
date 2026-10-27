@@ -3,12 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kasetony i semafory reklamowe — NEOFOX</title>
+<title>Kasetony reklamowe LED na zamówienie – kasetony semaforowe | NEOFOX</title>
+<meta name="description" content="Kasetony reklamowe LED na zamówienie – kasetony świetlne ścienne i semaforowe dwustronne, szyldy z giętego Dibondu, kasetony frezowane i z literami przestrzennymi. Produkcja, personalizacja, dostawa i montaż.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/neony-led.css">
+<link rel="stylesheet" href="css/neony-led-strona.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Jakie kasetony wykonujecie?", "acceptedAnswer": { "@type": "Answer", "text": "Ścienne, semaforowe, jednostronne i dwustronne, okrągłe, kwadratowe, prostokątne, z podświetleniem całego lica, liter lub bez LED." } },
+    { "@type": "Question", "name": "Czy kaseton może być większy niż 3 metry?", "acceptedAnswer": { "@type": "Answer", "text": "Tak. Kasetony o większej długości realizujemy w częściach, z konstrukcją dostosowaną do wymiarów." } },
+    { "@type": "Question", "name": "Czy można dobrać konkretny kolor?", "acceptedAnswer": { "@type": "Answer", "text": "Tak. Oferujemy malowanie wybranych elementów według RAL/NCS, oklejanie foliami Oracal i dobór dekorów płyt kompozytowych." } },
+    { "@type": "Question", "name": "Czy wykonujecie kasetony dwustronne prostopadłe do ściany?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, to kasetony semaforowe, wykonywane m.in. w formie koła, kwadratu i prostokąta." } },
+    { "@type": "Question", "name": "Jak zasilane są kasetony LED?", "acceptedAnswer": { "@type": "Answer", "text": "Stosujemy instalacje LED 12 V DC z zasilaczem odpowiednio dobranym do podłączenia do sieci 230 V." } },
+    { "@type": "Question", "name": "Czy można zamówić kaseton z montażem?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, oferujemy dostawę i montaż zgodnie z ustalonym zakresem realizacji." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -64,253 +80,497 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="neony-hero">
+<!-- Ten sam szablon co neony-led.html, backlit-halo.html i frontlit-litery-3d.html: klasy .neon-*
+     z css/neony-led-strona.css, hero .neony-hero* i CTA .nl-cta z css/neony-led.css. Treść = brief klienta
+     "Kasetony/1. TEKST" (PDF), przeniesiony bez zmian merytorycznych.
+     Tła sekcji przeplatają się: biała / czarna / szara — przy zmianie kolejności sekcji pilnować pasów (*-band). -->
+<main class="neon-page">
+
+<!-- HERO — jak na Backlit: poziome zdjęcie, nakładka 70%, nagłówek + podtytuł = ostatnie zdanie briefu (wcześniej
+     tagline w sekcji Zamów — przeniesione na życzenie użytkownika; zastąpiło podtytuł spod tytułu briefu) -->
+<section class="neony-hero neon-hero">
   <div class="neony-hero-img">
-    <img src="assets/images/project-beauty-kaseton.jpg" alt="Kasetony i semafory reklamowe NEOFOX">
+    <img src="assets/images/kasetony/am-market-poziomy.jpg" alt="Niebieski kaseton nad witryną sklepu z podświetlonymi literami przestrzennymi „AM MARKET”" style="object-position: 50% 50%" fetchpriority="high">
   </div>
   <div class="neony-hero-overlay"></div>
   <div class="neony-hero-content">
-    <h1 class="neony-hero-heading">KASETONY I SEMAFORY</h1>
-    <p class="neony-hero-sub">Elegancka i skuteczna forma oznakowania firmy — kasetony na elewację oraz semafory widoczne z chodnika i z ulicy.</p>
+    <h1 class="neony-hero-heading">Kasetony reklamowe LED<br>na zamówienie</h1>
+    <p class="neony-hero-sub">Kasetony reklamowe • kasetony LED • kasetony semaforowe • szyldy z Dibondu • produkcja, dostawa i montaż</p>
   </div>
 </section>
 
-<!-- SEKCJA 1: KORZYŚCI -->
-<section class="nl-intro">
-  <div class="nl-intro-inner">
-    <h2 class="nl-intro-heading">Jedna z najskuteczniejszych form oznakowania firmy</h2>
-    <p class="nl-intro-lead">Kasetony to jedna z najskuteczniejszych i najbardziej eleganckich form oznakowania firmy. Wykonujemy je w pełni na indywidualne zamówienie — pod względem kształtu, wymiarów, kolorystyki oraz technologii. Semafory reklamowe montowane prostopadle do elewacji sprawiają, że Twoja marka jest dobrze widoczna zarówno z chodnika, jak i z ulicy.</p>
-
-    <div class="nl-benefits">
-
-      <div class="nl-benefit">
-        <div class="nl-benefit-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="14" width="36" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-            <line x1="14" y1="24" x2="34" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 class="nl-benefit-title">Dowolny kształt i rozmiar</h3>
-        <p class="nl-benefit-text">Kwadratowe, prostokątne, okrągłe, owalne lub niestandardowe — w pełni dopasowane do miejsca montażu.</p>
-      </div>
-
-      <div class="nl-benefit">
-        <div class="nl-benefit-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 4l4.5 9 10 1.5-7.25 7 1.75 10L24 27l-9 4.5 1.75-10L9.5 14.5l10-1.5L24 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="nl-benefit-title">Podświetlenie LED</h3>
-        <p class="nl-benefit-text">Wysoka widoczność przy niskim zużyciu energii — także w wariancie z efektem halo.</p>
-      </div>
-
-      <div class="nl-benefit">
-        <div class="nl-benefit-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2"/>
-            <path d="M15 24l7 7 11-14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h3 class="nl-benefit-title">Trwałość i odporność</h3>
-        <p class="nl-benefit-text">Materiały odporne na warunki atmosferyczne — sprawdzają się wewnątrz i na zewnątrz budynku.</p>
-      </div>
-
+<!-- INTRO -->
+<section class="neon-section neon-intro">
+  <div class="container neon-head-row">
+    <h2 class="neon-heading">Produkujemy kasetony reklamowe <span class="accent-text">podświetlane LED</span></h2>
+    <div>
+      <p class="neon-text">Produkujemy kasetony reklamowe podświetlane LED oraz kasetony bez podświetlenia, dopasowane do logotypu, identyfikacji wizualnej i miejsca montażu. Wykonujemy kasetony prostokątne, kwadratowe, okrągłe, montowane na ścianie lub prostopadle do elewacji jako kasetony semaforowe dwustronne. Oferujemy konstrukcje z profili kasetonowych, giętych płyt kompozytowych typu Dibond, elementy frezowane i wycinane oraz kasetony z podświetlanym licem lub podświetlanymi literami.</p>
+      <p class="neon-text">Każdy szyld projektujemy indywidualnie: dobieramy wymiary, materiał, kolor, sposób świecenia, konstrukcję i mocowanie. Możliwe jest zamówienie kasetonu z dostawą, montażem i instalacją.</p>
     </div>
   </div>
 </section>
 
-<!-- SEKCJA 2: DLACZEGO MY? -->
-<section class="nl-why">
-  <div class="nl-why-content">
-    <h2 class="nl-section-heading">Pełen wachlarz rozwiązań wizualnych</h2>
-    <ul class="nl-feature-list">
-
-      <li class="nl-feature">
-        <div class="nl-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="nl-feature-body">
-          <strong class="nl-feature-title">Litery wypukłe lub płaskie.</strong>
-          <p class="nl-feature-text">Konstrukcje jednostronne lub dwustronne, z elementami wycinanymi wewnętrznie.</p>
-        </div>
-      </li>
-
-      <li class="nl-feature">
-        <div class="nl-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-        </div>
-        <div class="nl-feature-body">
-          <strong class="nl-feature-title">Efekty wizualne na życzenie.</strong>
-          <p class="nl-feature-text">Efekt halo, powierzchnie lustrzane, szarpany dibond, niestandardowe kolory i kształty.</p>
-        </div>
-      </li>
-
-      <li class="nl-feature">
-        <div class="nl-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-        </div>
-        <div class="nl-feature-body">
-          <strong class="nl-feature-title">Materiały najwyższej jakości.</strong>
-          <p class="nl-feature-text">Aluminium, stal, plexiglas, dibond oraz profile gięte i spawane, dobrane do miejsca montażu.</p>
-        </div>
-      </li>
-
-      <li class="nl-feature">
-        <div class="nl-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="nl-feature-body">
-          <strong class="nl-feature-title">Pylony i totemy.</strong>
-          <p class="nl-feature-text">Realizujemy również duże, wielkoformatowe konstrukcje reklamowe dla obiektów handlowych i sieciowych.</p>
-        </div>
-      </li>
-
-    </ul>
-  </div>
-  <div class="nl-why-image">
-    <img src="assets/images/juamo-kaseton-okragly.jpg" alt="Kaseton okrągły NEOFOX">
-  </div>
-</section>
-
-<!-- SEKCJA 3: DWA TYPY KLIENTA -->
-<section class="nl-paths">
+<!-- pasek zdjęć „kaseton na elewacji” (notka z briefu) w siatce 1200px; dolna połowa leży na czarnym tle sekcji 1 -->
+<div class="neon-strip-band neon-strip-band--dark">
   <div class="container">
-    <h2 class="nl-section-heading nl-paths-heading">Zobacz nasze realizacje albo wyślij własny projekt</h2>
-    <div class="nl-paths-grid">
-
-      <div class="nl-path-card">
-        <h3 class="nl-path-title">Zobacz nasze realizacje</h3>
-        <p class="nl-path-text">Sprawdź, jak kasetony i semafory reklamowe wyglądają na fasadach realnych firm — w naszej galerii realizacji.</p>
-        <a href="galeria.html" class="btn btn-outline">Przejdź do galerii</a>
-      </div>
-
-      <div class="nl-path-card nl-path-card--dark">
-        <h3 class="nl-path-title">Twój projekt</h3>
-        <p class="nl-path-text">Masz gotową specyfikację lub chcesz stworzyć koncepcję od podstaw? Prześlij nam swój pomysł — przygotujemy darmową wizualizację wraz z wyceną.</p>
-        <a href="index.html#wycena" class="btn btn-primary">Wyceń swój projekt</a>
-      </div>
-
+    <div class="neon-strip">
+      <figure class="neon-photo"><img src="assets/images/kasetony/atmosphere.jpg" alt="Granatowy kaseton ze złotym napisem „Atmosphere kawa i kwiaty” nad wejściem do lokalu" style="object-position: 50% 40%" loading="lazy"></figure>
+      <figure class="neon-photo"><img src="assets/images/kasetony/cutcut-ulica.jpg" alt="Elewacja z czerwonej cegły z rzędem czarnych kasetonów nad witrynami lokali na parterze" style="object-position: 50% 50%" loading="lazy"></figure>
+      <figure class="neon-photo"><img src="assets/images/kasetony/szkolna-30.jpg" alt="Budynek nocą z podświetlonymi kasetonami z logotypami i pionowym napisem „SZKOLNA 30”" style="object-position: 50% 50%" loading="lazy"></figure>
+      <figure class="neon-photo"><img src="assets/images/kasetony/frave-ulica.jpg" alt="Czarny semafor „FRAVE” na elewacji kamienicy nad ogródkiem kawiarni" style="object-position: 50% 50%" loading="lazy"></figure>
     </div>
-  </div>
-</section>
-
-<!-- SEKCJA 4: DETALE TECHNICZNE -->
-<section class="nl-tech">
-  <div class="nl-tech-image">
-    <img src="assets/images/zesmashowani-kaseton.jpg" alt="Detal techniczny kasetonu">
-  </div>
-  <div class="nl-tech-content">
-    <h2 class="nl-section-heading">Jak to robimy? Parametry i technologia</h2>
-    <ul class="nl-tech-list">
-      <li>
-        <strong>Materiały:</strong> aluminium, stal, plexiglas, dibond oraz profile gięte i spawane, dobrane do miejsca montażu i oczekiwanego efektu wizualnego.
-      </li>
-      <li>
-        <strong>Kształty i wykończenia:</strong> prostokątne, płaskie, okrągłe, owalne, z giętym licem, w wykończeniu standardowym lub specjalnym (efekt lustra, szarpany dibond).
-      </li>
-      <li>
-        <strong>Montaż w całej Europie:</strong> zapewniamy projekt, produkcję i pełną obsługę montażową także dla najbardziej wymagających, niestandardowych projektów.
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- PASEK ZDJĘĆ -->
-<div class="nl-photo-strip">
-  <div class="nl-photo-strip-item">
-    <img src="assets/images/project-beauty-kaseton.jpg" alt="Realizacja NEOFOX">
-  </div>
-  <div class="nl-photo-strip-item">
-    <img src="assets/images/juamo-kaseton-okragly.jpg" alt="Realizacja NEOFOX">
-  </div>
-  <div class="nl-photo-strip-item">
-    <img src="assets/images/zesmashowani-kaseton.jpg" alt="Realizacja NEOFOX">
-  </div>
-  <div class="nl-photo-strip-item">
-    <img src="assets/images/medicadent-nocna.jpg" alt="Realizacja NEOFOX">
   </div>
 </div>
 
-<!-- SEKCJA 5: PROCES -->
-<section class="nl-process">
-  <div class="container">
-    <h2 class="nl-section-heading nl-process-heading">Od pomysłu do realizacji</h2>
-    <div class="nl-process-grid">
-
-      <div class="nl-process-item">
-        <div class="nl-process-icon">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M32 8C20 8 10 18 10 30c0 8 4.5 15 11 19v7h22v-7c6.5-4 11-11 11-19C54 18 44 8 32 8z"/>
-            <line x1="24" y1="56" x2="40" y2="56"/>
-            <line x1="32" y1="30" x2="32" y2="42"/>
-          </svg>
-        </div>
-        <h3 class="nl-process-title">Kontakt i wycena</h3>
-        <p class="nl-process-text">Opisujesz nam kształt, rozmiar i miejsce montażu kasetonu lub semaforu — my doradzamy resztę.</p>
-      </div>
-
-      <div class="nl-process-item">
-        <div class="nl-process-icon">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="10" y="6" width="44" height="52" rx="3"/>
-            <line x1="20" y1="20" x2="44" y2="20"/>
-            <rect x="20" y="30" width="10" height="14" rx="1"/>
-            <rect x="34" y="30" width="10" height="8" rx="1"/>
-          </svg>
-        </div>
-        <h3 class="nl-process-title">Projekt i wizualizacja</h3>
-        <p class="nl-process-text">Przygotowujemy wizualizację konstrukcji wraz z podświetleniem, zanim ruszy produkcja.</p>
-      </div>
-
-      <div class="nl-process-item">
-        <div class="nl-process-icon">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="32" cy="32" r="10"/>
-            <circle cx="32" cy="32" r="20"/>
-            <line x1="32" y1="6" x2="32" y2="12"/>
-            <line x1="32" y1="52" x2="32" y2="58"/>
-            <line x1="6" y1="32" x2="12" y2="32"/>
-            <line x1="52" y1="32" x2="58" y2="32"/>
-          </svg>
-        </div>
-        <h3 class="nl-process-title">Produkcja</h3>
-        <p class="nl-process-text">Wykonujemy konstrukcję z aluminium, stali lub dibondu we własnym warsztacie, dbając o każdy detal.</p>
-      </div>
-
-      <div class="nl-process-item">
-        <div class="nl-process-icon">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="8" y="24" width="30" height="16" rx="3"/>
-            <path d="M38 28h8l8 8v8H38V28z"/>
-            <circle cx="18" cy="44" r="4"/>
-            <circle cx="48" cy="44" r="4"/>
-          </svg>
-        </div>
-        <h3 class="nl-process-title">Montaż w całej Europie</h3>
-        <p class="nl-process-text">Zapewniamy pełną obsługę montażową, również dla niestandardowych i wielkoformatowych konstrukcji.</p>
-      </div>
-
-    </div>
-    <div class="nl-process-cta">
-      <a href="index.html#wycena" class="btn btn-primary">Wyceń swój projekt</a>
+<!-- 1. CZYM JEST KASETON — czarna sekcja jak "Kolory" na Neony LED / "Efekt HALO" na Backlit -->
+<section class="neon-colors" id="czym-jest">
+  <div class="container neon-colors-inner">
+    <figure class="neon-photo neon-colors-media">
+      <img src="assets/images/kasetony/zlote-litery-pisane.jpg" alt="Złote, lustrzane litery pisane ze świecącymi krawędziami na czarnym froncie kasetonu ze złotą ramką" style="object-position: 50% 55%" loading="lazy">
+    </figure>
+    <div class="neon-colors-content">
+      <h2 class="neon-heading">Czym jest kaseton reklamowy <span class="accent-text">i&nbsp;jakie ma zastosowanie?</span></h2>
+      <p class="neon-text">Kaseton reklamowy to przestrzenny szyld z obudową i frontem przeznaczonym do ekspozycji grafiki, logo lub liter. Może być jednostronny albo dwustronny, podświetlany w całości, punktowo lub pozbawiony podświetlenia.</p>
+      <p class="neon-text">Kasetony wykorzystuje się do oznakowania sklepów, lokali usługowych, salonów beauty, restauracji, aptek, biur, hoteli, punktów handlowych i obiektów przemysłowych. Odpowiednio dobrane oświetlenie poprawia czytelność reklamy po zmroku.</p>
     </div>
   </div>
 </section>
 
-<!-- SEKCJA 6: CTA + FORMULARZ -->
-<section class="nl-cta">
+<!-- 2. KASETONY ŚCIENNE — układ jak "Wymiary i odwzorowanie logo" na Backlit: tekst po lewej, kwadratowe zdjęcie
+     po prawej, tekst wyrównany do górnej krawędzi zdjęcia -->
+<section class="neon-sizes" id="scienne">
+  <div class="container neon-sizes-inner neon-sizes-inner--top">
+    <div class="neon-sizes-content">
+      <h2 class="neon-heading">Kasetony montowane na ścianie – <span class="accent-text">jednostronne</span></h2>
+      <p class="neon-text">Wykonujemy kasetony przeznaczone do montażu bezpośrednio na ścianie, elewacji, fasadzie lub przygotowanej konstrukcji. W zależności od projektu stosujemy profile kasetonowe, aluminiowe ramy oraz obudowy z giętego kompozytu aluminiowego.</p>
+      <p class="neon-text">Kasetony ścienne mogą mieć podświetlane całe lico, wybrane fragmenty grafiki lub pojedyncze litery i znaki. Możemy wykonać kaseton o prostych bokach, z frezowanym frontem, nakładanymi literami albo indywidualnym kształcie.</p>
+    </div>
+    <figure class="neon-photo neon-sizes-media neon-sizes-media--square">
+      <img src="assets/images/kasetony/cutcut.jpg" alt="Czarne kasetony z białymi napisami „pracownia fryzjerska” i „cutcut” nad witrynami na elewacji z czerwonej cegły" style="object-position: 50% 32%" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- 3. KASETONY SEMAFOROWE — nagłówek | tekst, pod spodem 3 zdjęcia kształtów (notka z briefu: semafor okrągły /
+     kwadratowy / prostokątny) w pasie; dolna połowa na szarym tle sekcji Technologie -->
+<section class="neon-materials" id="semafory">
+  <div class="container neon-head-row">
+    <h2 class="neon-heading">Kasetony semaforowe – <span class="accent-text">dwustronne, prostopadłe do&nbsp;ściany</span></h2>
+    <div>
+      <p class="neon-text">Produkujemy kasetony semaforowe, czyli szyldy montowane prostopadle do ściany, widoczne dla osób poruszających się w obu kierunkach wzdłuż ulicy lub pasażu.</p>
+      <p class="neon-text">Oferujemy semafory okrągłe, kwadratowe i prostokątne, w wersjach dwustronnych, z podświetleniem LED lub bez. Sposób mocowania, wysięg i konstrukcję wsporczą dobieramy do wymiarów, ciężaru kasetonu oraz warunków elewacji.</p>
+    </div>
+  </div>
+
+  <div class="neon-materials-band neon-materials-band--gray">
+    <div class="container">
+      <div class="neon-materials-gallery neon-materials-gallery--3">
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/okragly-kaseton.jpg" alt="Okrągły, podświetlony kaseton z żółtym bokiem i żółtą grafiką głowy smoka na białym licu" style="object-position: 50% 70%" loading="lazy">
+          <figcaption>Okrągły kaseton</figcaption>
+        </figure>
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/beer-funtasy.jpg" alt="Czarny semafor z białym logo „BEER FUNTASY” zamocowany prostopadle do elewacji kamienicy" style="object-position: 45% 50%" loading="lazy">
+          <figcaption>Kwadratowy semafor</figcaption>
+        </figure>
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/frave.jpg" alt="Czarny, prostokątny semafor „FRAVE breakfast dine and wine” zamocowany prostopadle do elewacji kamienicy" style="object-position: 60% 30%" loading="lazy">
+          <figcaption>Prostokątny semafor</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TECHNOLOGIE — 4 kafelki w rzędzie jak "Materiały" na Backlit, na szarym tle (białe kafelki, jak "Akcesoria") -->
+<section class="neon-materials neon-materials--gray" id="technologie">
+  <div class="container">
+    <div class="neon-head-center">
+      <h2 class="neon-heading">Technologie produkcji – <span class="accent-text">profile, gięcie, frezowanie i&nbsp;wycinanie</span></h2>
+    </div>
+
+    <ul class="neon-materials-grid neon-materials-grid--4">
+      <li class="neon-material">
+        <h3 class="neon-material-title">Kasetony z profilu kasetonowego</h3>
+        <p class="neon-text">Klasyczne obudowy oparte na profilach, umożliwiające wykonanie estetycznych szyldów z wymiennym lub stałym licem, zależnie od projektu.</p>
+      </li>
+      <li class="neon-material">
+        <h3 class="neon-material-title">Kasetony z giętego Dibondu</h3>
+        <p class="neon-text">Obudowa formowana z frezowanej i zaginanej płyty kompozytowej. Technologia pozwala uzyskać nowoczesne, gładkie powierzchnie i precyzyjne krawędzie.</p>
+      </li>
+      <li class="neon-material">
+        <h3 class="neon-material-title">Kasetony frezowane i wycinane</h3>
+        <p class="neon-text">Fronty z wyciętymi literami, logo lub grafiką; otwory mogą być podklejane plexi opalową, aby świeciły tylko wskazane elementy.</p>
+      </li>
+      <li class="neon-material">
+        <h3 class="neon-material-title">Kasetony z literami przestrzennymi</h3>
+        <p class="neon-text">Na licu montujemy oddzielne litery LED lub inne elementy przestrzenne, tworząc wielowarstwowy efekt reklamy.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. RODZAJE PODŚWIETLENIA — kafelki ze zdjęciami 2×2 (.tile ze style.css, jak "Personalizacja" na Neony LED);
+     drugi rząd w pasie .neon-tiles-band — szare tło sekcji Materiały "najeżdża" na kafelki -->
+<section class="neon-personal" id="podswietlenie">
+  <div class="neon-personal-head">
+    <div class="container neon-head-center">
+      <h2 class="neon-heading neon-heading--one-line">Rodzaje podświetlenia <span class="accent-text">kasetonów LED</span></h2>
+    </div>
+  </div>
+
+  <div class="container">
+  <div class="neon-tiles neon-tiles--2">
+    <div class="tile">
+      <img src="assets/images/kasetony/balagan-bok.jpg" alt="Kwadratowy kaseton z równomiernie świecącym, białym licem i napisem „bałagan fryzjerzy”" class="tile-image" style="object-position: 50% 55%" loading="lazy">
+      <div class="tile-overlay"></div>
+      <div class="tile-content">
+        <h3 class="tile-title">Podświetlane całe lico</h3>
+        <p class="neon-tile-desc">Równomierne rozświetlenie frontu z plexi opalowej lub odpowiednio przygotowanej powierzchni przepuszczającej światło.</p>
+      </div>
+    </div>
+    <div class="tile">
+      <img src="assets/images/kasetony/barber-pro.jpg" alt="Czarny kaseton w galerii handlowej ze świecącymi literami „BARBER PRO gentelman's place”" class="tile-image" style="object-position: 50% 45%" loading="lazy">
+      <div class="tile-overlay"></div>
+      <div class="tile-content">
+        <h3 class="tile-title">Podświetlane litery i logo</h3>
+        <p class="neon-tile-desc">Świecą wyłącznie wyfrezowane lub wycięte elementy, z podklejeniem materiałem rozpraszającym światło.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="neon-tiles-band">
+  <div class="container">
+  <div class="neon-tiles neon-tiles--2">
+    <div class="tile">
+      <img src="assets/images/kasetony/atmosphere-zblizenie.jpg" alt="Zbliżenie: złote litery przestrzenne ze świecącymi krawędziami na granatowym kasetonie" class="tile-image" style="object-position: 50% 30%" loading="lazy">
+      <div class="tile-overlay"></div>
+      <div class="tile-content">
+        <h3 class="tile-title">Litery przestrzenne na kasetonie</h3>
+        <p class="neon-tile-desc">Możliwość połączenia kasetonu z literami Frontlit, a w odpowiednio zaprojektowanych konstrukcjach także z efektem HALO.</p>
+      </div>
+    </div>
+    <div class="tile">
+      <img src="assets/images/kasetony/melanin.jpg" alt="Granatowy kaseton ze złotym logo i literami „Melanin Nails &amp; Lux” na żółtej elewacji, w świetle dziennym" class="tile-image" style="object-position: 50% 50%" loading="lazy">
+      <div class="tile-overlay"></div>
+      <div class="tile-content">
+        <h3 class="tile-title">Bez podświetlenia</h3>
+        <p class="neon-tile-desc">Kasetony i szyldy dekoracyjne do ekspozycji dziennej, z nadrukiem, folią lub przestrzennymi detalami.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+<!-- 6. MATERIAŁY — jak "Kolory boków" na Frontlit: po lewej lista wykończeń z briefu (wypunktowanie w 2 kolumnach),
+     po prawej nagłówek z tekstem (.neon-head-row--swap — w HTML nagłówek jest pierwszy) -->
+<section class="neon-section neon-section--gray neon-tech" id="materialy">
+  <div class="container neon-head-row neon-head-row--swap">
+    <div>
+      <h2 class="neon-heading">Materiały – <span class="accent-text">Dibond, aluminium, plexi i&nbsp;inne rozwiązania</span></h2>
+      <p class="neon-text">Podstawą wielu naszych realizacji są płyty kompozytowe aluminiowe typu Dibond, profile i elementy aluminiowe, plexi (PMMA) oraz wybrane tworzywa sztuczne. Materiał dobieramy do przeznaczenia, wielkości, warunków atmosferycznych i planowanego podświetlenia.</p>
+      <p class="neon-text">W zależności od projektu można również rozważyć plexi mleczną, bezbarwną i barwioną, poliwęglan, PCV spienione, blachę aluminiową oraz stal nierdzewną. Są to materiały spotykane w branży reklamowej; możliwość ich zastosowania i dostępność w konkretnej realizacji potwierdzamy podczas wyceny.</p>
+    </div>
+    <div>
+      <p class="neon-text">Dostępne warianty wykończenia płyt kompozytowych obejmują m.in.:</p>
+      <ul class="neon-bullet-list neon-bullet-list--2col">
+        <li>Złoto szczotkowane</li>
+        <li>Srebro szczotkowane</li>
+        <li>Złoto lustrzane</li>
+        <li>Srebro lustrzane</li>
+        <li>Powierzchnie matowe</li>
+        <li>Powierzchnie połyskliwe</li>
+        <li>Powierzchnie kolorowe</li>
+      </ul>
+      <p class="neon-text neon-text--small">Zależnie od dostępności danego dekoru i dostawcy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. KOLORY — nagłówek | tekst, pod spodem 3 zdjęcia kasetonów w różnych kolorach (podpisy: tylko widoczny kolor);
+     dolna połowa na szarym tle sekcji Wymiary -->
+<section class="neon-materials" id="kolory">
+  <div class="container neon-head-row">
+    <h2 class="neon-heading">Kolory, malowanie RAL i&nbsp;NCS <span class="accent-text">oraz folie Oracal</span></h2>
+    <div>
+      <p class="neon-text">Konstrukcje i elementy aluminiowe możemy wykańczać w wybranej kolorystyce, w tym malować na kolor z palet RAL lub NCS, odpowiednio do zastosowanej technologii i powierzchni. Możliwe są także wykończenia matowe, półmatowe i połyskliwe – po potwierdzeniu wariantu.</p>
+      <p class="neon-text">Kasetony oklejamy foliami Oracal i innymi foliami reklamowymi dobranymi do podłoża oraz warunków użytkowania. Pozwala to dopasować kolor tła, boków i elementów graficznych do identyfikacji wizualnej marki.</p>
+      <p class="neon-text">Do elementów podświetlanych dobieramy folie przeznaczone do pracy ze światłem, np. serie translucent, takie jak Oracal 8500. Możemy także łączyć oklejanie z drukiem UV lub nadrukiem na folii, jeżeli wymaga tego projekt.</p>
+    </div>
+  </div>
+
+  <div class="neon-materials-band neon-materials-band--gray">
+    <div class="container">
+      <div class="neon-materials-gallery neon-materials-gallery--3">
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/kimchi.jpg" alt="Pionowy semafor na wspornikach z niebiesko podświetlonym licem i czarnym napisem „KIMCHI”" style="object-position: 50% 62%" loading="lazy">
+          <figcaption>Niebieskie lico</figcaption>
+        </figure>
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/namaste.jpg" alt="Różowy szyld z zaokrąglonymi rogami i świecącą krawędzią, z żółto świecącym napisem „namaste” i białym „INDIAN &amp; TANDOORI”, na wysięgniku na elewacji kamienicy" style="object-position: 60% 30%" loading="lazy">
+          <figcaption>Różowy szyld ze świecącym napisem</figcaption>
+        </figure>
+        <figure class="neon-photo">
+          <img src="assets/images/kasetony/czerwony-semafor.jpg" alt="Pionowy semafor z czerwono podświetlonym licem i czarnymi znakami koreańskiego alfabetu" style="object-position: 50% 55%" loading="lazy">
+          <figcaption>Czerwone lico</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. WYMIARY — nagłówek | tekst na szarym tle (tło zaczyna się w połowie zdjęć wyżej) -->
+<section class="neon-section neon-section--gray neon-tech" id="wymiary">
+  <div class="container neon-head-row">
+    <h2 class="neon-heading">Wymiary – do&nbsp;3&nbsp;metrów w&nbsp;jednym elemencie, <span class="accent-text">większe kasetony modułowe</span></h2>
+    <div>
+      <p class="neon-text">W standardowej technologii możemy wykonać kaseton o długości do około 3&nbsp;m w jednym elemencie. Wymiary drugiego boku, głębokość i sposób wykonania zależą od wybranego materiału, konstrukcji i możliwości transportu.</p>
+      <p class="neon-text">Kasetony dłuższe niż 3&nbsp;m wykonujemy jako konstrukcje dzielone na części, odpowiednio połączone i usztywnione. Dzięki temu możemy realizować duże reklamy świetlne i długie oznakowania elewacyjne; 3&nbsp;m nie jest maksymalnym rozmiarem całego szyldu.</p>
+      <p class="neon-text">Podział na moduły planujemy z uwzględnieniem estetyki łączeń, rozkładu oświetlenia, nośności i warunków montażu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. ZASILANIE — nagłówek | tekst. Bez infografiki zasilaczy z Neony LED: klient nie przysłał jej do tej strony,
+     a jej opisy (IP67, wtyczka w komplecie) wykraczają poza brief kasetonów -->
+
+<section class="neon-section" id="zasilanie">
+  <div class="container">
+    <div class="neon-head-row">
+      <h2 class="neon-heading">Zasilanie 12&nbsp;V DC <span class="accent-text">i&nbsp;oświetlenie LED</span></h2>
+      <div>
+        <p class="neon-text">W naszych kasetonach podświetlanych stosujemy systemy LED 12&nbsp;V DC, z modułami lub taśmami dobranymi do wymiarów i konstrukcji szyldu. Dostępne jest światło białe ciepłe, neutralne i zimne, a także wybrane kolory na zamówienie.</p>
+        <p class="neon-text">Do podłączenia kasetonu do sieci 230&nbsp;V niezbędny jest odpowiednio dobrany zasilacz LED 12&nbsp;V. Moc zasilania, rozmieszczenie źródeł światła i zabezpieczenia ustalamy indywidualnie. W reklamach zewnętrznych stosujemy komponenty i rozwiązania montażowe dostosowane do warunków eksploatacji.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. KONSTRUKCJE I MONTAŻ — kwadratowe zdjęcie po lewej (figure pierwsza w HTML), tekst wyrównany do jego górnej krawędzi;
+     zdjęcie: semafor z widocznymi uchwytami -->
+<section class="neon-sizes" id="konstrukcje">
+  <div class="container neon-sizes-inner neon-sizes-inner--top">
+    <figure class="neon-photo neon-sizes-media neon-sizes-media--square">
+      <img src="assets/images/kasetony/umalovana.jpg" alt="Kwadratowy, podświetlony semafor „UMALOVANA studio beauty” z czarnymi uchwytami do montażu na ścianie" style="object-position: 50% 62%" loading="lazy">
+    </figure>
+    <div class="neon-sizes-content">
+      <h2 class="neon-heading">Konstrukcje <span class="accent-text">i&nbsp;sposoby montażu</span></h2>
+      <p class="neon-text">Przygotowujemy kasetony do montażu płaskiego na elewacji, montażu prostopadłego na wysięgniku lub uchwytach oraz instalacji na przygotowanej konstrukcji nośnej.</p>
+      <p class="neon-text">Stosujemy indywidualnie dobierane stelaże aluminiowe, wsporniki i mocowania. W zależności od projektu możliwe są również podkłady z płyt kompozytowych i elementy z tworzyw sztucznych. Liczbę punktów mocowania oraz rodzaj kotwienia określamy na podstawie wymiarów, ciężaru, podłoża i warunków obciążenia, szczególnie w przypadku semaforów zewnętrznych.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. WNĘTRZA I ZEWNĄTRZ — dwa poziome panele jak na pozostałych stronach (białe tło); brief nie ma tu notki,
+     więc sekcja zamyka się paddingiem (.neon-env--no-note) -->
+<section class="neon-env neon-env--no-note" id="wnetrza-zewnatrz">
+  <div class="neon-env-head">
+    <div class="container">
+      <h2 class="neon-heading">Kasetony <span class="accent-text">do wnętrz i&nbsp;na zewnątrz</span></h2>
+    </div>
+  </div>
+
+  <div class="container neon-env-grid">
+    <figure class="neon-photo neon-env-panel">
+      <img src="assets/images/kasetony/verona-poziomy.jpg" alt="Biały kaseton z czarnym napisem „Verona” nad wejściem do sklepu w galerii handlowej" loading="lazy">
+      <figcaption>
+        <span class="neon-env-title">Kasetony wewnętrzne</span>
+        <span class="neon-env-text">Oznakowanie lokali w galeriach handlowych, recepcji, stoisk, biur i punktów usługowych. Mogą łączyć dekoracyjne wykończenia z subtelnym podświetleniem.</span>
+      </figcaption>
+    </figure>
+    <figure class="neon-photo neon-env-panel">
+      <img src="assets/images/kasetony/identa-poziomy.jpg" alt="Niebieski kaseton z białym napisem „iDenta” na elewacji budynku" loading="lazy">
+      <figcaption>
+        <span class="neon-env-title">Kasetony zewnętrzne</span>
+        <span class="neon-env-text">Szyldy na fasady, elewacje, witryny i wejścia do budynków. Dobieramy odpowiednią konstrukcję, materiały, rozwiązania elektryczne i ochronę przed wpływem warunków atmosferycznych.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 12. PERSONALIZACJA — tekst po lewej, kwadratowe zdjęcie po prawej (szare tło) -->
+<section class="neon-sizes" id="personalizacja">
+  <div class="container neon-sizes-inner neon-sizes-inner--top">
+    <div class="neon-sizes-content">
+      <h2 class="neon-heading">Personalizacja – <span class="accent-text">logo, grafika i&nbsp;identyfikacja marki</span></h2>
+      <p class="neon-text">Wykonujemy kasetony według przesłanego logotypu, projektu graficznego lub wytycznych identyfikacji wizualnej. Możemy połączyć kolorową folię, druk, frezowanie, plexi i przestrzenne litery w jednym szyldzie.</p>
+      <p class="neon-text">Przed produkcją uzgadniamy proporcje, wymiary, kolorystykę, typ podświetlenia i sposób montażu, aby kaseton był czytelny i spójny z wyglądem lokalu.</p>
+    </div>
+    <figure class="neon-photo neon-sizes-media neon-sizes-media--square">
+      <img src="assets/images/kasetony/papi.jpg" alt="Kaseton w kształcie logo z kolorową grafiką „PAPI kebab który oddaje” na stole w pracowni, obok białych liter przestrzennych" style="object-position: 50% 62%" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- 13. DOSTAWA, MONTAŻ, MODERNIZACJA — zdjęcie po lewej (białe tło, .neon-sizes--white); montaż z drabin -->
+<section class="neon-sizes neon-sizes--white" id="montaz">
+  <div class="container neon-sizes-inner neon-sizes-inner--top">
+    <figure class="neon-photo neon-sizes-media neon-sizes-media--square">
+      <img src="assets/images/kasetony/melanin-montaz.jpg" alt="Dwóch montażystów w koszulkach NEOFOX przy granatowym kasetonie „Melanin Nails &amp; Lux” na żółtej elewacji – jeden na drabinie, drugi z wiertarką na chodniku" style="object-position: 50% 45%" loading="lazy">
+    </figure>
+    <div class="neon-sizes-content">
+      <h2 class="neon-heading">Dostawa, montaż <span class="accent-text">i&nbsp;modernizacja kasetonów</span></h2>
+      <p class="neon-text">Oferujemy produkcję kasetonów reklamowych na zamówienie, przygotowanie konstrukcji, dostawę oraz – w uzgodnionym zakresie – montaż i instalację. Możliwe jest także zamówienie kasetonu do samodzielnego montażu.</p>
+      <p class="neon-text">W zależności od stanu istniejącego szyldu możemy ocenić możliwość wymiany modułów LED, zasilacza, lica, grafiki lub wybranych elementów obudowy. Zakres modernizacji ustalamy po ocenie technicznej.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA REALIZACJI — z notki briefu "galeria realizacji – kasetony ścienne i semaforowe"; sam nagłówek, bez akapitu.
+     Podpisy opisują tylko to, co widać na zdjęciu -->
+<section class="neon-gallery" id="realizacje">
+  <div class="neon-gallery-head neon-section--gray">
+    <div class="container neon-head-center">
+      <h2 class="neon-heading">Galeria realizacji – <span class="accent-text">kasetony ścienne i&nbsp;semaforowe</span></h2>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="neon-gallery-grid">
+    <a href="assets/images/kasetony/am-market.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/am-market.jpg" alt="Niebieski kaseton z podświetlonymi literami przestrzennymi „AM MARKET” nad witryną sklepu" style="object-position: 50% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>AM MARKET</strong><span>Niebieski kaseton z literami przestrzennymi</span></span>
+    </a>
+    <a href="assets/images/kasetony/beer-funtasy.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/beer-funtasy.jpg" alt="Czarny semafor z białym logo „BEER FUNTASY” na elewacji kamienicy" style="object-position: 45% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>BEER FUNTASY</strong><span>Czarny semafor na elewacji</span></span>
+    </a>
+    <a href="assets/images/kasetony/balagan.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/balagan.jpg" alt="Kwadratowy kaseton z białym, świecącym licem i napisem „bałagan fryzjerzy”" style="object-position: 50% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>bałagan fryzjerzy</strong><span>Kaseton z podświetlonym licem</span></span>
+    </a>
+    <a href="assets/images/kasetony/barber-pro.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/barber-pro.jpg" alt="Czarny kaseton ze świecącymi literami „BARBER PRO” w galerii handlowej" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>BARBER PRO</strong><span>Świecące litery na czarnym kasetonie</span></span>
+    </a>
+    <a href="assets/images/kasetony/frave-ulica.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/frave-ulica.jpg" alt="Czarny semafor „FRAVE” na elewacji kamienicy nad ogródkiem kawiarni" style="object-position: 60% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>FRAVE</strong><span>Semafor nad ogródkiem kawiarni</span></span>
+    </a>
+    <a href="assets/images/kasetony/namaste.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/namaste.jpg" alt="Różowy szyld z zaokrąglonymi rogami, z żółto świecącym napisem „namaste” i białym „INDIAN &amp; TANDOORI”" style="object-position: 60% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>namaste</strong><span>Różowy szyld ze świecącym napisem</span></span>
+    </a>
+    <a href="assets/images/kasetony/identa.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/identa.jpg" alt="Niebieski kaseton „iDenta” na elewacji, pod nim witryna z grafiką" style="object-position: 50% 25%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>iDenta</strong><span>Niebieski kaseton na elewacji</span></span>
+    </a>
+    <a href="assets/images/kasetony/umalovana.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/umalovana.jpg" alt="Kwadratowy, podświetlony semafor „UMALOVANA studio beauty” z uchwytami" style="object-position: 50% 62%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>UMALOVANA</strong><span>Kwadratowy semafor z uchwytami</span></span>
+    </a>
+    <a href="assets/images/kasetony/atmosphere.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/atmosphere.jpg" alt="Granatowy kaseton ze złotym napisem „Atmosphere kawa i kwiaty” nad wejściem" style="object-position: 50% 0%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Atmosphere</strong><span>Złoty napis na granatowym kasetonie</span></span>
+    </a>
+    <a href="assets/images/kasetony/kimchi.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/kimchi.jpg" alt="Pionowy semafor z niebiesko podświetlonym licem i napisem „KIMCHI”" style="object-position: 50% 62%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>KIMCHI</strong><span>Pionowy semafor z niebieskim licem</span></span>
+    </a>
+    <a href="assets/images/kasetony/verona.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/verona.jpg" alt="Biały kaseton z czarnym napisem „Verona” nad wejściem do sklepu w galerii handlowej" style="object-position: 50% 25%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Verona</strong><span>Kaseton w galerii handlowej</span></span>
+    </a>
+    <a href="assets/images/kasetony/okragly-kaseton.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/okragly-kaseton.jpg" alt="Okrągły, podświetlony kaseton z żółtą grafiką głowy smoka" style="object-position: 50% 70%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Okrągły kaseton</strong><span>Grafika na podświetlonym licu</span></span>
+    </a>
+    <a href="assets/images/kasetony/szkolna-30.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/szkolna-30.jpg" alt="Budynek nocą z podświetlonymi kasetonami z logotypami i pionowym napisem „SZKOLNA 30”" style="object-position: 40% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>SZKOLNA 30</strong><span>Podświetlone kasetony na budynku · nocą</span></span>
+    </a>
+    <a href="assets/images/kasetony/zlote-litery-pisane.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/zlote-litery-pisane.jpg" alt="Złote, lustrzane litery pisane na czarnym froncie kasetonu ze złotą ramką" style="object-position: 50% 55%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Złote litery pisane</strong><span>Na czarnym froncie ze złotą ramką</span></span>
+    </a>
+    <a href="assets/images/kasetony/czerwony-semafor.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/czerwony-semafor.jpg" alt="Pionowy semafor z czerwono podświetlonym licem i czarnymi znakami koreańskiego alfabetu" style="object-position: 50% 55%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Czerwony semafor</strong><span>Pionowy semafor z czerwonym licem</span></span>
+    </a>
+    <a href="assets/images/kasetony/cutcut.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/cutcut.jpg" alt="Czarne kasetony „pracownia fryzjerska” i „cutcut” nad witrynami na ceglanej elewacji" style="object-position: 50% 32%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>cutcut</strong><span>Czarne kasetony na ceglanej elewacji</span></span>
+    </a>
+    <a href="assets/images/kasetony/atmosphere-zblizenie.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/atmosphere-zblizenie.jpg" alt="Zbliżenie: złote litery przestrzenne na granatowym kasetonie" style="object-position: 50% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Atmosphere — zbliżenie</strong><span>Złote litery przestrzenne na kasetonie</span></span>
+    </a>
+    <a href="assets/images/kasetony/melanin-montaz.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/melanin-montaz.jpg" alt="Montaż granatowego kasetonu „Melanin Nails &amp; Lux” na żółtej elewacji" style="object-position: 50% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Melanin</strong><span>Kaseton ze złotym logo · montaż</span></span>
+    </a>
+    <a href="assets/images/kasetony/papi.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/papi.jpg" alt="Kaseton w kształcie logo z kolorową grafiką „PAPI” na stole w pracowni" style="object-position: 50% 62%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>PAPI</strong><span>Kaseton w kształcie logo · pracownia</span></span>
+    </a>
+    <a href="assets/images/kasetony/frave.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/frave.jpg" alt="Czarny, prostokątny semafor „FRAVE breakfast dine and wine” na elewacji kamienicy" style="object-position: 60% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>FRAVE</strong><span>Prostokątny semafor</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- 14. FAQ -->
+<section class="neon-section" id="faq">
+  <div class="container neon-faq-inner">
+    <div class="neon-faq-intro">
+      <h2 class="neon-heading">FAQ – najczęstsze pytania <span class="accent-text">o kasetony reklamowe</span></h2>
+      <a href="#zamow" class="btn btn-primary">Zapytaj o swój projekt</a>
+    </div>
+
+    <div class="neon-faq-list">
+      <details class="neon-faq-item" open>
+        <summary>Jakie kasetony wykonujecie?</summary>
+        <p>Ścienne, semaforowe, jednostronne i dwustronne, okrągłe, kwadratowe, prostokątne, z podświetleniem całego lica, liter lub bez LED.</p>
+      </details>
+      <details class="neon-faq-item">
+        <summary>Czy kaseton może być większy niż 3 metry?</summary>
+        <p>Tak. Kasetony o większej długości realizujemy w częściach, z konstrukcją dostosowaną do wymiarów.</p>
+      </details>
+      <details class="neon-faq-item">
+        <summary>Czy można dobrać konkretny kolor?</summary>
+        <p>Tak. Oferujemy malowanie wybranych elementów według RAL/NCS, oklejanie foliami Oracal i dobór dekorów płyt kompozytowych.</p>
+      </details>
+      <details class="neon-faq-item">
+        <summary>Czy wykonujecie kasetony dwustronne prostopadłe do ściany?</summary>
+        <p>Tak, to kasetony semaforowe, wykonywane m.in. w formie koła, kwadratu i prostokąta.</p>
+      </details>
+      <details class="neon-faq-item">
+        <summary>Jak zasilane są kasetony LED?</summary>
+        <p>Stosujemy instalacje LED 12&nbsp;V DC z zasilaczem odpowiednio dobranym do podłączenia do sieci 230&nbsp;V.</p>
+      </details>
+      <details class="neon-faq-item">
+        <summary>Czy można zamówić kaseton z montażem?</summary>
+        <p>Tak, oferujemy dostawę i montaż zgodnie z ustalonym zakresem realizacji.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- zastrzeżenie z końca briefu — pod FAQ jako wyśrodkowana notka z ikoną (jak notka o 12 V na Neony LED),
+       lepiej widoczna niż drobny druk w CTA (decyzja użytkownika) -->
+  <div class="container">
+    <div class="neon-flex-note neon-flex-note--center">
+      <svg class="neon-flex-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p class="neon-text"><strong>Uwaga:</strong> przykłady materiałów i wykończeń przedstawiają dostępne na rynku rozwiązania; zastosowanie niestandardowych wariantów potwierdzamy przy wycenie. Projekty mają charakter poglądowy i są dopasowywane do technologii, warunków montażu i obowiązujących wymagań przed produkcją.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 15. ZAMÓW — reużywa .nl-cta z neony-led.css; formularz identyczny jak na pozostałych przebudowanych stronach
+     (prefiks id nl-, ten sam skrypt), produkt domyślnie: Kasetony i Semafory; "Uwaga" z końca briefu jest pod FAQ -->
+<section class="nl-cta neon-cta" id="zamow">
   <div class="container nl-cta-inner">
 
-    <!-- LEWA: wezwanie + dane -->
     <div class="nl-cta-left">
-      <h2 class="nl-cta-heading">Gotowy na kaseton lub semafor z Twoim logo?</h2>
-      <p class="nl-cta-text">Zadzwoń do nas lub wyślij niezobowiązujące zapytanie. Doradzimy odpowiednią technologię i przygotujemy bezpłatną wizualizację!</p>
+      <h2 class="nl-cta-heading">Zamów kaseton reklamowy <span class="accent-text">dopasowany do&nbsp;Twojej firmy</span></h2>
+      <p class="nl-cta-text">Szukasz kasetonu reklamowego LED na elewację, dwustronnego kasetonu semaforowego albo eleganckiego szyldu z giętego Dibondu? Wykonamy projekt dopasowany do miejsca montażu, kolorystyki marki i oczekiwanego efektu.</p>
+      <p class="nl-cta-text">Prześlij logo, orientacyjne wymiary, zdjęcie miejsca montażu oraz informację, czy kaseton ma być jednostronny, dwustronny, podświetlany i przeznaczony do wnętrza czy na zewnątrz. Dobierzemy technologię, materiały, konstrukcję i sposób montażu.</p>
       <a href="tel:+48730627143" class="nl-cta-phone">+48 730 627 143</a>
       <div class="nl-cta-cards">
         <div class="nl-cta-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>neofox.pl@gmail.com</span>
+          <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
         </div>
         <div class="nl-cta-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -319,51 +579,80 @@
       </div>
     </div>
 
-    <!-- PRAWA: formularz -->
     <div class="nl-cta-form-col">
+      <!-- te same pola, etykiety i opcje co formularz w kontakt.html (produkt domyślnie: Kasetony i Semafory) -->
       <form class="nl-cta-form" action="#" method="post" novalidate>
         <div class="kf-row">
           <div class="kf-field">
-            <label for="nl-name" class="kf-label">Imię i nazwisko</label>
+            <label for="nl-name" class="kf-label">Imię i nazwisko*</label>
             <input type="text" id="nl-name" name="name" placeholder="np. Jan Kowalski" required>
           </div>
           <div class="kf-field">
-            <label for="nl-email" class="kf-label">Adres e-mail</label>
+            <label for="nl-email" class="kf-label">E-mail*</label>
             <input type="email" id="nl-email" name="email" placeholder="twoj@email.pl" required>
           </div>
         </div>
         <div class="kf-row">
           <div class="kf-field">
-            <label for="nl-phone" class="kf-label">Numer telefonu</label>
-            <input type="tel" id="nl-phone" name="phone" placeholder="+48 000 000 000">
+            <label for="nl-phone" class="kf-label">Numer telefonu*</label>
+            <input type="tel" id="nl-phone" name="phone" placeholder="+48 000 000 000" required>
           </div>
           <div class="kf-field">
-            <label for="nl-product" class="kf-label">Produkt</label>
-            <select id="nl-product" name="product">
-              <option value="" disabled selected>Wybierz produkt</option>
-              <option value="neon-led">Neon LED</option>
-              <option value="frontlit">Frontlit — litery podświetlane 3D</option>
-              <option value="backlit">Backlit — litery z efektem HALO</option>
-              <option value="kaseton-semafor" selected>Kaseton / semafor</option>
-              <option value="litery-niepodswietlane">Litery z tworzyw sztucznych, styroduru, PCV</option>
+            <label for="nl-product" class="kf-label">Czego dotyczy zapytanie?*</label>
+            <select id="nl-product" name="product" required>
+              <option value="" disabled>Wybierz produkt lub usługę</option>
+              <option value="neon-led">Neony LED</option>
+              <option value="frontlit">Frontlit — litery podświetlane przestrzenne 3D</option>
+              <option value="backlit">Backlit — litery podświetlane z efektem „HALO"</option>
+              <option value="kaseton-semafor" selected>Kasetony i Semafory</option>
+              <option value="litery-tworzywa">Litery z tworzyw sztucznych, styroduru, PCV</option>
               <option value="logo-plexi">Logo z plexi</option>
-              <option value="banery">Banery</option>
               <option value="naklejki">Naklejki na szyby</option>
-              <option value="wynajem-neonow">Wynajem neonów</option>
-              <option value="inny">Inny produkt</option>
+              <option value="banery">Banery</option>
+              <option value="konsultacja">Dobór rozwiązania / konsultacja</option>
+              <option value="inne">Inne</option>
             </select>
           </div>
         </div>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="nl-lokalizacja-typ" class="kf-label">Gdzie produkt będzie zamontowany?*</label>
+            <select id="nl-lokalizacja-typ" name="lokalizacja-typ" required>
+              <option value="" disabled selected>Wybierz</option>
+              <option value="wewnatrz">Wewnątrz</option>
+              <option value="zewnatrz">Na zewnątrz</option>
+            </select>
+          </div>
+          <div class="kf-field">
+            <label for="nl-rozmiar" class="kf-label">Rozmiar*</label>
+            <input type="text" id="nl-rozmiar" name="rozmiar" placeholder="np. 120 × 60 cm" required>
+          </div>
+        </div>
         <div class="kf-field kf-field-full">
-          <label for="nl-message" class="kf-label">Treść wiadomości</label>
-          <textarea id="nl-message" name="message" rows="4" placeholder="Opisz swój pomysł lub zapytanie..."></textarea>
+          <label class="kf-checkbox">
+            <input type="checkbox" id="nl-montaz" name="montaz">
+            <span>Jestem zainteresowany/a montażem</span>
+          </label>
+        </div>
+        <div class="kf-field kf-field-full kf-lokalizacja" id="nl-lokalizacja-wrap">
+          <label for="nl-lokalizacja" class="kf-label">Lokalizacja montażu</label>
+          <input type="text" id="nl-lokalizacja" name="lokalizacja" placeholder="np. Poznań, ul. Przykładowa 1">
+        </div>
+        <div class="kf-field kf-field-full">
+          <label for="nl-message" class="kf-label">Opis*</label>
+          <textarea id="nl-message" name="message" rows="5" placeholder="Opisz swoje zapytanie..." required></textarea>
         </div>
         <div class="kf-actions">
           <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
         </div>
         <label class="checkbox-field checkbox-fine-print nl-cta-consent">
           <input type="checkbox" id="nl-consent" name="consent" required>
-          <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu otrzymania odpowiedzi na przesłane zapytanie. <a href="#">Polityka prywatności*</a></span>
+          <span>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
+            w formularzu kontaktowym w celu otrzymania odpowiedzi na przesłane
+            zapytanie oraz w celu nawiązania i utrzymania kontaktu, zgodnego z
+            ofertą. <a href="#">Polityka prywatności*</a>
+          </span>
         </label>
       </form>
     </div>
@@ -371,16 +660,18 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-inner">
 
-    <div class="footer-col footer-col--brand">
+    <div class="footer-brand">
       <a href="index.html" class="footer-logo">
-        <img src="assets/logo/neofox bialo pomaranczowe .svg" alt="NEOFOX" class="footer-logo-img">
+        <img src="assets/logo/neofox bialo pomaranczowe .svg" alt="NEOFOX">
       </a>
-      <p class="footer-tagline">Producent reklam świetlnych<br>i przestrzennych dla firm.</p>
-      <div class="footer-social">
+      <p class="footer-tagline">Producent reklamy świetlnej, przestrzennej i wizualnej dla firm z całej Polski.</p>
+      <div class="footer-socials">
         <a href="#" aria-label="Instagram" class="footer-social-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
@@ -397,7 +688,7 @@
     </div>
 
     <div class="footer-col">
-      <p class="footer-col-title">Oferta</p>
+      <h4 class="footer-col-title">Oferta</h4>
       <ul class="footer-links">
         <li><a href="neony-led.html">Neony LED</a></li>
         <li><a href="frontlit-litery-3d.html">Litery 3D podświetlane</a></li>
@@ -413,10 +704,10 @@
     </div>
 
     <div class="footer-col">
-      <p class="footer-col-title">Nawigacja</p>
+      <h4 class="footer-col-title">Nawigacja</h4>
       <ul class="footer-links">
         <li><a href="o-nas.html">O nas</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="galeria.html">Galeria realizacji</a></li>
         <li><a href="sklep.html">Sklep</a></li>
         <li><a href="#">Oferta B2B</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -426,37 +717,76 @@
       </ul>
     </div>
 
-    <div class="footer-col footer-col--contact">
-      <p class="footer-col-title">Kontakt</p>
+    <div class="footer-col footer-col-contact">
+      <h4 class="footer-col-title">Kontakt</h4>
+      <p class="footer-hours">pon.–pt. 10:00–18:00</p>
       <ul class="footer-contact-list">
         <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2-.4c.9.3 1.9.5 2.9.7A2 2 0 0 1 22 17z"/></svg>
           <a href="tel:+48730627143">+48 730 627 143</a>
         </li>
         <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
         </li>
         <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>ul. Garbary 46/U1<br>61-869 Poznań</span>
         </li>
+        <li>
+          <span class="footer-nip">NIP: 782 283 92 06</span>
+        </li>
       </ul>
-      <a href="index.html#wycena" class="btn btn-primary" style="margin-top: 24px; display: inline-block;">Wyceń swój projekt</a>
+      <a href="index.html#wycena" class="btn btn-primary footer-btn">Wyceń swój projekt</a>
     </div>
 
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p class="footer-copy">&copy; 2025 NEOFOX. Wszelkie prawa zastrzeżone.</p>
-      <nav class="footer-legal">
+      <p class="footer-copy">&copy; 2024 NEOFOX. Wszelkie prawa zastrzeżone.</p>
+      <p class="footer-legal">
         <a href="#">Polityka prywatności</a>
         <a href="#">Regulamin</a>
-      </nav>
+      </p>
     </div>
   </div>
 </footer>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie realizacji">
+  <img id="lightbox-img" alt="">
+</div>
+
+<script>
+  // Formularz — pole lokalizacji pokazuje się po zaznaczeniu montażu (ten sam wzorzec co kontakt.html)
+  const montazCheckbox = document.getElementById('nl-montaz');
+  const lokalizacjaWrap = document.getElementById('nl-lokalizacja-wrap');
+  montazCheckbox.addEventListener('change', function () {
+    lokalizacjaWrap.classList.toggle('is-visible', this.checked);
+  });
+
+  const galleryItems = document.querySelectorAll('#neon-gallery-grid .gallery-item');
+
+  // Lightbox — ten sam wzorzec co galeria.html
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+  }
+  galleryItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      lightboxImg.src = this.getAttribute('href');
+      lightboxImg.alt = this.querySelector('img').alt;
+      lightbox.classList.add('is-open');
+    });
+  });
+  lightbox.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 </body>
 </html>

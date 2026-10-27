@@ -32,15 +32,49 @@ css/sklep.css        – style specyficzne dla podstrony sklep (ładowane po sty
 css/produkt.css      – style specyficzne dla karty produktu (ładowane po style.css)
 css/koszyk.css       – style specyficzne dla podstrony koszyk (ładowane po style.css)
 css/checkout.css     – style specyficzne dla podstrony checkout (ładowane po style.css)
-css/neony-led.css    – **wspólny szablon** dla wszystkich 9 podstron usługowych
-  (neony-led.html + 8 nowych), ładowany po style.css. Klasy `.nl-*` i
-  `.neony-hero*` (nazwa historyczna po pierwszej podstronie) są celowo
-  generyczne — każda podstrona różni się tylko treścią HTML, nie CSS-em.
+css/neony-led.css    – **stary wspólny szablon** podstron usługowych (klasy `.nl-*`,
+  `.neony-hero*` — nazwa historyczna). Wszystkie 9 podstron jest już przebudowanych,
+  ale nadal ładują ten plik dla hero (`.neony-hero*`) i sekcji CTA (`.nl-cta`) — tych
+  reguł nie zmieniać (zmiany robimy jako nadpisania w neony-led-strona.css).
+css/neony-led-strona.css – **szablon wszystkich 9 podstron ofertowych** z dropdownu
+  „Oferta B2B” (prefiks `.neon-*` — nazwa historyczna). Kolejne strony składamy z tych
+  samych klas. Nowe warianty dodajemy jako modyfikatory (`--dark`, `--stacked`,
+  `--white`…) albo nowe klasy, nigdy zmieniając istniejące reguły — patrz sekcje
+  "Podstrona Neony LED" … "Podstrony Banery, Oklejanie witryn, Montaż" niżej
 js/main.js            – hero slider + karuzela opinii (vanilla JS, bez zależności)
 assets/logo/          – logo (logoneofox.svg)
 assets/images/         – zdjęcia sekcji + podmienione zdjęcia kafelków (webp/jpg/JPG)
 assets/images/tiles/   – oryginalne zdjęcia kafelków (PNG, niska rozdzielczość — zastępowane)
 assets/images/products/ – prawdziwe zdjęcia produktów pobrane z neofox.pl (np. happy-birthday-*.jpg)
+assets/images/neony-led/ – zoptymalizowane zdjęcia podstrony Neony LED (wyeksportowane
+  z "Neony led/", obrócone wg EXIF, max ~1000×1700 px, JPG q82)
+Neony led/            – materiały źródłowe od klienta dla podstrony Neony LED: brief
+  "1. TEKST.pdf" + oryginalne zdjęcia (2–5 MB każde, ~110 MB razem)
+assets/images/backlit-halo/ – zoptymalizowane zdjęcia podstrony Backlit (te same zasady
+  eksportu co neony-led; `*-poziomy.jpg` = poziome kadry do hero i paneli)
+Backlit - litery z efektem _HALO_/ – materiały źródłowe od klienta dla podstrony
+  Backlit: brief "1. Teskt.pdf" + oryginalne zdjęcia (do ~6 MB każde)
+assets/images/frontlit/ – zoptymalizowane zdjęcia podstrony Frontlit (te same zasady
+  eksportu; `*-poziomy.jpg` = poziome kadry do hero i paneli, `boki-*.jpg` = pojedyncze
+  litery E wycięte z infografiki klienta, `notino-szyld.jpg` = kadr bez plakatów z modelem)
+frontlit - litery 3D podświetlane/ – materiały źródłowe od klienta dla podstrony
+  Frontlit: brief "1. Tekst" (to PDF, tylko bez rozszerzenia) + oryginalne zdjęcia
+assets/images/kasetony/ – zoptymalizowane zdjęcia podstrony Kasetony (`*-poziomy.jpg` =
+  kadry do hero i paneli, `melanin.jpg` = sam szyld bez montażystów z `melanin-montaz.jpg`)
+Kasetony/             – materiały źródłowe od klienta dla podstrony Kasetony: brief
+  "1. TEKST" (PDF bez rozszerzenia) + oryginalne zdjęcia
+assets/images/litery-tworzywa/ – zoptymalizowane zdjęcia podstrony Litery z tworzyw
+  (`litery-la-glowny.jpg` = „GŁOWNY OBRAZ” klienta do hero, `snipes.jpg` = kadr bez plakatu)
+Litery z tworzyw sztucznych/ – materiały źródłowe: brief "1.TEKST" (PDF bez rozszerzenia)
+  + zdjęcia; nazwy plików klienta podają materiał („Litery z PCV na plexi” itd.)
+assets/images/logo-plexi/ – zoptymalizowane zdjęcia podstrony Logo z pleksi
+  (`weranda-poziomy.jpg` = kadr „1. GŁÓWNY OBRAZ” do hero)
+logo z plexi/         – materiały źródłowe: brief "1. TEKST" (PDF bez rozszerzenia) + zdjęcia
+assets/images/banery/, assets/images/oklejanie/, assets/images/montaz/ – zdjęcia trzech
+  ostatnich podstron (klatki z filmów klienta, zdjęcia z dodatkowe-zdjecia/ i z
+  neofox.pl — szczegóły w sekcjach tych podstron)
+Banery/, Oklejanie/, montaż/ – materiały źródłowe: briefy (PDF; w Oklejanie i montaż bez
+  rozszerzenia), w Banery 2 zdjęcia + 2 filmy .MOV, w montaż 1 zdjęcie, w Oklejanie brak zdjęć
 dodatkowe-zdjecia/    – zdjęcia i filmy źródłowe (niektóre >100 MB) — NIE commitować do git
 koszyk.svg, ludzik.svg, lupka.svg, serce.svg  – ikony header (cart/user/search/heart),
   na razie NIEUŻYWANE — w HTML ikony header są inline SVG. Do podpięcia na życzenie.
@@ -599,66 +633,155 @@ użytkownika że ta strona ma być wyłącznie wizualną makietą.
 pozycji dropdownu "Oferta B2B" — **"Wynajem neonów" celowo pominięty** (na
 życzenie użytkownika, link zostaje `#`).
 
-**Wszystkie mają identyczną strukturę HTML i ten sam plik stylów**
-(`css/neony-led.css` — patrz sekcja "Struktura plików"). Różni je tylko
-treść: nagłówki, teksty, zdjęcia i domyślnie zaznaczona opcja w select
-produktu. Kolejność sekcji (identyczna na każdej):
+**Wszystkie 9 podstron jest przebudowanych na podstawie briefów klienta** (PDF w
+folderach źródłowych) i składa się z klas wspólnego szablonu `css/neony-led-strona.css`
+(+ hero `.neony-hero*` i CTA `.nl-cta` z `css/neony-led.css`) — opisy każdej w sekcjach
+"Podstrona Neony LED" … "Podstrony Banery, Oklejanie witryn, Montaż" niżej. Stary szablon (`.nl-intro`,
+`.nl-why`, `.nl-paths`, `.nl-tech`, `.nl-process`, treści „inspirowane neofox.pl”)
+nie jest już używany przez żadną podstronę — reguły zostały w `css/neony-led.css`.
 
-1. **Hero** (`.neony-hero`) — zdjęcie pełnoekranowe 420px + nakładka 60% +
-   nagłówek Bebas Neue 100px + podtytuł.
-2. **Korzyści** (`.nl-intro`) — nagłówek + lead paragraph + 3 kafelki korzyści
-   z ikoną SVG.
-3. **Dlaczego my?** (`.nl-why`) — lista 4 cech z ikonami po lewej, zdjęcie
-   bleed po prawej.
-4. **Dwa typy klienta** (`.nl-paths`) — 2 karty: "Zobacz nasze realizacje"
-   (→ `galeria.html`) i "Twój projekt" (→ `index.html#wycena`, ciemna karta).
-   **Uwaga:** w przeciwieństwie do oryginalnego `neony-led.html` (które linkuje
-   pierwszą kartę do sklepu, bo neony LED faktycznie sprzedajemy w
-   `sklep.html`), pozostałe 8 podstron **nie ma odpowiednika w sklepie** —
-   dlatego ich pierwsza karta zawsze prowadzi do galerii, nigdy do sklepu.
-5. **Detale techniczne** (`.nl-tech`) — zdjęcie bleed po lewej, lista 3
-   parametrów technicznych po prawej.
-6. Pasek 4 zdjęć (`.nl-photo-strip`) — zdjęcia realizacji w rzędzie.
-7. **Proces** (`.nl-process`) — 4 kroki "od pomysłu do realizacji" z ikonami.
-8. **CTA + formularz** (`.nl-cta`) — ciemne tło, telefon + dane kontaktowe po
-   lewej, formularz zapytania (`.kf-row`/`.kf-field`) po prawej z selectem
-   produktu (10 opcji, ta sama lista co dropdown, z domyślnie zaznaczoną
-   opcją odpowiadającą danej podstronie).
+Wspólne zasady wszystkich 9: treść = tekst briefu bez zmian merytorycznych, w kolejności
+briefu; h2 = tytuł rozdziału (część czarna + pomarańczowy akcent); podtytuł w hero =
+hasło z końca briefu; formularz w CTA identyczny (prefiks id `nl-`, inny tylko domyślny
+produkt); podpisy zdjęć tylko to, co widać; tła sekcji przeplatają się biała / czarna /
+szara z „pasami” (`*-band`) na granicach.
 
-### Źródło treści
+## Podstrona Neony LED (`neony-led.html` + `css/neony-led-strona.css`)
 
-Treści (nagłówki, paragrafy, listy cech) są **inspirowane prawdziwymi
-podstronami usługowymi neofox.pl**, odwiedzonymi i przeanalizowanymi podczas
-budowy tych stron:
-- `neofox.pl/litery-przestrzenne-3d-z-led/` → `frontlit-litery-3d.html`
-- `neofox.pl/litery-przestrzenne-3d/` → `litery-niepodswietlane.html`
-- `neofox.pl/instalacja-i-podlaczenie/` → `montaz-instalacja.html`
-- `neofox.pl/ciecie-frezowanie-cnc/` → `logo-plexi.html`
-- `neofox.pl/semafory-reklamowe/` + `neofox.pl/kasetony-reklamowe/` →
-  `kasetony-semafory.html` (połączone w jedną podstronę, tak jak w naszym
-  dropdownie)
+Przebudowana od zera na podstawie briefu klienta z folderu `Neony led/`
+(`1. TEKST.pdf` — 13 sekcji + FAQ). **Cała treść jest tekstem klienta z PDF,
+przeniesionym bez zmian merytorycznych** — nie dopisywać parametrów ani faktów
+spoza briefu. Notatki z PDF typu "Miejsce na zdjęcie / realizację" i "Przy
+każdej fotografii warto wskazać rodzaj podkładu, kolor, rozmiar…" to instrukcje
+dla projektanta, nie treść strony. Stara wersja strony (wspólny szablon
+`.nl-*`, "Dlaczego my?", "Proces" itp.) została w całości zastąpiona.
 
-Dla **`backlit-halo.html`, `banery.html` i `oklejanie-witryn.html`** neofox.pl
-**nie ma dedykowanych podstron** — te trzy kategorie istnieją na prawdziwej
-stronie tylko jako pozycje w formularzu kontaktowym (`neofox.pl/wlasny-projekt/`),
-nie jako pełne podstrony z treścią. Dla backlit/halo wykorzystano wzmianki
-o efekcie halo znalezione na stronach kasetonów/semaforów; dla banerów i
-oklejania witryn treść jest ogólną, wiarygodną wiedzą branżową w tym samym
-tonie co reszta strony — **nie są to więc parametry/fakty przepisane z
-neofox.pl**, tylko prawdopodobny, spójny stylistycznie opis usługi (podobnie
-jak mockowe produkty w `sklep.html` nie mają wymyślonych fałszywych
-parametrów, tak i tu unikano zmyślania konkretnych, sprawdzalnych danych).
+Strona reużywa komponentów design systemu zamiast nowych: hero jak na
+pozostałych podstronach usługowych (`.neony-hero*` z `neony-led.css` — poziome
+zdjęcie 420px + nakładka 60% + wyśrodkowany nagłówek; na życzenie klienta NIE
+jak hero strony głównej), kafelki 5 w rzędzie (`.tiles-grid`/`.tile`),
+siatka galerii + lightbox (`.gallery-grid`, `.lightbox`), formularz `.kf-*`
+i ciemna sekcja CTA (`.nl-cta` z `neony-led.css`). Nagłówki: **wszystkie h2
+na tej stronie mają 74px** (ustalone z klientem; `.neon-heading` + nadpisany
+`.neon-cta .nl-cta-heading`), z `text-wrap: balance`, i twarde spacje po
+jednoliterowych "i"/"z" (`i&nbsp;konstrukcjach`), żeby nie wisiały na końcu
+linii. Akcent `.accent-text` od nowej linii (`display: block`), chyba że nagłówek
+ma `.neon-heading--one-line` (cały w jednym wierszu — np. Technologia).
+Odstępy ustalane z klientem sekcja po sekcji (prośba: więcej whitespace) —
+zmienione wartości są opisane przy sekcjach niżej.
 
-### Zdjęcia
+**Podtytuł w hero (wszystkie przebudowane podstrony: neony, backlit, frontlit, kasetony):**
+`.neony-hero-sub` pod H1 to ostatnie zdanie briefu („… produkcja, dostawa i montaż”,
+bez kropki na końcu). Wcześniej stało jako tagline w sekcji Zamów — użytkownik kazał je
+przenieść do hero, a w CTA już go nie ma (klasa `.neon-cta-tagline` usunięta z CSS).
+Na Backlit i Kasetonach zastąpiło wcześniejszy podtytuł spod tytułu briefu (dwa podobne
+zdania pod nagłówkiem byłyby powtórzeniem).
 
-Każda podstrona używa jako hero tego samego zdjęcia, co odpowiadający jej
-kafelek w sekcji `.tiles` na `index.html`/`o-nas.html` (np. `freixenet-halo.jpg`
-dla backlitu, `juamo-logo-plexi.jpg` dla logo z plexi) — zachowuje to spójność
-wizualną między kafelkiem na stronie głównej a podstroną docelową. Pozostałe
-zdjęcia (`.nl-why-image`, `.nl-tech-image`, pasek 4 zdjęć) to zdjęcia realizacji
-z `assets/images/` dobrane tematycznie i **powtarzane cyklicznie między
-podstronami** (ten sam wzorzec co mockowe karty w `sklep.html` — nie mamy
-osobnej sesji zdjęciowej na każdą z 9 usług).
+Kolejność sekcji (id = kotwice):
+1. Hero — H1 = pełny tytuł z briefu w 3 liniach ("Neony LED na zamówienie – /
+   personalizowane neony reklamowe, / logotypy i napisy świetlne"), Bebas 80px
+   (100px z szablonu nie mieści się w 1200px); podtytuł `.neony-hero-sub` = ostatnie
+   zdanie briefu (patrz „Podtytuł w hero” niżej); tło: poziomy kadr
+   zdjęcia "Fajnie, że jesteś!" (`hero-fajnie-ze-jestes-poziomy.jpg`), ostry —
+   BEZ rozmycia (wcześniejszy `blur(3px)` użytkownik kazał usunąć); neon jest
+   dokładnie za nagłówkiem, więc nakładka w hero przebudowanych podstron ma 70%
+   zamiast 60% (`.neon-hero .neony-hero-overlay`, wspólne z backlit-halo.html).
+   Pod hero NIE ma paska cech (`.features-bar`) — usunięty na życzenie klienta.
+2. Intro (`.neon-intro`, padding 100px / 120px dół) — nagłówek (74px jak
+   wszystkie h2) "Tworzymy nowoczesne / neony LED na zamówienie" (początek
+   pierwszego akapitu briefu; `na&nbsp;zamówienie`, żeby nie łamać po "na"),
+   po prawej 3 akapity briefu; pierwszy zaczyna się od "Tworzymy neony
+   dopasowane do…" (ustalone z klientem). Pod spodem pasek 4 pionowych zdjęć
+   (`.neon-strip`) W SIATCE 1200px, odstęp 24px, proporcje 9:16 (= proporcje
+   zdjęć, kadry nieprzycięte): Barber, Beer Craft, Nails, postać z koroną.
+   Do paska nadają się tylko zdjęcia pionowe (poziome TOGOTO usunięte).
+   Pasek jest w `.neon-strip-band` — szare tło Technologii "najeżdża" na
+   dolną połowę zdjęć (ten sam efekt co przy Podłożach/Kolorach).
+3. `#technologia` (`.neon-tech`, padding 150px) — wyśrodkowany nagłówek w
+   jednym wierszu + tekst pod nim (`.neon-head-center`, tekst max 760px),
+   karty Neon Flex 6 mm / 8 mm (zdjęcia "Neon 6/8 mm"), pod nimi wyśrodkowany
+   tekst o 12 V z ikoną piorunka nad nim, na całą szerokość treści
+   (`.neon-flex-note--center`)
+4. `#podklady` (`.neon-materials`, padding 150px, układ poziomy — na życzenie
+   klienta nie split) — wyśrodkowany nagłówek + tekst (`.neon-head-center`),
+   siatka 3×2 kafelków z materiałami (`.neon-materials-grid`, tło #f4f4f4,
+   pomarańczowa kreska nad nazwą), pod nią galeria 4 zdjęć 3:4 z podpisami
+   podkładów (`.neon-materials-gallery`). Galeria jest w pełnoszerokim pasie
+   `.neon-materials-band` z gradientem biały→czarny w połowie wysokości, a sekcja
+   nie ma dolnego paddingu — dzięki temu czarne tło sekcji Kolory "najeżdża"
+   górną krawędzią na zdjęcia (efekt zamówiony przez klienta).
+5. `#kolory` (`.neon-colors`, czarne tło, padding 150px) — zdjęcie ściany neonów
+   ze stoiska targowego W SIATCE 1200px (kwadrat 560px, nie bleed do krawędzi
+   ekranu) po lewej, tekst po prawej
+6. `#personalizacja` — wyśrodkowany nagłówek, pod nim cały tekst sekcji
+   (`.neon-head-center`; oba akapity briefu, także "Podczas opracowania
+   projektu…"), pod spodem 5 kafelków
+   (`.tile` ze style.css) w siatce 1200px: rząd 3 (`.neon-tiles--3`: logo /
+   napis / własne pismo) + rząd 2 (`.neon-tiles--2`: czcionka / grafika),
+   wysokość 460px, odstęp 24px. Drugi rząd jest w pasie `.neon-tiles-band`
+   (biały→#f4f4f4 w połowie) — szare tło sekcji Wymiary "najeżdża" na kafelki,
+   tak samo jak czarne tło Kolorów na galerię Podłoży
+7. `#wymiary` (`.neon-sizes`, szare tło, padding 150px) — tekst + tabela
+   rozmiarów po lewej (nagłówki tabeli pogrubione), zdjęcie dużej realizacji "#Sun&Fun" po prawej W SIATCE
+   1200px (nie bleed), rozciągnięte na wysokość tekstu i odsunięte od górnej
+   krawędzi sekcji
+8. `#druk-uv` — układ poziomy jak Podłoża (reużywa `.neon-materials*`):
+   wyśrodkowany nagłówek w jednym wierszu na szerokość treści, tekst pod nim,
+   4 kafelki w rzędzie (`.neon-materials-grid--4`), pod nimi 3 zdjęcia z
+   nadrukiem 3:4 (Vape Shop, Golf, Mionetto Spritz; `.neon-materials-gallery--3`)
+   w pasie `.neon-materials-band--gray` — szare tło Wnętrz i zewnątrz
+   "najeżdża" na dolną połowę zdjęć
+9. `#wnetrza-zewnatrz` — dwa poziome panele 1200×560px W SIATCE 1200px, jeden
+   pod drugim (odstęp 24px), z tekstem na zdjęciu: wnętrze restauracji / Men's
+   Club. Zdjęcia to osobne poziome kadry (`*-poziomy.jpg`, ~2300px szerokości)
+   wycięte pod te panele — pionowe wersje są dalej w galerii. Pod panelami
+   tekst o odporności, wyśrodkowany z ikoną tarczy nad nim
+   (`.neon-flex-note--center`, jak notka o 12 V w Technologii)
+10. `#zasilanie` — infografika zasilaczy (`Zasilacze.png`)
+11. `#akcesoria` (`.neon-materials--gray`, szare tło) — układ poziomy jak
+    Podłoża: wyśrodkowany nagłówek, siatka 3×2 — 5 białych kafelków z tekstem
+    + zdjęcie elementów montażowych (`Elementy montażowe.png`) jako szósty
+    kafelek (`.neon-material-photo`, wysokość rzędu). Duży pas 1200px z tym
+    zdjęciem klient odrzucił (kadr wyglądał jak "kawałek stołu"); innych zdjęć
+    akcesoriów (piloty, sterowniki, zasilacze) w materiałach nie ma.
+    (Układ "split" z bleedem zdjęcia do krawędzi ekranu nie jest już używany
+    nigdzie na tej stronie — wszystkie zdjęcia są w siatce 1200px.)
+12. `#zastosowania` — 6 kart z kwadratowymi zdjęciami
+13. `#realizacje` — wyśrodkowany nagłówek z tekstem pod nim, galeria 20 zdjęć
+    (`.gallery-grid` + lightbox) BEZ filtrów — usunięte na życzenie klienta,
+    pokazujemy po prostu wszystkie zdjęcia z podpisami
+14. `#faq` — 10 pytań jako `<details>` + JSON-LD `FAQPage` w `<head>`
+15. `#zamow` — ciemna sekcja `.nl-cta` z tekstem briefu po lewej i formularzem
+    po prawej. Formularz ma DOKŁADNIE te same pola, etykiety, placeholdery,
+    opcje i zgodę RODO co `kontakt.html` (ustalone z klientem), tylko z
+    prefiksem id `nl-` i z domyślnie wybranym produktem "Neony LED"; checkbox
+    montażu pokazuje pole lokalizacji (ten sam inline JS co w kontakcie).
+    Stopka strony = stopka z `index.html` (`.footer-brand`, `.footer-socials`).
+
+### Zdjęcia — zasady doboru
+
+- Podpisy zdjęć opisują **tylko to, co widać** (np. "Transparentna plexi na
+  dystansach"). Na żadnym zdjęciu nie widać obrysu z druku 3D, poliwęglanu,
+  PCV ani Dibondu, więc nie podpisujemy tak zdjęć.
+- **Pominięte celowo** (marki/postacie osób trzecich): kolaże "Neony z drukiem_"
+  (Pikachu, Stitch, Sknerus McKwacz) i "Neony zewnętrzne" (Coca-Cola),
+  IMG_7826 (Porsche), IMG_7958 (FC Barcelona), kolaże IMG_7727–7735 (niska
+  rozdzielczość, marki Johnnie Walker / Jägermeister / booksy).
+- `stoisko` (IMG_8479) jest przycięte tak, żeby nie było neonu "Barbie",
+  cennika i wizytówek z danymi; `gelato-lodziarnia` to zdjęcie wycięte ze
+  zrzutu ekranu Instagrama (bez interfejsu).
+- Kadrowanie: `object-position` inline na `<img>`, policzone pod środek neonu.
+
+### Stopka
+
+Wszystkie podstrony (łącznie z 9 usługowymi) mają **tę samą stopkę co
+`index.html`** (`.footer-brand`, `.footer-socials`, `.footer-col-contact` z
+godzinami i NIP, `.footer-btn`). Dawna stopka szablonu usługowego
+(`.footer-col--brand`, `.footer-social`, przycisk z inline style) nie pasowała
+do klas w style.css i się rozsypywała — została wszędzie podmieniona. Przy
+kopiowaniu stopki z index.html na podstronę: logo → `index.html` (nie `/`),
+"O nas" → `o-nas.html`, "Galeria realizacji" → `galeria.html`, przycisk →
+`index.html#wycena`.
 
 ### Nawigacja
 
@@ -666,6 +789,281 @@ Dropdown "Oferta B2B" i kolumna "Oferta" w stopce na **wszystkich** podstronach
 serwisu (łącznie z tymi 9) linkują teraz do prawdziwych plików zamiast `#`.
 Kolejność w stopce ujednolicono do tej samej co w dropdownie (10 pozycji,
 "Wynajem neonów" na końcu jako jedyny nadal `#`).
+
+## Podstrona Backlit (`backlit-halo.html` + `css/neony-led-strona.css`)
+
+Druga przebudowana podstrona ofertowa — **zbudowana z tych samych klas co
+Neony LED** (żeby deweloper mógł powielać układ na kolejne podstrony), bez
+własnego pliku CSS. Ładuje style.css + neony-led.css (hero, CTA) +
+neony-led-strona.css. Treść = brief `Backlit - litery z efektem _HALO_/1. Teskt.pdf`
+(14 rozdziałów + FAQ), przeniesiony bez zmian merytorycznych; nagłówki h2 to
+tytuły rozdziałów briefu podzielone na część czarną + pomarańczowy akcent.
+
+Ustalone z użytkownikiem: hero MA podtytuł (`.neony-hero-sub` = ostatnie zdanie briefu,
+patrz „Podtytuł w hero” w sekcji Neony LED); rozdziały 3–5 (BASIC / EXCLUSIVE / porównanie) to jedna
+sekcja; pojedyncze zdjęcia zamiast kolaży klienta „Opcja Basic/Exclusive.jpg”
+(niska rozdzielczość, na kolażu Basic logo Telepizzy); galeria realizacji
+dodana mimo braku w briefie — sam nagłówek, bez akapitu.
+
+Kolejność sekcji (id = kotwice) i komponent z Neony LED, który reużywa:
+1. Hero `.neony-hero.neon-hero` — poziomy kadr „1. GŁOWNY OBRAZ” (OMORFIA,
+   ostry, nakładka 70% jak na Neony LED), H1 w 2 liniach + podtytuł.
+2. Intro `.neon-intro` (nagłówek | 2 akapity) + pasek 4 pionowych zdjęć
+   `.neon-strip` (OPTYK, NEX, LaserPro, PET MEDICA) w `.neon-strip-band--dark`
+   — czarne tło następnej sekcji „najeżdża” na dolną połowę zdjęć.
+3. `#efekt-halo` — rozdz. 1, czarna sekcja jak „Kolory” (`.neon-colors`):
+   kwadratowe zdjęcie audeo studio + tekst.
+4. `#materialy` — rozdz. 2, 4 kafelki `.neon-materials-grid--4`, bez galerii
+   (`.neon-materials--no-gallery` = dolny padding 150px).
+5. `#basic-exclusive` — rozdz. 3–5, szare tło jak „Technologia”: dwie karty
+   `.neon-flex-card--stacked` (zdjęcie 3:2 nad tekstem; duże pomarańczowe
+   BASIC/EXCLUSIVE bez słowa „Opcja” → zdanie porównania z rozdz. 5 mniejszym fontem (body2 = 14px, `.neon-text--small`) → pigułka
+   = podtytuł rozdziału z briefu → punkty briefu jako `<dl class="neon-spec-list">`,
+   kreski tylko między punktami), pod kartami notka z ikoną „Oba warianty…”.
+   Porównania NIE pokazujemy jako osobnej tabeli (decyzja użytkownika).
+   Zdjęcia: BASIC = „litery opcja BASIC.jpg” (litera „p” na dystansach),
+   EXCLUSIVE = LÚVI (napis z kolażu klienta „Opcja Exclusive”).
+6. `#kolorystyka` — rozdz. 6, jak „Druk UV”, ale nad zdjęciami tekst po lewej,
+   nagłówek po prawej (`.neon-head-row--reverse`; wyśrodkowany tekst na 760px
+   i na 1200px użytkownik odrzucił) + 3 zdjęcia 3:4 z podpisami
+   (złote lustrzane / czarne / niebieskie litery), pas → szare tło.
+7. `#podswietlenie` — rozdz. 7, jak „Zasilanie” (nagłówek | tekst) + ta sama
+   infografika `assets/images/neony-led/zasilacze-12v.jpg` (klient przysłał
+   identyczny plik Zasilacze.png) — na szarym tle jako biała karta.
+8. `#konstrukcje` — rozdz. 8, jak „Podłoża”, z tym samym układem tekst | nagłówek
+   co Kolorystyka (`.neon-head-row--reverse`) + 4 zdjęcia z podpisami
+   (płyta matowa mleczna / biała / okrągła / litery na transparentnym stelażu), pas → szare.
+9. `#wymiary` — rozdz. 9, jak „Wymiary”, ale bez tabeli (brief jej nie ma):
+   tekst krótki, więc zdjęcie kwadratowe, a tekst wyrównany do jego górnej
+   krawędzi (`.neon-sizes-inner--top` + `.neon-sizes-media--square`; ustalone
+   z użytkownikiem — nie wyśrodkowywać w pionie). Black Crown.
+10. `#wnetrza-zewnatrz` — rozdz. 10, dwa poziome panele jak na Neony LED (na
+    białym tle): OMORFIA (inny kadr niż hero) / VELORA boutique; zdanie o
+    warunkach atmosferycznych jako notka z ikoną tarczy pod panelami.
+11. `#montaz` — rozdz. 11, ten sam układ co Wymiary, zdjęcie po lewej (figure
+    pierwsza w HTML): veni andro wieczorem, z drabiną (montaż w toku).
+12. `#renowacja` — rozdz. 12, nagłówek | tekst (jak intro).
+13. `#realizacje` — galeria 20 zdjęć `.gallery-grid` + lightbox, podpisy tylko
+    z tym, co widać.
+14. `#faq` — 6 pytań z briefu + JSON-LD `FAQPage` w `<head>`.
+15. `#zamow` — `.nl-cta.neon-cta`, formularz identyczny jak na Neony LED
+    (prefiks id `nl-`, ten sam skrypt), produkt domyślnie „Backlit”;
+    zastrzeżenie „Ważne: …” z końca briefu jako `.neon-fine-print`.
+
+Zdjęcia: ta sama zasada podpisów co na Neony LED (tylko to, co widać — np. na
+zdjęciu BASIC dystanse wyglądają na metalowe, więc podpis nie mówi
+„transparentne”). Pominięte: kolaże „Opcja Basic/Exclusive.jpg”, IMG_0804
+(Velora z narożnika — mało widoczny szyld), IMG_0132 (Black Crown na
+podłodze — duplikat, niska rozdzielczość), IMG_7890 (COSEDA w pracowni —
+duplikat), E4D0BC86… (zbliżenie OMORFIA — ten napis jest już w hero i panelu).
+
+## Podstrona Frontlit (`frontlit-litery-3d.html` + `css/neony-led-strona.css`)
+
+Trzecia przebudowana podstrona ofertowa — te same klasy co Neony LED i Backlit, bez
+własnego pliku CSS. Treść = brief `frontlit - litery 3D podświetlane/1. Tekst` (PDF
+bez rozszerzenia; 14 rozdziałów + FAQ), bez zmian merytorycznych.
+
+Ustalone z użytkownikiem: hero = momy's nocą (H1 w 3 liniach jak na Neony LED, podtytuł
+= ostatnie zdanie briefu); rozdziały 2 i 3 (druk 3D / taśma aluminiowa)
+to dwie osobne sekcje; infografika klienta „Opcje drukowanych liter” pocięta na 3
+pojedyncze litery E (bez wtopionych napisów); rozdział 6 jako 2 karty ze zdjęciami.
+
+Tła przeplatają się biała / czarna / szara — przy przestawianiu sekcji pilnować pasów
+(`*-band`) i modyfikatorów tła. Kolejność (id = kotwice):
+1. Hero `.neon-hero` — `momys-poziomy.jpg`, nakładka 70%.
+2. Intro (nagłówek | tekst) + pasek 4 pionowych zdjęć (SOLMAR, OLD HAVANA, Strefa
+   projektowania, TUNNEL) w `.neon-strip-band--dark`.
+3. `#czym-sa` — rozdz. 1, czarna `.neon-colors` (litera R w ramie).
+4. `#druk-3d` — rozdz. 2, biała `.neon-section.neon-tech`: nagłówek | tekst, śródtytuł
+   z briefu (`.neon-subheading`), 3 karty wariantów boków (`.neon-apps-grid` — karty jak
+   „Zastosowania” na Neony LED; tytuły kart to h4).
+5. `#aluminium` — rozdz. 3, jak „Wymiary” na Neony LED: tekst + śródtytuł + tabela
+   głębokości z briefu + zdjęcie „Litery aluminiowe”.
+6. `#kolory-bokow` — rozdz. 4: po lewej „Standardowo dostępne są:” + lista 10 kolorów
+   w 2 kolumnach jako wypunktowanie z pomarańczową kreską (`.neon-bullet-list--2col`), po
+   prawej nagłówek z tekstem (`.neon-head-row--swap`). Użytkownik odrzucił zarówno pigułki
+   z kolorami, jak i kwadratowe próbki kolorów przy nazwach — tylko zwykłe wypunktowanie.
+   3 zdjęcia (czarne / białe / niebieskie boki) w pasie → czarne tło.
+7. `#lico` — rozdz. 5, czarna `.neon-colors`, zdjęcie po prawej (klucz wiolinowy).
+8. `#kolory-swiatla` — rozdz. 6, szara: 2 karty `--stacked` (medicadent / różowe
+   „BREAK”); odcienie bieli jako wypunktowanie (`.neon-bullet-list`).
+9. `#konstrukcja` — rozdz. 7, biała: nagłówek | tekst, 2 zdjęcia 3:2 (moduły / taśma LED,
+   `.neon-materials-gallery--2`), notka 12 V z piorunkiem, infografika zasilaczy
+   (`assets/images/neony-led/zasilacze-12v.jpg` — klient znów przysłał ten sam plik).
+10. `#konstrukcje` — rozdz. 8, jak „Akcesoria” na Neony LED: 5 kafelków + zdjęcie liter
+    na wspólnym pasie jako szósty kafelek.
+11. `#wnetrza-zewnatrz` — rozdz. 9, panele L'OCCITANE / ESTEBELLE + notka z tarczą (24/7).
+12. `#renowacja` — rozdz. 10, szara, nagłówek | tekst.
+13. `#logo` — rozdz. 11, `.neon-sizes--white` (biały wariant „Wymiarów”), COSTA COFFEE.
+14. `#montaz` — rozdz. 12, szara, zdjęcie po lewej (InBody).
+15. `#realizacje` — galeria 20 zdjęć; nagłówek na BIAŁYM tle (sekcja wyżej jest szara).
+16. `#faq` — 7 pytań + JSON-LD; 17. `#zamow` — formularz, produkt domyślnie „Frontlit”
+    (brief nie ma zastrzeżenia „Ważne”).
+
+Zdjęcia — pominięte: `img_mokka.jpeg` (obraz wygenerowany przez AI, bełkot zamiast
+napisów), IMG_7737 (kolaż w niskiej rozdzielczości z obcymi markami PANERA/QUIK),
+IMG_8482 (wizytówki z imionami i telefonami pracowników). Kadry chroniące dane:
+`estebelle.jpg` ucięte nad busem NEOFOX (tablica rejestracyjna), `litery-przed-montazem.jpg`
+bez nogi pracownika, `notino-szyld.jpg` bez plakatów perfum z modelem. Litery E w
+„Druk 3D” to wizualizacja klienta — alt zaczyna się od „Wizualizacja:”.
+
+## Podstrona Kasetony (`kasetony-semafory.html` + `css/neony-led-strona.css`)
+
+Czwarta przebudowana podstrona — te same klasy, bez własnego CSS. Treść = brief
+`Kasetony/1. TEKST` (PDF bez rozszerzenia; 15 rozdziałów + FAQ + „Uwaga” na końcu),
+bez zmian merytorycznych. Notki „MIEJSCE NA ZDJĘCIE” z briefu wyznaczyły pasek zdjęć
+po intro („kaseton na elewacji”), 3 zdjęcia kształtów semaforów i galerię realizacji.
+
+Ustalone z użytkownikiem: hero = AM MARKET (H1 + podtytuł = ostatnie zdanie briefu);
+rozdziały 2 i 3 (ścienne / semaforowe) to dwie osobne sekcje; rozdział 5 jako
+kafelki ze zdjęciami 2×2; pominięte wątpliwe zdjęcia: semafor z sercem
+(459FCB01… — wygląda na obraz z AI), zrzut relacji z Instagrama (KeepLook), „ideas
+worth sharing” (hasło TED). Kafelek „Bez podświetlenia” ilustruje Melanin w dzień —
+do potwierdzenia przez klienta, czy ten szyld rzeczywiście nie ma LED.
+
+Kolejność (tła przeplatają się; id = kotwice):
+1. Hero `am-market-poziomy.jpg` + podtytuł; 2. Intro + pasek 4 zdjęć (Atmosphere,
+   cutcut-ulica, SZKOLNA 30, FRAVE) → czarne tło.
+3. `#czym-jest` — czarna `.neon-colors` (złote litery pisane).
+4. `#scienne` — szara `.neon-sizes` + `.neon-sizes-inner--top` / `.neon-sizes-media--square`,
+   tekst + kwadratowe zdjęcie (cutcut).
+5. `#semafory` — biała, nagłówek | tekst + 3 zdjęcia z podpisami okrągły / kwadratowy /
+   prostokątny w pasie → szare.
+6. `#technologie` — szara `.neon-materials--gray` + `.neon-materials-grid--4` (4 kafelki).
+7. `#podswietlenie` — biała, kafelki `.tile` 2×2 jak „Personalizacja” na Neony LED
+   (drugi rząd w `.neon-tiles-band` → szare).
+8. `#materialy` — szara, jak „Kolory boków” na Frontlit: lista 7 wykończeń płyt jako
+   wypunktowanie (`.neon-bullet-list--2col` — kolumny CSS, działa dla dowolnej liczby
+   punktów) po lewej, nagłówek z tekstem po prawej (`.neon-head-row--swap`).
+9. `#kolory` — biała, nagłówek | tekst + 3 zdjęcia kolorowych kasetonów → szare.
+10. `#wymiary` — szara, nagłówek | tekst (bez zdjęcia).
+11. `#zasilanie` — biała, nagłówek | tekst, BEZ infografiki zasilaczy: klient nie
+    przysłał jej do kasetonów, a jej opisy (IP67, wtyczka w komplecie) są spoza briefu.
+12. `#konstrukcje` — szara, zdjęcie po lewej (UMALOVANA z uchwytami).
+13. `#wnetrza-zewnatrz` — panele Verona / iDenta; brief nie ma notki pod panelami,
+    więc `.neon-env--no-note` (dolny padding 100px).
+14. `#personalizacja` — szara, PAPI; 15. `#montaz` — `.neon-sizes--white`, montaż
+    Melanin z drabin (montażyści w koszulkach NEOFOX).
+16. `#realizacje` — galeria 20 zdjęć (nagłówek z notki briefu); 17. `#faq` — 6 pytań +
+    JSON-LD, pod listą pytań „Uwaga: …” z końca briefu jako wyśrodkowana notka z ikoną
+    „i” (`.neon-flex-note--center`, „Uwaga:” pogrubione) — użytkownik chciał ją lepiej
+    widoczną niż drobny druk w CTA; 18. `#zamow` — produkt domyślnie „Kasetony i Semafory”.
+
+## Podstrona Litery z tworzyw (`litery-niepodswietlane.html` + `css/neony-led-strona.css`)
+
+Piąta przebudowana podstrona (pozycja dropdownu „Litery z tworzyw sztucznych, styroduru,
+PCV”; nazwa pliku historyczna). Treść = brief `Litery z tworzyw sztucznych/1.TEKST`
+(PDF bez rozszerzenia; 10 rozdziałów + FAQ), bez zmian merytorycznych. Teksty rozdz. 8
+„W tym miejscu warto umieścić zdjęcia…” i „Przy każdym zdjęciu polecamy…” to instrukcje
+dla projektanta — na stronie tylko nagłówek galerii.
+
+Ustalone z użytkownikiem: hero = „GŁOWNY OBRAZ” klienta (ŁA na maszynie — wygląda na
+wyretuszowaną wersję ich zdjęcia); rozdz. 1 jako karty ze zdjęciami 3 + 3; podpisy w
+galerii: `<strong>` = materiał z nazwy pliku klienta (np. „Litery z PCV na plexi”),
+`<span>` = to, co widać; grubości nie podajemy (pliki jej nie opisują). Zdjęcia BEZ danych
+z aparatu (10 szt. — prawdopodobnie z internetu / AI: NOIR, Google, IGE, SM, Odontologia,
+Beauty Bar, „Anan…”, złote „RA”, L'agence SMAC) tylko tam, gdzie brakuje własnych —
+użyte 2: `dibond-szczotkowany.jpg` (karta Dibond) i `plexi-zlota-lustrzana.jpg`
+(wykończenia lustrzane). Pominięte: zrzut ekranu „lico PCV.png” (jest oryginał z
+iPhone'a), 2 duplikaty, „Szablon kartonowy” (brief nic o nim nie mówi).
+
+Kolejność (tła: biała / szara / czarna; id = kotwice):
+1. Hero `litery-la-glowny.jpg` + podtytuł = ostatnie zdanie briefu.
+2. Intro (nagłówek | 3 akapity) + pasek 4 zdjęć („galeria otwierająca”: USPI WORK,
+   litery na ścianie, BULLDOG, snipes) w `.neon-strip-band` → szare.
+3. `#rodzaje` — szara: wyśrodkowany nagłówek z tekstem, potem 2 grupy: `.neon-subheading`
+   + opis + 3 karty `.neon-apps-grid` (cienkie: plexi / Dibond / PCV; grube: styrodur /
+   druk 3D / MDF); pogrubione „Grubości: …” na początku opisu karty.
+4. `#grubosci` — `.neon-sizes--white`: tabela grubości z briefu + zdjęcie litery „K”.
+5. `#wykonczenia` — `.neon-materials--on-gray` (szare tło + białe kafelki, z pasem
+   zdjęć pod spodem): nagłówek | tekst, 3 kafelki z `.neon-bullet-list`, 3 zdjęcia
+   (złota plexi lustrzana / złoty szczotkowany / czarny mat) → czarne tło.
+6. `#malowanie` — czarna `.neon-colors` (brązowe litery „SWA…”).
+7. `#folie` — biała, 4 kafelki + notka z ikoną warstw („Oklejanie może obejmować…”).
+8. `#montaz` — szara, 3 karty: wolnostojące (litera A) / na ścianę (MDF na dystansach) /
+   na zewnątrz (Faworytka).
+9. `#zastosowania` — biała, nagłówek | tekst; 10. `#realizacje` — galeria 20 zdjęć;
+11. `#faq` — 6 pytań + JSON-LD; 12. `#zamow` — produkt domyślnie „Litery z tworzyw…”.
+
+## Podstrona Logo z pleksi (`logo-plexi.html` + `css/neony-led-strona.css`)
+
+Szósta przebudowana podstrona. Treść = brief `logo z plexi/1. TEKST` (PDF bez
+rozszerzenia; 16 rozdziałów + FAQ), bez zmian merytorycznych; w treści pisownia
+„pleksi” jak w briefie (w menu i nazwie pliku zostaje „plexi”).
+
+Ustalone z użytkownikiem: hero = „1. GŁÓWNY OBRAZ” (krąg WERANDA na posadzce, poziomy
+kadr), H1 „Logo z pleksi i LED”, podtytuł = hasło z końca rozdz. 16 (podtytuł spod
+tytułu briefu pominięty); rozdz. 4 i 5 (pleksi / Dibond) jako jedna sekcja z 2
+kafelkami obok siebie (`.neon-materials-grid--2`, punkty jako `.neon-bullet-list--text`
+— całe zdania z briefu); rozdz. 12 ze zdjęciem bez danych z aparatu (Aesthetic Lab —
+jedyne logo zamontowane na ścianie) TYLKO w tej sekcji. Galeria = wyłącznie własne
+zdjęcia ze studia NEOFOX (biała zasłona, betonowa posadzka). Pominięte: „LeMaVi” (obraz
+z AI), malwa / Atelié / Dr Marta Tsuguy / My Dessert (bez danych z aparatu, wyglądają
+na zdjęcia z internetu). Zasilacze.png, Elementy montażowe.png i IMG_6933 (BULLDOG) to
+te same pliki co na Neony LED / Litery z tworzyw — reużyte z tamtych folderów assets.
+
+Kolejność (tła: biała / czarna / szara; id = kotwice):
+1. Hero `weranda-poziomy.jpg`; 2. Intro (nagłówek | tekst) + pasek 4 zdjęć (Glowly,
+   BONSAI, Beauty Studio z różowym LED, SOUL PLACE) → czarne.
+3. `#co-wykonujemy` — czarna `.neon-colors` (WERANDA podświetlona).
+4. `#podswietlenie` — szara, 2 karty `--stacked`: z LED (Sandra Janicka) / bez (INEZJA).
+5. `#obrobka` — biała, 4 kafelki (CNC, laser, ploter, druk) + notka z ikoną.
+6. `#materialy` — `.neon-materials--on-gray`, kafelki Pleksi | Dibond + 3 zdjęcia →
+   czarne.
+7. `#pcv` — czarna, zdjęcie po prawej (BULLDOG).
+8. `#laminat` — `.neon-sizes--white`, tabliczka La Cara; 9. `#folie` — szara,
+   Manufaktura Pączków; 10. `#malowanie` — biała, nagłówek | tekst.
+11. `#dystanse` — szara, zdjęcie elementów montażowych; 12. `#zasilanie` — biała +
+    infografika zasilaczy; 13. `#zastosowania` — szara, Aesthetic Lab.
+14. `#projektowanie` + `#dostawa` — jedna biała sekcja, dwa `.neon-head-row` jeden pod
+    drugim (`.neon-head-row + .neon-head-row`).
+15. `#realizacje` — galeria 12 zdjęć; 16. `#faq` — 6 pytań + JSON-LD; 17. `#zamow` —
+    produkt domyślnie „Logo z plexi”.
+
+## Podstrony Banery, Oklejanie witryn, Montaż (zbudowane samodzielnie)
+
+Trzy ostatnie podstrony użytkownik zlecił do zrobienia bez konsultacji („struktura jak
+w pliku tekstowym, zdjęcia najwyżej podmienimy; brakujące zdjęcia z całego folderu albo
+z neofox.pl”). Pliki HTML są złożone skryptem: `<head>` i `<main>` pisane ręcznie,
+a header, dane kontaktowe w CTA, formularz i stopka skopiowane 1:1 z `logo-plexi.html`
+(różni się tylko `aria-current` i domyślny produkt). Wszystkie rozdziały briefu są w
+kolejności z PDF; kilka krótkich rozdziałów dzieli jedną sekcję jako dwa–trzy układy
+nagłówek | tekst jeden pod drugim (`.neon-head-row + .neon-head-row`).
+
+**Banery** (`banery.html`, brief `Banery/1. Tekst_.pdf`, 17 rozdziałów + FAQ):
+hero = poziomy kadr zdjęcia wieszania banera (IMG_8465), podtytuł = hasło z końca
+briefu; „Ważne: …” jako notka z ikoną pod intro; pasek 4 zdjęć = klatki z filmów
+klienta IMG_1877/1878.MOV (drukarka Roland, baner ZenRai Spa na stole; 720×1280,
+wyciągnięte ffmpeg) + zdjęcie montażu; rozdz. 4–7 jako 2×2 kafelki z tytułami
+rozdziałów w kafelkach (bez dodatkowego nagłówka sekcji — `.container >
+.neon-materials-grid:first-child`); rozdz. 9 = tabela rozstawu oczek jak tabela rozmiarów
+na Neony LED + zdjęcie oczek (IMG_1181 od klienta, bez danych z aparatu, mały 680×440);
+rozdz. 16 „(1)…(8)” jako lista `/1…/8` (`.coop-list` ze strony głównej). Brak galerii —
+klient przysłał za mało zdjęć banerów (miejsce na nią jest w briefie).
+
+**Oklejanie witryn** (`oklejanie-witryn.html`, brief `Oklejanie/1. Tekst`, 17 rozdziałów
++ FAQ + „Informacja o materiałach i wycenie”): folder klienta bez zdjęć — użyte witryny z
+`dodatkowe-zdjecia/` (veni andro z folią z napisem IMG_0531 — hero i zdjęcie montażu,
+BRAVE beauty z folią szronioną IMG_1736, Kwiatuszek IMG_2539, Base Barbershop IMG_0910,
+cutcut IMG_3103), iDenta z `Kasetony/IMG_4522` (kadr samej witryny) i YUKO ze strony
+neofox.pl (napisy na szybie; „zdjęcie główne” z briefu = panel 1200×560 pod intro). Hero
+bez podtytułu (brief nie ma hasła końcowego). Druk Roland ilustruje klatka z filmu
+banerów. Bez zdjęć: wzornik Oracal, folie specjalne, One Way Vision (nie ma takich
+zdjęć). Galeria 8 zdjęć pod tekstem rozdz. 12; „Informacja o materiałach i wycenie” jako
+notka z ikoną pod FAQ; produkt domyślnie „Naklejki na szyby”.
+
+**Montaż** (`montaz-instalacja.html`, brief `montaż/1. TEKST`, 13 rozdziałów + FAQ): w
+PDF nazwa firmy jest grafiką (tekst z pliku czyta się „Meofox”) — na stronie „NEOFOX”.
+Hero = `montaż/0709.jpg` (montaż liter SANCTYOUARY, montażysta w bluzie NEOFOX), podtytuł
+= podtytuł z briefu „Profesjonalne usługi montażowe NEOFOX na terenie całej Polski”.
+Zdjęcia montaży ze strony neofox.pl/instalacja-i-podlaczenie/ (Bajgiel, Młodość, faneco,
+podnośnik — kadr bez tablicy rejestracyjnej, przechodniów i telefonu firmy od podnośnika,
+biurowiec Bałtyk) + montaże z innych podstron (Melanin, veni andro, YUKO, litery przed
+montażem, baner, folia). Pominięte z neofox.pl: przedszkole z Kubusiem Puchatkiem (postać
+Disneya), Rogale Świętomarcińskie (twarze klientów w kolejce). Rozdz. 8 „Prosimy o: …;
+…” jako wypunktowanie `.neon-bullet-list--text`. Galeria 12 zdjęć („Realizacje i
+montaże” — nagłówek dodany). Formularz: bez domyślnego produktu, checkbox „Jestem
+zainteresowany/a montażem” od razu zaznaczony, pole lokalizacji widoczne.
 
 ## Zasady współpracy / rzeczy do pamiętania
 
