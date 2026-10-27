@@ -646,6 +646,12 @@ hasło z końca briefu; formularz w CTA identyczny (prefiks id `nl-`, inny tylko
 produkt); podpisy zdjęć tylko to, co widać; tła sekcji przeplatają się biała / czarna /
 szara z „pasami” (`*-band`) na granicach.
 
+**Galeria realizacji na podstronach (decyzja użytkownika):** tylko 2 rzędy (8 zdjęć,
+siatka 4 kolumny), pod nagłówkiem (lub tekstem pod nim) przycisk `.btn.btn-primary`
+„Zobacz galerię realizacji” → `galeria.html`. Pozostałe zdjęcia z pierwszej wersji
+galerii (12–20 szt.) zostały usunięte z HTML, pliki zostały w `assets/images/<strona>/`.
+Banery nie mają galerii (za mało zdjęć).
+
 ## Podstrona Neony LED (`neony-led.html` + `css/neony-led-strona.css`)
 
 Przebudowana od zera na podstawie briefu klienta z folderu `Neony led/`
@@ -747,7 +753,7 @@ Kolejność sekcji (id = kotwice):
     (Układ "split" z bleedem zdjęcia do krawędzi ekranu nie jest już używany
     nigdzie na tej stronie — wszystkie zdjęcia są w siatce 1200px.)
 12. `#zastosowania` — 6 kart z kwadratowymi zdjęciami
-13. `#realizacje` — wyśrodkowany nagłówek z tekstem pod nim, galeria 20 zdjęć
+13. `#realizacje` — wyśrodkowany nagłówek z tekstem pod nim, przycisk „Zobacz galerię realizacji” → galeria.html, galeria 8 zdjęć (2 rzędy)
     (`.gallery-grid` + lightbox) BEZ filtrów — usunięte na życzenie klienta,
     pokazujemy po prostu wszystkie zdjęcia z podpisami
 14. `#faq` — 10 pytań jako `<details>` + JSON-LD `FAQPage` w `<head>`
@@ -843,7 +849,7 @@ Kolejność sekcji (id = kotwice) i komponent z Neony LED, który reużywa:
 11. `#montaz` — rozdz. 11, ten sam układ co Wymiary, zdjęcie po lewej (figure
     pierwsza w HTML): veni andro wieczorem, z drabiną (montaż w toku).
 12. `#renowacja` — rozdz. 12, nagłówek | tekst (jak intro).
-13. `#realizacje` — galeria 20 zdjęć `.gallery-grid` + lightbox, podpisy tylko
+13. `#realizacje` — przycisk „Zobacz galerię realizacji”, galeria 8 zdjęć (2 rzędy) `.gallery-grid` + lightbox, podpisy tylko
     z tym, co widać.
 14. `#faq` — 6 pytań z briefu + JSON-LD `FAQPage` w `<head>`.
 15. `#zamow` — `.nl-cta.neon-cta`, formularz identyczny jak na Neony LED
@@ -896,7 +902,7 @@ Tła przeplatają się biała / czarna / szara — przy przestawianiu sekcji pil
 12. `#renowacja` — rozdz. 10, szara, nagłówek | tekst.
 13. `#logo` — rozdz. 11, `.neon-sizes--white` (biały wariant „Wymiarów”), COSTA COFFEE.
 14. `#montaz` — rozdz. 12, szara, zdjęcie po lewej (InBody).
-15. `#realizacje` — galeria 20 zdjęć; nagłówek na BIAŁYM tle (sekcja wyżej jest szara).
+15. `#realizacje` — przycisk + galeria 8 zdjęć (2 rzędy); nagłówek na BIAŁYM tle (sekcja wyżej jest szara).
 16. `#faq` — 7 pytań + JSON-LD; 17. `#zamow` — formularz, produkt domyślnie „Frontlit”
     (brief nie ma zastrzeżenia „Ważne”).
 
@@ -944,7 +950,7 @@ Kolejność (tła przeplatają się; id = kotwice):
     więc `.neon-env--no-note` (dolny padding 100px).
 14. `#personalizacja` — szara, PAPI; 15. `#montaz` — `.neon-sizes--white`, montaż
     Melanin z drabin (montażyści w koszulkach NEOFOX).
-16. `#realizacje` — galeria 20 zdjęć (nagłówek z notki briefu); 17. `#faq` — 6 pytań +
+16. `#realizacje` — przycisk + galeria 8 zdjęć (2 rzędy; nagłówek z notki briefu); 17. `#faq` — 6 pytań +
     JSON-LD, pod listą pytań „Uwaga: …” z końca briefu jako wyśrodkowana notka z ikoną
     „i” (`.neon-flex-note--center`, „Uwaga:” pogrubione) — użytkownik chciał ją lepiej
     widoczną niż drobny druk w CTA; 18. `#zamow` — produkt domyślnie „Kasetony i Semafory”.
@@ -982,7 +988,7 @@ Kolejność (tła: biała / szara / czarna; id = kotwice):
 7. `#folie` — biała, 4 kafelki + notka z ikoną warstw („Oklejanie może obejmować…”).
 8. `#montaz` — szara, 3 karty: wolnostojące (litera A) / na ścianę (MDF na dystansach) /
    na zewnątrz (Faworytka).
-9. `#zastosowania` — biała, nagłówek | tekst; 10. `#realizacje` — galeria 20 zdjęć;
+9. `#zastosowania` — biała, nagłówek | tekst; 10. `#realizacje` — przycisk + galeria 8 zdjęć (2 rzędy);
 11. `#faq` — 6 pytań + JSON-LD; 12. `#zamow` — produkt domyślnie „Litery z tworzyw…”.
 
 ## Podstrona Logo z pleksi (`logo-plexi.html` + `css/neony-led-strona.css`)
@@ -1017,7 +1023,7 @@ Kolejność (tła: biała / czarna / szara; id = kotwice):
     infografika zasilaczy; 13. `#zastosowania` — szara, Aesthetic Lab.
 14. `#projektowanie` + `#dostawa` — jedna biała sekcja, dwa `.neon-head-row` jeden pod
     drugim (`.neon-head-row + .neon-head-row`).
-15. `#realizacje` — galeria 12 zdjęć; 16. `#faq` — 6 pytań + JSON-LD; 17. `#zamow` —
+15. `#realizacje` — przycisk + galeria 8 zdjęć (2 rzędy); 16. `#faq` — 6 pytań + JSON-LD; 17. `#zamow` —
     produkt domyślnie „Logo z plexi”.
 
 ## Podstrony Banery, Oklejanie witryn, Montaż (zbudowane samodzielnie)
@@ -1049,7 +1055,7 @@ cutcut IMG_3103), iDenta z `Kasetony/IMG_4522` (kadr samej witryny) i YUKO ze st
 neofox.pl (napisy na szybie; „zdjęcie główne” z briefu = panel 1200×560 pod intro). Hero
 bez podtytułu (brief nie ma hasła końcowego). Druk Roland ilustruje klatka z filmu
 banerów. Bez zdjęć: wzornik Oracal, folie specjalne, One Way Vision (nie ma takich
-zdjęć). Galeria 8 zdjęć pod tekstem rozdz. 12; „Informacja o materiałach i wycenie” jako
+zdjęć). Galeria 8 zdjęć (2 rzędy) pod tekstem rozdz. 12 i przyciskiem; „Informacja o materiałach i wycenie” jako
 notka z ikoną pod FAQ; produkt domyślnie „Naklejki na szyby”.
 
 **Montaż** (`montaz-instalacja.html`, brief `montaż/1. TEKST`, 13 rozdziałów + FAQ): w
@@ -1061,7 +1067,7 @@ podnośnik — kadr bez tablicy rejestracyjnej, przechodniów i telefonu firmy o
 biurowiec Bałtyk) + montaże z innych podstron (Melanin, veni andro, YUKO, litery przed
 montażem, baner, folia). Pominięte z neofox.pl: przedszkole z Kubusiem Puchatkiem (postać
 Disneya), Rogale Świętomarcińskie (twarze klientów w kolejce). Rozdz. 8 „Prosimy o: …;
-…” jako wypunktowanie `.neon-bullet-list--text`. Galeria 12 zdjęć („Realizacje i
+…” jako wypunktowanie `.neon-bullet-list--text`. Galeria 8 zdjęć, 2 rzędy („Realizacje i
 montaże” — nagłówek dodany). Formularz: bez domyślnego produktu, checkbox „Jestem
 zainteresowany/a montażem” od razu zaznaczony, pole lokalizacji widoczne.
 

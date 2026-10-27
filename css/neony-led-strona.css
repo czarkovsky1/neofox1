@@ -877,10 +877,19 @@
   margin-bottom: 6px;
 }
 
-/* ===== 11. GALERIA — wyśrodkowany nagłówek + .gallery-grid ze style.css (wszystkie zdjęcia, bez filtrów) ===== */
+/* ===== 11. GALERIA — wyśrodkowany nagłówek + .gallery-grid ze style.css: tylko 2 rzędy (8 zdjęć),
+   pod nagłówkiem / tekstem przycisk „Zobacz galerię realizacji” → galeria.html (decyzja użytkownika) ===== */
 
 .neon-gallery-head {
   padding: 100px 0 64px;
+}
+
+.neon-gallery-head .neon-heading + .btn {
+  margin-top: 8px;
+}
+
+.neon-gallery-head .neon-text + .btn {
+  margin-top: 32px;
 }
 
 .neon-gallery .gallery-grid {
