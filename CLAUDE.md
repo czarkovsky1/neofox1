@@ -24,6 +24,8 @@ banery.html, oklejanie-witryn.html, montaz-instalacja.html
   – 9 podstron usługowych z dropdownu "Oferta B2B" (patrz sekcja
   "Podstrony usługowe" niżej). "Wynajem neonów" z dropdownu celowo NIE ma
   jeszcze swojej podstrony (link zostaje "#").
+paleta-kolorow.html – podstrona "Paleta kolorów" (link w stopce, kolumna "Nawigacja");
+  odpowiednik neofox.pl/paleta-kolorow/ — patrz sekcja "Podstrona Paleta kolorów" niżej
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
 css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css)
 css/kontakt.css      – style specyficzne dla podstrony kontakt (ładowane po style.css)
@@ -47,7 +49,12 @@ assets/images/         – zdjęcia sekcji + podmienione zdjęcia kafelków (web
 assets/images/tiles/   – oryginalne zdjęcia kafelków (PNG, niska rozdzielczość — zastępowane)
 assets/images/products/ – prawdziwe zdjęcia produktów pobrane z neofox.pl (np. happy-birthday-*.jpg)
 assets/images/neony-led/ – zoptymalizowane zdjęcia podstrony Neony LED (wyeksportowane
-  z "Neony led/", obrócone wg EXIF, max ~1000×1700 px, JPG q82)
+  z "Neony led/", obrócone wg EXIF, max ~1000×1700 px, JPG q82); `paleta-kolorow.jpg` =
+  kadr z neonami wycięty z `assets/Paleta.jpg` (2400×880)
+assets/Paleta.jpg     – źródłowa grafika palety 13 kolorów od klienta (29231×11123 px, 8 MB —
+  NIE linkować w HTML, używamy `assets/images/neony-led/paleta-kolorow.jpg`)
+assets/images/paleta/ – 13 zdjęć „kolor w realizacji” (960×1280) do paleta-kolorow.html, pobrane
+  z neofox.pl/paleta-kolorow/ (pełne wersje przez /wp-json/wp/v2/media), `niebieski.jpg` = IMG_0057
 Neony led/            – materiały źródłowe od klienta dla podstrony Neony LED: brief
   "1. TEKST.pdf" + oryginalne zdjęcia (2–5 MB każde, ~110 MB razem)
 assets/images/backlit-halo/ – zoptymalizowane zdjęcia podstrony Backlit (te same zasady
@@ -98,6 +105,7 @@ serwer PowerShell: `.claude/serve.ps1` (uruchamiany przez `.claude/launch.json`)
 - "Oferta B2B" — **nie jest linkiem** (`<span>`), po najechaniu rozwija dropdown
   z 10 pozycjami (patrz sekcja "Dropdown nawigacji" poniżej)
 - `koszyk.html` → "Przejdź do płatności" (`.koszyk-checkout-btn`) → `checkout.html`
+- stopka (wszystkie strony), kolumna "Nawigacja" → "Paleta kolorów" → `paleta-kolorow.html`
 
 ## Dropdown nawigacji (Oferta B2B)
 
@@ -105,8 +113,8 @@ serwer PowerShell: `.claude/serve.ps1` (uruchamiany przez `.claude/launch.json`)
 chevron SVG + `<ul class="dropdown">` z 10 pozycjami — **te same nazwy i ta sama
 kolejność co 10 kafelków w sekcji `.tiles` na `index.html`/`o-nas.html`**:
 - Neony LED → `neony-led.html`
-- Backlit — litery z efektem „HALO" → `backlit-halo.html`
-- Frontlit — litery 3D podświetlane → `frontlit-litery-3d.html`
+- Backlit – litery z efektem „HALO" → `backlit-halo.html`
+- Frontlit – litery 3D podświetlane → `frontlit-litery-3d.html`
 - Kasetony i semafory reklamowe → `kasetony-semafory.html`
 - Litery z tworzyw sztucznych, styroduru, PCV → `litery-niepodswietlane.html`
 - Logo z plexi → `logo-plexi.html`
@@ -676,6 +684,14 @@ ma `.neon-heading--one-line` (cały w jednym wierszu — np. Technologia).
 Odstępy ustalane z klientem sekcja po sekcji (prośba: więcej whitespace) —
 zmienione wartości są opisane przy sekcjach niżej.
 
+**H1 w hero (wszystkie 9 podstron ofertowych, decyzja użytkownika):** sama nazwa podstrony,
+dokładnie jak w dropdownie „Oferta B2B” („Neony LED”, „Backlit – litery z efektem „HALO””,
+„Logo z plexi”…), bez dopisków z tytułu briefu — długie tytuły briefów były za ciężkie,
+a podtytuł pod spodem i tak opisuje ofertę. Rozmiar 100px z szablonu (jak hero O nas /
+Kontakt), `text-wrap: balance`, treść hero ograniczona do siatki 1200px — dwie najdłuższe
+nazwy („Litery z tworzyw…”, „Oklejanie witryn…”) łamią się na 2 równe linie. Tytuły briefów
+zostały w `<title>` i meta description.
+
 **Podtytuł w hero (wszystkie przebudowane podstrony: neony, backlit, frontlit, kasetony):**
 `.neony-hero-sub` pod H1 to ostatnie zdanie briefu („… produkcja, dostawa i montaż”,
 bez kropki na końcu). Wcześniej stało jako tagline w sekcji Zamów — użytkownik kazał je
@@ -684,10 +700,8 @@ Na Backlit i Kasetonach zastąpiło wcześniejszy podtytuł spod tytułu briefu 
 zdania pod nagłówkiem byłyby powtórzeniem).
 
 Kolejność sekcji (id = kotwice):
-1. Hero — H1 = pełny tytuł z briefu w 3 liniach ("Neony LED na zamówienie – /
-   personalizowane neony reklamowe, / logotypy i napisy świetlne"), Bebas 80px
-   (100px z szablonu nie mieści się w 1200px); podtytuł `.neony-hero-sub` = ostatnie
-   zdanie briefu (patrz „Podtytuł w hero” niżej); tło: poziomy kadr
+1. Hero — H1 „Neony LED” (patrz „H1 w hero” wyżej); podtytuł `.neony-hero-sub` = ostatnie
+   zdanie briefu (patrz „Podtytuł w hero” wyżej); tło: poziomy kadr
    zdjęcia "Fajnie, że jesteś!" (`hero-fajnie-ze-jestes-poziomy.jpg`), ostry —
    BEZ rozmycia (wcześniejszy `blur(3px)` użytkownik kazał usunąć); neon jest
    dokładnie za nagłówkiem, więc nakładka w hero przebudowanych podstron ma 70%
@@ -719,6 +733,11 @@ Kolejność sekcji (id = kotwice):
 5. `#kolory` (`.neon-colors`, czarne tło, padding 150px) — zdjęcie ściany neonów
    ze stoiska targowego W SIATCE 1200px (kwadrat 560px, nie bleed do krawędzi
    ekranu) po lewej, tekst po prawej
+5a. `#paleta` (`.neon-colors.neon-palette`, bez górnego paddingu — ten sam czarny pas co
+   Kolory) — wyśrodkowany nagłówek „Dostępna paleta kolorów” + grafika palety klienta
+   (`paleta-kolorow.jpg`, 1200px). Czerń grafiki (#040108) jest ciemniejsza niż
+   `--color-black`, więc krawędzie są wygaszone `mask-image` (`.neon-palette-figure`).
+   Dodana na życzenie użytkownika (nie ma jej w briefie)
 6. `#personalizacja` — wyśrodkowany nagłówek, pod nim cały tekst sekcji
    (`.neon-head-center`; oba akapity briefu, także "Podczas opracowania
    projektu…"), pod spodem 5 kafelków
@@ -794,7 +813,9 @@ kopiowaniu stopki z index.html na podstronę: logo → `index.html` (nie `/`),
 Dropdown "Oferta B2B" i kolumna "Oferta" w stopce na **wszystkich** podstronach
 serwisu (łącznie z tymi 9) linkują teraz do prawdziwych plików zamiast `#`.
 Kolejność w stopce ujednolicono do tej samej co w dropdownie (10 pozycji,
-"Wynajem neonów" na końcu jako jedyny nadal `#`).
+"Wynajem neonów" na końcu jako jedyny nadal `#`). W kolumnie "Nawigacja" stopki
+„Paleta kolorów” → `paleta-kolorow.html` (pozostałe `#` w tej kolumnie: Oferta B2B,
+Polityka prywatności, Regulamin).
 
 ## Podstrona Backlit (`backlit-halo.html` + `css/neony-led-strona.css`)
 
@@ -813,7 +834,7 @@ dodana mimo braku w briefie — sam nagłówek, bez akapitu.
 
 Kolejność sekcji (id = kotwice) i komponent z Neony LED, który reużywa:
 1. Hero `.neony-hero.neon-hero` — poziomy kadr „1. GŁOWNY OBRAZ” (OMORFIA,
-   ostry, nakładka 70% jak na Neony LED), H1 w 2 liniach + podtytuł.
+   ostry, nakładka 70% jak na Neony LED), H1 = nazwa z dropdownu + podtytuł.
 2. Intro `.neon-intro` (nagłówek | 2 akapity) + pasek 4 pionowych zdjęć
    `.neon-strip` (OPTYK, NEX, LaserPro, PET MEDICA) w `.neon-strip-band--dark`
    — czarne tło następnej sekcji „najeżdża” na dolną połowę zdjęć.
@@ -869,7 +890,7 @@ Trzecia przebudowana podstrona ofertowa — te same klasy co Neony LED i Backlit
 własnego pliku CSS. Treść = brief `frontlit - litery 3D podświetlane/1. Tekst` (PDF
 bez rozszerzenia; 14 rozdziałów + FAQ), bez zmian merytorycznych.
 
-Ustalone z użytkownikiem: hero = momy's nocą (H1 w 3 liniach jak na Neony LED, podtytuł
+Ustalone z użytkownikiem: hero = momy's nocą (H1 = nazwa z dropdownu, podtytuł
 = ostatnie zdanie briefu); rozdziały 2 i 3 (druk 3D / taśma aluminiowa)
 to dwie osobne sekcje; infografika klienta „Opcje drukowanych liter” pocięta na 3
 pojedyncze litery E (bez wtopionych napisów); rozdział 6 jako 2 karty ze zdjęciami.
@@ -998,7 +1019,7 @@ rozszerzenia; 16 rozdziałów + FAQ), bez zmian merytorycznych; w treści pisown
 „pleksi” jak w briefie (w menu i nazwie pliku zostaje „plexi”).
 
 Ustalone z użytkownikiem: hero = „1. GŁÓWNY OBRAZ” (krąg WERANDA na posadzce, poziomy
-kadr), H1 „Logo z pleksi i LED”, podtytuł = hasło z końca rozdz. 16 (podtytuł spod
+kadr), H1 „Logo z plexi” (nazwa z dropdownu), podtytuł = hasło z końca rozdz. 16 (podtytuł spod
 tytułu briefu pominięty); rozdz. 4 i 5 (pleksi / Dibond) jako jedna sekcja z 2
 kafelkami obok siebie (`.neon-materials-grid--2`, punkty jako `.neon-bullet-list--text`
 — całe zdania z briefu); rozdz. 12 ze zdjęciem bez danych z aparatu (Aesthetic Lab —
@@ -1021,8 +1042,10 @@ Kolejność (tła: biała / czarna / szara; id = kotwice):
    Manufaktura Pączków; 10. `#malowanie` — biała, nagłówek | tekst.
 11. `#dystanse` — szara, zdjęcie elementów montażowych; 12. `#zasilanie` — biała +
     infografika zasilaczy; 13. `#zastosowania` — szara, Aesthetic Lab.
-14. `#projektowanie` + `#dostawa` — jedna biała sekcja, dwa `.neon-head-row` jeden pod
-    drugim (`.neon-head-row + .neon-head-row`).
+14. `#projektowanie` — czarna `.neon-colors`, zdjęcie po prawej (Vandal Cut — szyld ze studia
+    z odwzorowanym logo); `#dostawa` — osobna biała sekcja, układ pionowy `.neon-head-center`
+    (nagłówek nad tekstem). Wcześniej obie były jedną białą sekcją z dwoma identycznymi
+    układami nagłówek | tekst — użytkownik kazał je rozróżnić.
 15. `#realizacje` — przycisk + galeria 8 zdjęć (2 rzędy); 16. `#faq` — 6 pytań + JSON-LD; 17. `#zamow` —
     produkt domyślnie „Logo z plexi”.
 
@@ -1033,8 +1056,15 @@ w pliku tekstowym, zdjęcia najwyżej podmienimy; brakujące zdjęcia z całego 
 z neofox.pl”). Pliki HTML są złożone skryptem: `<head>` i `<main>` pisane ręcznie,
 a header, dane kontaktowe w CTA, formularz i stopka skopiowane 1:1 z `logo-plexi.html`
 (różni się tylko `aria-current` i domyślny produkt). Wszystkie rozdziały briefu są w
-kolejności z PDF; kilka krótkich rozdziałów dzieli jedną sekcję jako dwa–trzy układy
-nagłówek | tekst jeden pod drugim (`.neon-head-row + .neon-head-row`).
+kolejności z PDF. Krótkie rozdziały, które pierwotnie dzieliły jedną sekcję jako dwa–trzy
+identyczne układy nagłówek | tekst jeden pod drugim, zostały na życzenie użytkownika
+rozdzielone (tak samo jak Projektowanie / Zamówienie na logo-plexi.html): każdy rozdział to
+osobna sekcja z innym tłem, a z pary jeden dostaje zdjęcie albo układ pionowy
+(`.neon-head-center` — nagłówek nad tekstem), drugi zostaje nagłówek | tekst/lista. Układ
+pionowy na czarnym tle bez zdjęcia = `<section class="neon-colors">` + `.container.neon-head-center`
+(bez nowego CSS). **Nie układać dwóch `.neon-head-row` jeden pod drugim** — żadna strona już
+tego nie używa. Kolejność teł po zmianie (sprawdzona — nigdzie dwie sekcje o tym samym tle
+obok siebie): przy przestawianiu sekcji pilnować przeplotu biała / szara / czarna.
 
 **Banery** (`banery.html`, brief `Banery/1. Tekst_.pdf`, 17 rozdziałów + FAQ):
 hero = poziomy kadr zdjęcia wieszania banera (IMG_8465), podtytuł = hasło z końca
@@ -1042,10 +1072,19 @@ briefu; „Ważne: …” jako notka z ikoną pod intro; pasek 4 zdjęć = klatk
 klienta IMG_1877/1878.MOV (drukarka Roland, baner ZenRai Spa na stole; 720×1280,
 wyciągnięte ffmpeg) + zdjęcie montażu; rozdz. 4–7 jako 2×2 kafelki z tytułami
 rozdziałów w kafelkach (bez dodatkowego nagłówka sekcji — `.container >
-.neon-materials-grid:first-child`); rozdz. 9 = tabela rozstawu oczek jak tabela rozmiarów
-na Neony LED + zdjęcie oczek (IMG_1181 od klienta, bez danych z aparatu, mały 680×440);
+.neon-materials-grid:first-child`); rozdz. 9 Oczkowanie (układ ustalony z użytkownikiem):
+na górze wyśrodkowany nagłówek + pierwszy akapit (`.neon-head-center`), pod nimi
+`.neon-sizes-inner` — tabela rozstawu oczek + drugi akapit po lewej, zdjęcie oczek po prawej
+rozciągnięte na wysokość lewej kolumny (zwykłe `.neon-sizes-media`, bez `--square` — kwadrat
+obok całego tekstu zostawiał dziurę pod zdjęciem); zdjęcie = IMG_1181 od klienta, bez danych
+z aparatu, mały 680×440;
 rozdz. 16 „(1)…(8)” jako lista `/1…/8` (`.coop-list` ze strony głównej). Brak galerii —
-klient przysłał za mało zdjęć banerów (miejsce na nią jest w briefie).
+klient przysłał za mało zdjęć banerów (miejsce na nią jest w briefie). Rozdzielone pary:
+Frontlit (biała, pionowa) / Laminowane (szara, nagłówek | tekst); Projektowanie (czarna,
+zdjęcie `baner-logo.jpg` po lewej) / Wysyłka (szara, pionowa); Jak dobrać (czarna, pionowa,
+`#jak-dobrac`; wyliczenie „Przed zamówieniem warto określić: …” jako wypunktowanie w 2
+kolumnach `.neon-bullet-list--2col`, blok 880px — na czarnym tle punkty białe) / Jak zamówić
+(szara, nagłówek | lista /1…/8).
 
 **Oklejanie witryn** (`oklejanie-witryn.html`, brief `Oklejanie/1. Tekst`, 17 rozdziałów
 + FAQ + „Informacja o materiałach i wycenie”): folder klienta bez zdjęć — użyte witryny z
@@ -1055,8 +1094,15 @@ cutcut IMG_3103), iDenta z `Kasetony/IMG_4522` (kadr samej witryny) i YUKO ze st
 neofox.pl (napisy na szybie; „zdjęcie główne” z briefu = panel 1200×560 pod intro). Hero
 bez podtytułu (brief nie ma hasła końcowego). Druk Roland ilustruje klatka z filmu
 banerów. Bez zdjęć: wzornik Oracal, folie specjalne, One Way Vision (nie ma takich
-zdjęć). Galeria 8 zdjęć (2 rzędy) pod tekstem rozdz. 12 i przyciskiem; „Informacja o materiałach i wycenie” jako
-notka z ikoną pod FAQ; produkt domyślnie „Naklejki na szyby”.
+zdjęć). Galeria 8 zdjęć (2 rzędy) pod tekstem rozdz. 12 i przyciskiem — **cała sekcja
+`#realizacje` stoi na końcu, tuż nad FAQ** (decyzja użytkownika; wyjątek od kolejności
+briefu, wcześniej była po rozdz. 11); „Informacja o materiałach i wycenie” jako
+notka z ikoną pod FAQ; produkt domyślnie „Naklejki na szyby”. Rozdzielone: Folie Oracal
+(biała, pionowa) / Folie specjalne (szara, nagłówek | tekst); rozdz. 7–9 (One Way Vision,
+lustrzane, przeciwsłoneczne) jako 3 kafelki w rzędzie z tytułami rozdziałów (jak rodzaje
+materiałów na Banerach); Folie transparentne (szara, pionowa) / Projekt graficzny (czarna,
+zdjęcie `cutcut-drzwi.jpg` — to samo jest w galerii); Naklejki na wymiar (szara,
+nagłówek | tekst) / Realizacja zamówienia (czarna, pionowa).
 
 **Montaż** (`montaz-instalacja.html`, brief `montaż/1. TEKST`, 13 rozdziałów + FAQ): w
 PDF nazwa firmy jest grafiką (tekst z pliku czyta się „Meofox”) — na stronie „NEOFOX”.
@@ -1067,9 +1113,35 @@ podnośnik — kadr bez tablicy rejestracyjnej, przechodniów i telefonu firmy o
 biurowiec Bałtyk) + montaże z innych podstron (Melanin, veni andro, YUKO, litery przed
 montażem, baner, folia). Pominięte z neofox.pl: przedszkole z Kubusiem Puchatkiem (postać
 Disneya), Rogale Świętomarcińskie (twarze klientów w kolejce). Rozdz. 8 „Prosimy o: …;
-…” jako wypunktowanie `.neon-bullet-list--text`. Galeria 8 zdjęć, 2 rzędy („Realizacje i
+…” jako lista numerowana /1…/10 (`.coop-list` jak „Jak wygląda współpraca” na stronie
+głównej — użytkownik nie chciał tu myślników). Galeria 8 zdjęć, 2 rzędy („Realizacje i
 montaże” — nagłówek dodany). Formularz: bez domyślnego produktu, checkbox „Jestem
-zainteresowany/a montażem” od razu zaznaczony, pole lokalizacji widoczne.
+zainteresowany/a montażem” od razu zaznaczony, pole lokalizacji widoczne. Rozdzielone: Ile
+kosztuje (biała, pionowa) / Informacje do wyceny (szara, nagłówek | wypunktowanie);
+Przygotowanie i uzgodnienia (szara, pionowa) / Dlaczego NEOFOX (biała, zdjęcie po prawej
+`assets/images/montaz/uspi-work-paleta.jpg` = `dodatkowe-zdjecia/IMG_2864` — lada USPI WORK
+owinięta folią na palecie; IMG_2872 z dwiema ladami odrzucone, w kwadracie nieczytelne).
+
+## Podstrona Paleta kolorów (`paleta-kolorow.html` + `css/neony-led-strona.css`)
+
+Odpowiednik neofox.pl/paleta-kolorow/ (tam: nagłówek, grafika palety, 13 zdjęć z nazwami
+kolorów) w stylistyce podstron ofertowych — te same klasy, nowe tylko `.neon-palette*`.
+Link „Paleta kolorów” w stopce (kolumna „Nawigacja”) prowadzi tu na **wszystkich**
+podstronach; strony nie ma w menu głównym (header bez `aria-current`, w stopce link ma
+`aria-current="page"`). Treść: tylko tekst klienta z briefu Neony LED (zdanie o 13 wariantach
++ RGB, zastrzeżenie o odcieniach, akapit z sekcji Zamów) — nie dopisywać parametrów kolorów.
+
+Sekcje (tła: czarna / biała / szara):
+1. Otwarcie `.neon-colors.neon-palette.neon-palette-hero` — czarne tło ZAMIAST zdjęcia w hero:
+   H1 „Paleta kolorów” (`.neony-hero-heading`, 100px) + podtytuł, pod spodem ta sama grafika
+   palety co w `#paleta` na neony-led.html (z wygaszonymi krawędziami).
+2. `#kolory` — biała `.neon-section`: nagłówek „Kolory w realizacjach” + zastrzeżenie o
+   odcieniach, siatka 13 zdjęć 3:4 (`.neon-palette-grid` — flex, 5 w rzędzie, ostatni rząd 3
+   wyśrodkowany), nazwa koloru Bebas 28px na gradiencie (`.neon-palette-name`), kliknięcie
+   otwiera lightbox (inline JS, wzorzec z galeria.html). Kolejność = kolejność na palecie.
+3. CTA — szara `.neon-section--gray.neon-palette-cta`: „Zamów neon LED w wybranym kolorze”,
+   akapit z sekcji Zamów na neony-led.html, przyciski „Wyceń swój projekt” (→ index.html#wycena)
+   + „Zobacz ofertę neonów LED” (outline → neony-led.html). Bez formularza.
 
 ## Zasady współpracy / rzeczy do pamiętania
 

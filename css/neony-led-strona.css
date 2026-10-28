@@ -122,7 +122,8 @@
   align-items: center;
 }
 
-/* dwa układy nagłówek | tekst jeden pod drugim w tej samej sekcji (np. rozdz. 13 i 14 na logo-plexi.html) */
+/* dwa układy nagłówek | tekst jeden pod drugim w tej samej sekcji — obecnie nieużywane: użytkownik kazał
+   takie pary rozdzielić (osobne sekcje, jedna ze zdjęciem albo w układzie pionowym .neon-head-center) */
 .neon-head-row + .neon-head-row {
   margin-top: 96px;
 }
@@ -208,15 +209,18 @@
   background: rgba(0, 0, 0, 0.70);
 }
 
+/* treść hero w siatce 1200px (+ 2×40px paddingu jak .container) */
 .neon-hero .neony-hero-content {
+  max-width: 1280px;
   padding: 0 40px;
 }
 
-/* pełny tytuł z briefu w 3 liniach — 100px z szablonu nie mieści drugiej linii w siatce 1200px */
+/* H1 = sama nazwa podstrony (jak w dropdownie „Oferta B2B”), rozmiar 100px z szablonu jak hero
+   O nas / Kontakt; najdłuższe nazwy łamią się na 2 równe linie */
 .neon-hero .neony-hero-heading {
-  font-size: 80px;
-  line-height: 1;
+  line-height: 0.95;
   margin-bottom: 0;
+  text-wrap: balance;
 }
 
 /* podtytuł pod H1 = ostatnie zdanie briefu (dawny tagline z sekcji Zamów) — jedna linia na szerokość nagłówka */
@@ -383,7 +387,7 @@
 }
 
 /* lista numerowana /1, /2… (.coop-list ze style.css) pod zdaniem wprowadzającym w kolumnie tekstu
-   (np. „Do wyceny prześlij:” na banery.html) */
+   (np. „Do wyceny prześlij:” na banery.html, „Prosimy o:” na montaz-instalacja.html) */
 .neon-text + .coop-list {
   margin-top: 20px;
 }
@@ -392,7 +396,8 @@
   margin-bottom: 0;
 }
 
-/* wypunktowanie pod zdaniem wprowadzającym (np. „Prosimy o:” na montaz-instalacja.html) */
+/* wypunktowanie pod zdaniem wprowadzającym (obecnie nieużywane — „Prosimy o:” na montaz-instalacja.html
+   zamieniono na listę numerowaną .coop-list) */
 .neon-text + .neon-bullet-list--text {
   margin-top: 8px;
 }
@@ -400,6 +405,25 @@
 /* dopisek pod listą (np. „Zależnie od dostępności…” na kasetony-semafory.html) */
 .neon-bullet-list + .neon-text {
   margin-top: 16px;
+}
+
+/* lista pod wyśrodkowanym nagłówkiem (np. „Jak dobrać…” na banery.html): blok wyśrodkowany, punkty wyrównane
+   do lewej; nieco szerszy niż tekst (760px), żeby punkty w 2 kolumnach mieściły się w jednej linii */
+.neon-head-center .neon-bullet-list {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.neon-head-center .neon-bullet-list + .neon-text {
+  margin-top: 28px;
+}
+
+/* lista na czarnym tle (.neon-colors) */
+.neon-colors .neon-bullet-list li {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* wariant pionowy karty (zdjęcie nad tekstem) — dla dłuższych opisów, np. BASIC / EXCLUSIVE */
@@ -656,6 +680,104 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* ===== 3a. PALETA — grafika 13 kolorów pod sekcją Kolory, na tym samym czarnym tle ===== */
+
+/* górny odstęp daje dolny padding sekcji Kolory (oba pasy czarne, czytają się jak jeden) */
+.neon-palette {
+  padding-top: 0;
+}
+
+.neon-palette-figure {
+  margin-top: 32px;
+}
+
+/* czerń grafiki (#040108) jest ciemniejsza niż --color-black, więc krawędzie wygaszamy maską,
+   żeby nie było widać prostokąta; neony leżą poza wygaszanym marginesem */
+.neon-palette-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent),
+    linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent),
+    linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  mask-composite: intersect;
+}
+
+/* ===== PODSTRONA PALETA KOLORÓW (paleta-kolorow.html) ===== */
+
+/* otwarcie strony: czarne tło zamiast zdjęcia w hero — H1 i podtytuł z .neony-hero-* (neony-led.css) nad grafiką palety */
+.neon-palette-hero {
+  padding: 100px 0 120px;
+}
+
+.neon-palette-hero .neony-hero-heading {
+  margin-bottom: 0;
+}
+
+.neon-palette-hero .neony-hero-sub {
+  max-width: 760px;
+  margin: 24px auto 0;
+}
+
+.neon-palette-hero .neon-palette-figure {
+  margin-top: 56px;
+}
+
+/* 13 zdjęć 3:4 po 5 w rzędzie; flex zamiast grid, żeby ostatni, niepełny rząd był wyśrodkowany */
+.neon-palette-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 56px;
+  list-style: none;
+}
+
+.neon-palette-grid li {
+  width: calc((100% - 4 * 24px) / 5);
+}
+
+.neon-palette-item {
+  display: block;
+  aspect-ratio: 3 / 4;
+  cursor: zoom-in;
+}
+
+.neon-palette-item img {
+  transition: transform 0.4s ease;
+}
+
+.neon-palette-item:hover img {
+  transform: scale(1.04);
+}
+
+/* nazwa koloru na zdjęciu — ten sam gradient co figcaption w .neon-photo, krój nagłówków */
+.neon-palette-name {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 56px 20px 16px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 100%);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.neon-palette-cta {
+  padding: 120px 0;
+}
+
+.neon-palette-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
 /* ===== 4. PERSONALIZACJA — reużywa .tiles-grid / .tile ze style.css ===== */
 
 .neon-personal-head {
@@ -731,6 +853,16 @@
 
 .neon-sizes-media--square {
   aspect-ratio: 1 / 1;
+}
+
+/* wariant z wyśrodkowanym nagłówkiem i akapitem nad kolumnami (np. Oczkowanie na banery.html): pod nimi
+   tabela | zdjęcie, zdjęcie rozciągnięte na wysokość tabeli (bez pustego miejsca pod żadną kolumną) */
+.neon-head-center + .neon-sizes-inner {
+  margin-top: 64px;
+}
+
+.neon-sizes-content > .neon-size-table:first-child {
+  margin-top: 0;
 }
 
 /* ten sam układ na białym tle — gdy sąsiednie sekcje są szare (np. Logo na frontlit-litery-3d.html) */
