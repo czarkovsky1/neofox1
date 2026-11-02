@@ -1,0 +1,78 @@
+/* ===== WYNAJEM NEONÓW (wynajem-neonow.html + 8 kart neonów wynajem-*.html) =====
+   Strony złożone z klas szablonu podstron ofertowych (neony-led-strona.css) i kafelków .tile ze style.css,
+   karty neonów dodatkowo z okruszków i miniatur karty produktu (produkt.css). Tu tylko to, czego tam nie ma. */
+
+/* 8 kafelków po 4 w rzędzie (jak na stronie źródłowej), na całą szerokość ekranu, stykają się — jak .tiles-grid na stronie głównej */
+.tiles-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ===== KARTA NEONU — czarna sekcja: zdjęcia | nazwa, parametry, przycisk ===== */
+
+.wynajem-main {
+  padding: 80px 0 100px;
+}
+
+.wynajem-main .neon-colors-inner {
+  align-items: start;
+}
+
+/* duże zdjęcie to link do pełnego kadru w lightboxie */
+.wynajem-photo {
+  display: block;
+  cursor: zoom-in;
+}
+
+/* parametry: etykieta jak nagłówek tabeli .neon-size-table, wartość krojem nagłówków; linie między wierszami jak .neon-bullet-list na czarnym tle */
+.wynajem-specs {
+  margin: 8px 0 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.wynajem-specs > div {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.wynajem-specs dt {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.wynajem-specs dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.wynajem-specs .wynajem-price {
+  color: var(--color-orange);
+}
+
+.wynajem-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wynajem-status::before {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3ecf6b;
+}
+
+.wynajem-info .btn + .neon-text {
+  margin-top: 32px;
+}

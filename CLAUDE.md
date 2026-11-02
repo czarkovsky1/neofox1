@@ -22,8 +22,10 @@ neony-led.html, backlit-halo.html, frontlit-litery-3d.html,
 kasetony-semafory.html, litery-niepodswietlane.html, logo-plexi.html,
 banery.html, oklejanie-witryn.html, montaz-instalacja.html
   – 9 podstron usługowych z dropdownu "Oferta B2B" (patrz sekcja
-  "Podstrony usługowe" niżej). "Wynajem neonów" z dropdownu celowo NIE ma
-  jeszcze swojej podstrony (link zostaje "#").
+  "Podstrony usługowe" niżej)
+wynajem-neonow.html – dziesiąta pozycja dropdownu "Oferta B2B": lista 8 neonów do wynajęcia
+wynajem-<neon>.html – 8 kart neonów, po jednej na kafelek z listy (patrz sekcja
+  "Podstrona Wynajem neonów" niżej)
 paleta-kolorow.html – podstrona "Paleta kolorów" (link w stopce, kolumna "Nawigacja");
   odpowiednik neofox.pl/paleta-kolorow/ — patrz sekcja "Podstrona Paleta kolorów" niżej
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
@@ -34,6 +36,8 @@ css/sklep.css        – style specyficzne dla podstrony sklep (ładowane po sty
 css/produkt.css      – style specyficzne dla karty produktu (ładowane po style.css)
 css/koszyk.css       – style specyficzne dla podstrony koszyk (ładowane po style.css)
 css/checkout.css     – style specyficzne dla podstrony checkout (ładowane po style.css)
+css/wynajem.css      – style specyficzne dla stron wynajmu (ładowane po szablonie ofertowym,
+  a na kartach neonów także po produkt.css)
 css/neony-led.css    – **stary wspólny szablon** podstron usługowych (klasy `.nl-*`,
   `.neony-hero*` — nazwa historyczna). Wszystkie 9 podstron jest już przebudowanych,
   ale nadal ładują ten plik dla hero (`.neony-hero*`) i sekcji CTA (`.nl-cta`) — tych
@@ -59,6 +63,8 @@ assets/images/paleta/ – 13 zdjęć „kolor w realizacji” (960×1280) do pal
 assets/images/o-nas/ – zoptymalizowane zdjęcia sekcji podstrony O nas, wyeksportowane z plików o tej
   samej nazwie w assets/images/ (1120 px szerokości, JPG q82; `sztuka-barberingu-poziomy.jpg` = poziomy
   kadr 2400×1360 do panelu); oryginały zostają, bo używają ich inne strony
+assets/images/wynajem/ – zdjęcia stron wynajmu pobrane z neofox.v-stage.pl (`<neon>-N.jpg`, N=1 = zdjęcie
+  z kafelka; rozmiary jak na stronie źródłowej, 500–1000 px)
 Neony led/            – materiały źródłowe od klienta dla podstrony Neony LED: brief
   "1. TEKST.pdf" + oryginalne zdjęcia (2–5 MB każde, ~110 MB razem)
 assets/images/backlit-halo/ – zoptymalizowane zdjęcia podstrony Backlit (te same zasady
@@ -110,6 +116,8 @@ serwer PowerShell: `.claude/serve.ps1` (uruchamiany przez `.claude/launch.json`)
 - "Oferta B2B" — **nie jest linkiem** (`<span>`), po najechaniu rozwija dropdown
   z 10 pozycjami (patrz sekcja "Dropdown nawigacji" poniżej)
 - `koszyk.html` → "Przejdź do płatności" (`.koszyk-checkout-btn`) → `checkout.html`
+- `wynajem-neonow.html` → kafelek → `wynajem-<neon>.html`; karta neonu → okruszki, „Zobacz wszystkie
+  neony” → `wynajem-neonow.html`, „Rezerwuj” → `#rezerwacja` na tej samej stronie
 - stopka (wszystkie strony), kolumna "Nawigacja" → "Paleta kolorów" → `paleta-kolorow.html`
 
 ## Dropdown nawigacji (Oferta B2B)
@@ -126,8 +134,7 @@ kolejność co 10 kafelków w sekcji `.tiles` na `index.html`/`o-nas.html`**:
 - Banery → `banery.html`
 - Oklejanie witryn, naklejki na szyby → `oklejanie-witryn.html`
 - Montaż i instalacja → `montaz-instalacja.html`
-- Wynajem neonów → **jedyna pozycja bez podstrony**, `href="#"` (pominięta na
-  życzenie użytkownika)
+- Wynajem neonów → `wynajem-neonow.html`
 
 Dropdown pojawia się przy `:hover` na `li.has-dropdown`, z animacją opacity +
 translateY. Style w `css/style.css` sekcja `/* Dropdown */` (`min-width: 300px`
@@ -659,8 +666,8 @@ użytkownika że ta strona ma być wyłącznie wizualną makietą.
 `backlit-halo.html`, `frontlit-litery-3d.html`, `kasetony-semafory.html`,
 `litery-niepodswietlane.html`, `logo-plexi.html`, `banery.html`,
 `oklejanie-witryn.html`, `montaz-instalacja.html`. Razem odpowiadają 9 z 10
-pozycji dropdownu "Oferta B2B" — **"Wynajem neonów" celowo pominięty** (na
-życzenie użytkownika, link zostaje `#`).
+pozycji dropdownu "Oferta B2B"; dziesiąta, "Wynajem neonów", jest zbudowana inaczej
+(lista + karty neonów) — patrz sekcja "Podstrona Wynajem neonów" niżej.
 
 **Wszystkie 9 podstron jest przebudowanych na podstawie briefów klienta** (PDF w
 folderach źródłowych) i składa się z klas wspólnego szablonu `css/neony-led-strona.css`
@@ -834,7 +841,7 @@ kopiowaniu stopki z index.html na podstronę: logo → `index.html` (nie `/`),
 Dropdown "Oferta B2B" i kolumna "Oferta" w stopce na **wszystkich** podstronach
 serwisu (łącznie z tymi 9) linkują teraz do prawdziwych plików zamiast `#`.
 Kolejność w stopce ujednolicono do tej samej co w dropdownie (10 pozycji,
-"Wynajem neonów" na końcu jako jedyny nadal `#`). W kolumnie "Nawigacja" stopki
+"Wynajem neonów" na końcu). W kolumnie "Nawigacja" stopki
 „Paleta kolorów” → `paleta-kolorow.html` (pozostałe `#` w tej kolumnie: Oferta B2B,
 Polityka prywatności, Regulamin).
 
@@ -1163,6 +1170,64 @@ Sekcje (tła: czarna / biała / szara):
 3. CTA — szara `.neon-section--gray.neon-palette-cta`: „Zamów neon LED w wybranym kolorze”,
    akapit z sekcji Zamów na neony-led.html, przyciski „Wyceń swój projekt” (→ index.html#wycena)
    + „Zobacz ofertę neonów LED” (outline → neony-led.html). Bez formularza.
+
+## Podstrona Wynajem neonów (`wynajem-neonow.html` + 8 kart `wynajem-<neon>.html` + `css/wynajem.css`)
+
+Odpowiednik neofox.v-stage.pl/oferta/wynajem-neonow/ (lista kafelków) i neofox.v-stage.pl/portfolio/<neon>/
+(karty) w stylistyce podstron ofertowych — użytkownik zlecił to bez konsultacji układu. Briefu nie ma, a
+neofox.v-stage.pl/wynajem-neonow/ to tylko kopia treści Neony LED, więc nie jest źródłem. Klasy szablonu
+`.neon-*`, kafelki `.tile`, okruszki i miniatury z `produkt.css`; w `wynajem.css` tylko `.tiles-grid--4` i `.wynajem-*`.
+
+**Dane są prawdziwe, ze strony źródłowej — nie dopisywać parametrów.** Każdy neon: kolor ciepły biały, koszt
+wynajęcia 350 zł, dostępny, w zestawie zasilanie, mocowanie i kontroler jasności. Kolejność jak na stronie źródłowej:
+
+| Neon | Karta (`wynajem-…`) | Wymiary | Zdanie dodatkowe w opisie |
+|---|---|---|---|
+| I żyli długo i szczęśliwie… | `i-zyli-dlugo-i-szczesliwie` | 120 × 60 cm | — |
+| P.S. Kocham Cię | `p-s-kocham-cie` | 120 × 60 cm | — |
+| Zapisani sobie w gwiazdach | `zapisani-sobie-w-gwiazdach` | 120 × 50 cm | — |
+| Hej wesele! | `hej-wesele` | 120 × 40 cm | — |
+| Od teraz My | `od-teraz-my` | 120 × 40 cm | — |
+| Miłość | `milosc` | 100 × 50 cm | dostępny w różnych wariacjach |
+| Better Together | `better-together` | 120 × 40 cm | 2 szyldy (każde słowo osobno) |
+| Razem lepiej | `razem-lepiej` | 120 × 40 cm | 2 szyldy (każde słowo osobno) |
+
+Tekst ze strony źródłowej, poza kosmetyką: usunięte zdania złożone z samej nazwy („Neon Hej wesele!.”) i dodany
+przecinek. Podtytuł w hero listy = meta description klienta. Zdanie „Koszt wynajęcia każdego neonu to 350 zł”
+jest złożone z danych kart.
+
+Sekcje listy (`wynajem-neonow.html`):
+1. Hero `.neony-hero.neon-hero` — `hej-wesele-3.jpg` (ciemne zdjęcie, cały napis się mieści), nakładka 70%,
+   H1 „Wynajem neonów” + podtytuł.
+2. `#neony` — wyśrodkowany nagłówek z tekstem, pod nim `.tiles-grid.tiles-grid--4`: 8 kafelków 4×2 na całą
+   szerokość ekranu, stykają się. Kafelek identyczny jak na stronie głównej (nazwa + „Zobacz więcej”); wersja z
+   wymiarami i ceną zasłaniała neony, a cena i tak jest wspólna, więc stoi w tekście nad kafelkami.
+3. `#rezerwacja` — formularz, bez wybranego neonu.
+
+Sekcje karty neonu:
+1. Okruszki `.product-breadcrumb` (Strona główna / Wynajem neonów / nazwa).
+2. Czarna `.neon-colors.wynajem-main` — kwadratowe zdjęcie 560 px + miniatury `.product-gallery-thumbs` |
+   H1 `.neon-heading` podzielony tak, jak napis na neonie (`Hej <span class="accent-text">wesele!</span>`),
+   parametry `.wynajem-specs`, przycisk „Rezerwuj” → `#rezerwacja`, opis. Inline JS: miniatura podmienia zdjęcie,
+   kliknięcie zdjęcia otwiera lightbox (× nie ma, zamyka klik i Esc).
+3. „Zobacz też inne neony do wynajęcia” — biała, przycisk do listy + 4 kolejne kafelki (po ostatnim neonie wraca
+   na początek). Dodane, na stronie źródłowej tego nie ma.
+4. `#rezerwacja` — formularz z wybranym tym neonem.
+
+Formularz `#rezerwacja` to `.nl-cta.neon-cta` (prefiks id `nl-`), ale neony mają stałe wymiary, więc zamiast
+„Czego dotyczy zapytanie”, miejsca montażu, rozmiaru i checkboxa montażu są „Termin wynajmu” i select „Który neon
+chcesz wynająć?”. Na stronie źródłowej „Rezerwuj” prowadzi do /kontakt/ — tu formularz jest na tej samej stronie.
+Tekst obok formularza = „Dla rezerwacji terminu prosimy o kontakt mailowy lub telefoniczny.” ze strony źródłowej.
+
+Zdjęcia: karta zaczyna się od zdjęcia z kafelka (`-1`). Wyjątek: **Razem lepiej** zaczyna się od `-3` (cały napis
+na deskach, 1000 px), bo na `-1` sama fotografia ucina „lepiej”. Od teraz My, Miłość, Better Together i Razem lepiej
+(poza `-3`) mają tylko 500–640 px, więc w dużym kadrze są lekko miękkie — do podmiany, gdy klient przyśle oryginały.
+Pominięte: Miłość z butelką wina (etykieta obcej marki, ucięty neon) i przycięty duplikat zdjęcia Miłość.
+
+Pliki złożone jednorazowym skryptem spoza repo (header i stopka skopiowane 1:1 z `logo-plexi.html`, reszta z
+jednego wzorca), więc 8 kart ma identyczną strukturę — wspólną zmianę trzeba nanieść na wszystkie. Z kafelków na
+`index.html` i `o-nas.html` link ma tylko „Wynajem neonów”; pozostałe dziewięć ma tam nadal `href="#"`. Formularze
+na innych podstronach nie mają w selectcie produktu opcji „Wynajem neonów”.
 
 ## Zasady współpracy / rzeczy do pamiętania
 
