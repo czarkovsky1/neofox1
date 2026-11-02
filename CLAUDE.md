@@ -27,7 +27,7 @@ banery.html, oklejanie-witryn.html, montaz-instalacja.html
 paleta-kolorow.html – podstrona "Paleta kolorów" (link w stopce, kolumna "Nawigacja");
   odpowiednik neofox.pl/paleta-kolorow/ — patrz sekcja "Podstrona Paleta kolorów" niżej
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
-css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css)
+css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css i szablonie ofertowym)
 css/kontakt.css      – style specyficzne dla podstrony kontakt (ładowane po style.css)
 css/galeria.css      – style specyficzne dla podstrony galeria (ładowane po style.css)
 css/sklep.css        – style specyficzne dla podstrony sklep (ładowane po style.css)
@@ -55,6 +55,9 @@ assets/Paleta.jpg     – źródłowa grafika palety 13 kolorów od klienta (292
   NIE linkować w HTML, używamy `assets/images/neony-led/paleta-kolorow.jpg`)
 assets/images/paleta/ – 13 zdjęć „kolor w realizacji” (960×1280) do paleta-kolorow.html, pobrane
   z neofox.pl/paleta-kolorow/ (pełne wersje przez /wp-json/wp/v2/media), `niebieski.jpg` = IMG_0057
+assets/images/o-nas/ – zoptymalizowane zdjęcia sekcji podstrony O nas, wyeksportowane z plików o tej
+  samej nazwie w assets/images/ (1120 px szerokości, JPG q82; `sztuka-barberingu-poziomy.jpg` = poziomy
+  kadr 2400×1360 do panelu); oryginały zostają, bo używają ich inne strony
 Neony led/            – materiały źródłowe od klienta dla podstrony Neony LED: brief
   "1. TEKST.pdf" + oryginalne zdjęcia (2–5 MB każde, ~110 MB razem)
 assets/images/backlit-halo/ – zoptymalizowane zdjęcia podstrony Backlit (te same zasady
@@ -168,7 +171,7 @@ Stary hero o-nas (4 zdjęcia + badge) jest **ukryty** `.onas-hero { display: non
   która sama nie jest opakowana w `.container` (np. bo pół sekcji to zdjęcie na
   pełną szerokość), używamy tego samego wzoru co `.container`, ręcznie:
   `calc(max(40px, (100vw - 1200px) / 2))` jako padding od strony zewnętrznej.
-  Patrz `.coop-content`, `.quote-form-wrap`, `.onas-about-content`, `.onas-distinguish-content`.
+  Patrz `.coop-content`, `.quote-form-wrap`.
 
 ### Ważna pułapka (już naprawiana kilka razy)
 
@@ -183,7 +186,7 @@ tylko przycinało do tej wysokości:
   rodzica) wymuszą wysokość całej kolumny (i przez `align-items: stretch`
   całej sekcji) — sekcja robi się dużo wyższa niż treść i wygląda "rozjechana".
 - Przykłady poprawnego wzorca: `.hero-bg` + `.hero-slide`, `.quote-image`,
-  `.coop-image`, `.onas-about-image`, `.onas-distinguish-image`.
+  `.coop-image`, `.neon-photo`.
 
 Druga pułapka: `overflow-x: auto` na flex-childzie (np. `.reviews-track`)
 **nie zadziała**, jeśli flex item nie ma `min-width: 0` — domyślne
@@ -209,15 +212,15 @@ Wszystkie duże nagłówki sekcji (hero, "Niech Twoja firma...", "Ale ile to
 będzie kosztować", "Jak wygląda współpraca z nami", "Zobacz nasze
 realizacje") są **ujednolicone na `font-size: 54px`**, `letter-spacing: 0.5px`.
 Hero ma specjalny przypadek: 100px — patrz `.hero-headline`.
-Na podstronie o-nas nagłówki sekcji intro/specjalizujemy mają `font-size: 80px`.
+Na podstronach ofertowych i na o-nas h2 mają 74px (`.neon-heading`); wyjątek: „Zobacz w czym się
+specjalizujemy” na o-nas — 80px (sekcja zostawiona w poprzedniej wersji, patrz sekcja "Podstrona O nas").
 
 ### Akcent kolorystyczny w nagłówkach
 
 Wzorzec wielokolorowych nagłówków: cały tekst w kolorze bazowym (czarny lub pomarańczowy),
 wybrane słowa owinięte w `<span class="accent">` z `color: var(--color-orange)`.
-Przykłady z o-nas.html:
-- `PODŚWIETLIMY <span class="accent">CAŁY</span><br>ŚWIAT!` — "CAŁY" pomarańczowe, reszta czarna
-- `Twoja satysfakcja to nasz <span class="accent">najwyższy priorytet</span>`
+W `.neon-heading` (podstrony ofertowe, o-nas) to `<span class="accent-text">` — akcent od nowej linii, np.
+`PODŚWIETLIMY <span class="accent-text">CAŁY ŚWIAT!</span>`, chyba że nagłówek ma `.neon-heading--one-line`.
 
 ### Body text — zasada 16px
 
@@ -240,8 +243,8 @@ Różnią się tylko kolorem/wariantem:
 - `.btn-tertiary` — tekst-only, pomarańczowy, z ikoną strzałki w dół, zdefiniowany
   w `o-nas.css`. Używany w sekcji intro o-nas jako "Czytaj więcej" (anchor do `#onas-tresc`).
 
-Przycisk wewnątrz flex-kolumny (np. pod tekstem w `.onas-about`) wymaga
-`align-self: flex-start` żeby nie rozciągał się na całą szerokość kolumny.
+Przycisk wewnątrz flex-kolumny wymaga `align-self: flex-start` żeby nie rozciągał
+się na całą szerokość kolumny.
 
 Jeśli dodajesz nowy przycisk — używaj klasy bazowej `.btn` + wariant kolorystyczny,
 nie ustawiaj paddingu/font-size lokalnie.
@@ -310,6 +313,14 @@ nie ustawiaj paddingu/font-size lokalnie.
 
 ### Sekcje o-nas.html (w kolejności)
 
+**Układ jak na podstronach ofertowych (decyzja użytkownika):** wszystkie zdjęcia poza hero i kafelkami
+usług są w siatce 1200px (mapa w sekcji Contact też idzie do krawędzi ekranu), sekcje (poza Specialize + Tiles) są złożone z klas `css/neony-led-strona.css`
+(ładowany przed `o-nas.css`, treść w `<main class="neon-page">`), a treści i kolejność sekcji zostały bez
+zmian. W `o-nas.css` są tylko hero, `.btn-tertiary`, `.onas-section-btn`, `.onas-panel`, `.onas-process*`,
+`.onas-specialize*` i `.onas-contact*`.
+Tła: biała / szara / biała / szara / czarna / biała / szara — przy przestawianiu sekcji pilnować
+przeplotu i pasów (`*-band`).
+
 1. **Header** — skopiowany z `index.html`, "O nas" ma `aria-current="page"`.
 
 2. **Hero nowy** (`.onas-hero-new`) — wzorzec identyczny jak kontakt.html:
@@ -317,38 +328,39 @@ nie ustawiaj paddingu/font-size lokalnie.
    "O NAS" Bebas Neue 100px + podtytuł. Stary hero (`.onas-hero` — 4 zdjęcia
    + badge) pozostaje w HTML ale jest ukryty przez `.onas-hero { display: none; }`.
 
-3. **Intro** (`.onas-intro`) — białe tło, `padding: 87px 0`, `text-align: center`.
-   Nagłówek `.onas-intro-heading`: Bebas Neue 80px. Pod tekstem przycisk
-   `.btn-tertiary` "Czytaj więcej" ze strzałką w dół, linkujący do `#onas-tresc`
-   (anchor na pierwszej sekcji `.onas-about`).
+3. **Intro** (`.neon-section.neon-intro`, biała) — nagłówek | tekst + `.btn-tertiary` "Czytaj więcej"
+   ze strzałką w dół, linkujący do `#onas-tresc`. Nagłówek to h2 (jedyny h1 jest w hero).
 
-4. **About** (`.onas-about`, `id="onas-tresc"`) — obraz po lewej (bleed), tekst po prawej.
-   - Zdjęcie: `belleza-place.jpg`
-   - `.onas-about-content`: padding prawy = `calc(max(40px,(100vw-1200px)/2))`,
-     padding lewy = 60px, padding góra/dół = 100px
-   - Sekcja "Najnowsze projekty studia" reużywa tych samych klas `.onas-about`
-     (bez `id`), zdjęcie: `mionetto-neons.jpg`
+4. **Twoja satysfakcja** (`.neon-sizes`, `id="onas-tresc"`, szara) — układ jak "Dostawa i montaż" na
+   Backlit: kwadratowe zdjęcie po lewej (`o-nas/belleza-place.jpg`), tekst wyrównany do jego górnej krawędzi.
 
-5. **Distinguish** (`.onas-distinguish`) — tekst po lewej, obraz po prawej (bleed).
-   Zdjęcie: `sztuka-barberingu.jpg`.
-   Treść: intro paragraph + lista `.coop-list` z 3 punktami (/1 Nowoczesną technologię,
-   /2 Wszechstronne zastosowanie, /3 Profesjonalny design). Odstęp listy od paragrafu:
-   `.onas-distinguish-content .coop-list { margin-top: 24px; }`.
+5. **Co nas wyróżnia** (`.neon-materials`, biała) — układ jak "Kolorystyka" na Backlit: nagłówek | tekst +
+   `.coop-list` /1–/3, pod spodem poziomy panel 1200×680 (`.onas-panel`,
+   `o-nas/sztuka-barberingu-poziomy.jpg`) w pasie `.neon-materials-band--gray` — szare tło następnej sekcji
+   "najeżdża" na dolną połowę zdjęcia (efekt zamówiony przez użytkownika). Panel jest wyższy niż 560px z
+   szablonu, bo neon zajmuje niemal całą szerokość kadru i przy 560px dotykałby krawędzi zdjęcia.
 
-6. **Process** (`.onas-process`) — 4 ikony na szarym tle (`#f4f4f4`), `padding: 80px 0`.
-   Po gridie ikon jest wyśrodkowany przycisk CTA `.btn-primary` w divie `.onas-process-cta`
-   (`margin-top: 48px; text-align: center`).
+6. **Najnowsze projekty studia** (`.neon-sizes`, szara) — tekst + przycisk po lewej, kwadratowe zdjęcie
+   po prawej (`o-nas/mionetto-neons.jpg`).
 
-7. **Specialize** (`.onas-specialize`) — nagłówek "ZOBACZ W CZYM SIĘ SPECJALIZUJEMY"
-   Bebas Neue 80px, "SPECJALIZUJEMY" w `<span class="accent">`.
+7. **Process** (`.neon-colors.onas-process`, czarna — wcześniej szara; zmieniona, żeby nie było dwóch szarych
+   sekcji obok siebie) — 4 ikony, tytuły `.neon-material-title`, pod nimi wyśrodkowany przycisk CTA
+   `.onas-process-cta`.
 
-8. **Tiles** (`.tiles`) — identyczna siatka jak na `index.html`. Zdjęcia kafelków
-   (patrz tabela poniżej).
+8. **Specialize + Tiles** (`.onas-specialize` — biała, nagłówek Bebas Neue 80px, "SPECJALIZUJEMY" w
+   `<span class="accent">`; `.tiles` — identyczna siatka 5×2 jak na `index.html`) — **kafelki usług są
+   celowo na całą szerokość ekranu, stykają się i nie wchodzą na szare tło (decyzja użytkownika)**: wersja z
+   kafelkami w siatce 1200px i drugim rzędem w `.neon-tiles-band` została wycofana. Traktujemy je jak
+   galerię, nie jak zdjęcia sekcji. Zdjęcia kafelków: tabela poniżej.
 
 9. **Quote** (`.quote`) — ukryte regułą `.quote { display: none; }` w `o-nas.css`.
 
-10. **Contact** (`.onas-contact`) — dwie kolumny, `min-height: 520px`.
-    Lewa: dane kontaktowe + mapa Google Maps (iframe, Garbary 46, Poznań).
+10. **Contact** (`.neon-sizes.onas-contact`, szara, padding 100px) — dane kontaktowe po lewej w siatce 1200px,
+    mapa Google Maps (iframe, Garbary 46, Poznań) na prawej połowie strony, **do krawędzi ekranu i na całą
+    wysokość sekcji (decyzja użytkownika)**: wersja z mapą w siatce 1200px została wycofana. Mapa jest
+    `position: absolute`, więc wysokość sekcji wynika z kolumny z danymi. Logo w wersji ciemnej
+    (`logoneofox.svg`) — biało-pomarańczowe znikało na jasnym tle. Przy emulowanej szerokości podglądu mapa
+    wygląda na pomniejszoną albo niedoładowaną; to artefakt emulacji, bez niej wypełnia ramkę.
 
 11. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
 
