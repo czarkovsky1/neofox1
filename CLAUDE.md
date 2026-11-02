@@ -90,6 +90,7 @@ koszyk.svg, ludzik.svg, lupka.svg, serce.svg  – ikony header (cart/user/search
   na razie NIEUŻYWANE — w HTML ikony header są inline SVG. Do podpięcia na życzenie.
 .claude/launch.json    – konfiguracja lokalnego serwera podglądu (PowerShell, port 5173)
 .claude/serve.ps1      – serwer statyczny PowerShell (HttpListener) na port 5173
+.vercelignore          – pliki z repo, których Vercel nie publikuje (notatki `*.md`, `.claude/`)
 ```
 
 Brak systemu budowania — otwiera się `index.html` bezpośrednio albo przez
@@ -1167,6 +1168,9 @@ Sekcje (tła: czarna / biała / szara):
   HttpListener) na porcie 5173. `npx` NIE jest dostępne — nie używać.
 - Git push: repozytorium `https://github.com/czarkovsky1/neofox1.git`, branch `master`.
   Push działa bez dodatkowego uwierzytelnienia w tym środowisku.
+- Deploy: Vercel (`https://neofox1.vercel.app`) publikuje automatycznie każdy push na `master`,
+  więc push = wdrożenie na produkcję. Notatki są wykluczone przez `.vercelignore`, ale repozytorium
+  na GitHubie jest publiczne, więc tam nadal można je przeczytać.
 - Folder `dodatkowe-zdjecia/` zawiera zdjęcia i filmy źródłowe (niektóre >100 MB)
   — **nie commitować do git** (GitHub odrzuca pliki >100 MB).
 - **Uwaga:** footer w `index.html` nadal ma placeholder dane (+48 123 456 789,

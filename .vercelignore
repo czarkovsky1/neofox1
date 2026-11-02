@@ -1,0 +1,3 @@
+# Notatki projektu i konfiguracja lokalna — są w repo, ale nie mogą być dostępne pod adresem strony
+*.md
+.claude/
