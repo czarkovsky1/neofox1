@@ -29,7 +29,7 @@ paleta-kolorow.html – podstrona "Paleta kolorów" (link w stopce, kolumna "Naw
 css/style.css        – style wspólne (jeden plik, sekcje oddzielone komentarzami)
 css/o-nas.css        – style specyficzne dla podstrony o-nas (ładowane po style.css i szablonie ofertowym)
 css/kontakt.css      – style specyficzne dla podstrony kontakt (ładowane po style.css)
-css/galeria.css      – style specyficzne dla podstrony galeria (ładowane po style.css)
+css/galeria.css      – style specyficzne dla podstrony galeria (ładowane po style.css i szablonie ofertowym)
 css/sklep.css        – style specyficzne dla podstrony sklep (ładowane po style.css)
 css/produkt.css      – style specyficzne dla karty produktu (ładowane po style.css)
 css/koszyk.css       – style specyficzne dla podstrony koszyk (ładowane po style.css)
@@ -42,7 +42,8 @@ css/neony-led-strona.css – **szablon wszystkich 9 podstron ofertowych** z drop
   „Oferta B2B” (prefiks `.neon-*` — nazwa historyczna). Kolejne strony składamy z tych
   samych klas. Nowe warianty dodajemy jako modyfikatory (`--dark`, `--stacked`,
   `--white`…) albo nowe klasy, nigdy zmieniając istniejące reguły — patrz sekcje
-  "Podstrona Neony LED" … "Podstrony Banery, Oklejanie witryn, Montaż" niżej
+  "Podstrona Neony LED" … "Podstrony Banery, Oklejanie witryn, Montaż" niżej. Z tych klas
+  korzystają też galeria.html, paleta-kolorow.html i o-nas.html
 js/main.js            – hero slider + karuzela opinii (vanilla JS, bez zależności)
 assets/logo/          – logo (logoneofox.svg)
 assets/images/         – zdjęcia sekcji + podmienione zdjęcia kafelków (webp/jpg/JPG)
@@ -424,6 +425,10 @@ Stare pliki w `assets/images/tiles/*.png` już nie są używane w `o-nas.html`.
 
 ## Podstrona Galeria (`galeria.html` + `css/galeria.css`)
 
+Złożona z klas szablonu podstron ofertowych: ładuje style.css + neony-led.css (`.nl-cta`) +
+neony-led-strona.css (`.neon-*`) + galeria.css. W galeria.css zostały tylko hero, modyfikator
+szerokiego kafelka (`.galeria-item--wide`) i lightbox (`.galeria-lb-*`).
+
 ### Sekcje galeria.html (w kolejności)
 
 1. **Header** — "Galeria" ma `aria-current="page"`.
@@ -431,33 +436,36 @@ Stare pliki w `assets/images/tiles/*.png` już nie są używane w `o-nas.html`.
 2. **Hero** (`.galeria-hero`) — identyczny wzorzec jak o-nas/kontakt.
    Zdjęcie: `mionetto-neons.jpg`, nagłówek "GALERIA", podtytuł.
 
-3. **Sekcja A** (`.galeria-section-a`) — tekst po lewej / zdjęcie po prawej.
-   Zdjęcie: `dodatkowe-zdjecia/IMG_0057.JPG`. Nagłówek "GALERIA" 54px.
+3. **Galeria** (`.neon-sizes.neon-sizes--white`) — tekst po lewej, zdjęcie po prawej W SIATCE 1200px:
+   `paleta/niebieski.jpg` (neon „ciasno”), przycięte do wysokości tekstu, bo kwadrat zostawiał białą
+   przestrzeń pod krótkim tekstem (decyzja użytkownika). Zdjęcia nie wychodzą do krawędzi ekranu (decyzja użytkownika, wcześniej był tu
+   split z bleedem).
 
-4. **Sekcja B** (`.galeria-section-b`) — zdjęcie po lewej / tekst po prawej. Tło `#f9f9f9`.
-   Zdjęcie: `dodatkowe-zdjecia/IMG_1067.JPG`.
-   Nagłówek: "Projekty indywidualne: Autorskie neony i grafiki w technologii LED".
+4. **Projekty indywidualne** (`.neon-colors`, czarne tło) — zdjęcie po lewej, tekst po prawej, też
+   w siatce 1200px: `neony-led/barber.jpg` (neon z grafiką, pasuje do treści). Celowo spoza zdjęć
+   mozaiki, żeby się nie dublowało.
 
-5. **Instagram** (`.galeria-ig`) — tło `#f4f4f4`. Header wewnątrz `.container`:
-   ikona IG (gradient SVG) + nagłówek "Zobacz więcej na naszym Instagramie" po lewej,
-   strzałki `#ig-prev` / `#ig-next` po prawej (dosunięte do prawej krawędzi 1200px,
-   **bez przycisku "Obserwuj nas"**).
-   Karuzela 6 kart 260px × 9:16, `scroll-snap`, scrollbar ukryty, JS w inline `<script>`.
-   Zdjęcia z `dodatkowe-zdjecia/`.
+5. **Realizacje** (`.neon-gallery`, `id="realizacje"`) — wyśrodkowany nagłówek „Zobacz wszystkie
+   realizacje” + tekst, pod nim jedna ciągła `.gallery-grid` (pełna szerokość, 4 kolumny, rzędy
+   380px, podpisy `.neon-gallery-caption`). **32 zdjęcia, po trochę z każdej usługi (decyzja
+   użytkownika, docelowo; wersje z 62 i 113 zdjęciami zostały wycofane)**: Neony LED 5, Backlit 4,
+   Frontlit 4, Kasetony 4, Litery z tworzyw 4, Logo z plexi 3, Banery 2, Oklejanie 3, Montaż 3.
+   Wyłącznie zoptymalizowane pliki z `assets/images/<podstrona>/`, podpisy i alty z galerii podstron
+   (tylko to, co widać). Kolejność rodzajów jak w dropdownie „Oferta B2B” (bez Wynajmu neonów);
+   rozdzielają je tylko komentarze HTML — **filtrów, nagłówków kategorii i linków „Zobacz ofertę”
+   nie ma (usunięte na życzenie użytkownika)**. Cztery zdjęcia są szerokie (`.galeria-item--wide`,
+   poziome kadry: OMORFIA, Melanin, WERANDA, SANCTYOUARY), razem 36 komórek = 9 rzędów. Przy zmianie
+   zdjęć pilnować, żeby suma komórek była wielokrotnością 4, inaczej w siatce powstaną dziury.
+   Lightbox: podpis + strzałki ‹ › / klawisze ←/→ przewijają całą galerię, × / Esc / klik w tło
+   zamyka (inline JS).
 
-6. **CTA** (`.galeria-cta`) — białe tło, `padding: 100px 0`, wyśrodkowany nagłówek +
-   tekst + `.btn-primary` → `index.html#wycena`.
+6. **Formularz** (`.nl-cta.neon-cta`, `id="zamow"`) — ta sama sekcja co na podstronach ofertowych
+   (prefiks id `nl-`, pole lokalizacji po zaznaczeniu montażu), bez domyślnego produktu, nagłówek
+   „Napisz do nas i wyceń swój projekt”. Zastąpił dawne CTA „Masz pomysł na własną realizację?”.
 
-7. **Grid** (`.galeria-grid-section`) — reużywa `.gallery-grid` / `.gallery-item`
-   ze `style.css`, 12 zdjęć z `dodatkowe-zdjecia/`, lightbox inline JS.
+7. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
 
-8. **Footer** — z prawdziwymi danymi kontaktowymi NEOFOX.
-
-### Pułapka: scrollbar w karuzeli IG
-
-`.galeria-ig-track-wrap` ma `scrollbar-width: none` + `::-webkit-scrollbar { display: none }`.
-Track jest `<div>` (nie `<ul>`), ma `overflow-x: auto` — działa bo nie jest flex-childem
-z `min-width: auto`.
+Sekcja z karuzelą Instagrama została usunięta na życzenie użytkownika.
 
 ## Podstrona Sklep (`sklep.html` + `css/sklep.css`)
 

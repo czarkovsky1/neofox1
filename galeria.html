@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/neony-led.css">
+<link rel="stylesheet" href="css/neony-led-strona.css">
 <link rel="stylesheet" href="css/galeria.css">
 </head>
 <body>
@@ -76,158 +78,281 @@
   </div>
 </section>
 
-<!-- SEKCJA 1: tekst lewo / zdjęcie prawo -->
-<section class="galeria-section-a">
-  <div class="galeria-section-a-content">
-    <h2 class="galeria-section-heading">GALERIA</h2>
-    <p class="galeria-section-text">Nasza firma powstała z jednym celem – spełnianie oczekiwań naszych klientów. Rozumiemy, że dla Was ważne jest spersonalizowane podejście do tworzenia narzędzi promocyjnych, takich jak ledony. Dlatego, opierając się na naszych doświadczeniach, tworzymy rozwiązania dostosowane do profilu działalności klienta i uwzględniamy ich sugestie dotyczące poszczególnych elementów.</p>
-  </div>
-  <div class="galeria-section-a-image">
-    <img src="assets/images/IMG_0057.JPG" alt="Neon LED ciasno — realizacja NEOFOX">
-  </div>
-</section>
-
-<!-- SEKCJA 2: zdjęcie lewo / tekst prawo -->
-<section class="galeria-section-b">
-  <div class="galeria-section-b-image">
-    <img src="assets/images/IMG_1067.JPG" alt="Litery z efektem halo Guilty Pleasure — realizacja NEOFOX">
-  </div>
-  <div class="galeria-section-b-content">
-    <h2 class="galeria-section-heading">Projekty indywidualne: Autorskie neony i grafiki w technologii LED</h2>
-    <p class="galeria-section-text">Jednak nie narzucamy żadnych rozwiązań. Oferujemy również artykuły na zamówienie, które produkujemy zgodnie z ściśle określonymi wytycznymi klienta. Dzięki temu macie pewność, że Wasza reklama będzie dokładnie taka, jakiej sobie wymarzyliście.</p>
-    <p class="galeria-section-text">Jeśli masz własny pomysł, przekaż go nam, a my stworzymy projekt, który zrealizujemy po akceptacji. Gwarantujemy, że zamówiony napis neonowy będzie estetyczny, trwały i dopasowany do Twoich potrzeb. Możesz wybierać spośród różnych kolorów, stylów i kształtów. Nie musisz ograniczać się jedynie do liter. Chętnie przygotujemy także grafiki czy logo w technologii ledowej, które uzupełnią wizualnie Twoje logo.</p>
-  </div>
-</section>
-
-<!-- SEKCJA INSTAGRAM -->
-<section class="galeria-ig">
-  <div class="container">
-    <div class="galeria-ig-header">
-      <div class="galeria-ig-title-row">
-        <svg class="galeria-ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#f09433"/>
-              <stop offset="25%" stop-color="#e6683c"/>
-              <stop offset="50%" stop-color="#dc2743"/>
-              <stop offset="75%" stop-color="#cc2366"/>
-              <stop offset="100%" stop-color="#bc1888"/>
-            </linearGradient>
-          </defs>
-          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-grad)" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4" stroke="url(#ig-grad)" stroke-width="2"/>
-          <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-grad)"/>
-        </svg>
-        <h2 class="galeria-ig-heading">Zobacz więcej na naszym Instagramie</h2>
-      </div>
-      <div class="galeria-ig-controls">
-        <button class="galeria-ig-arrow" id="ig-prev" aria-label="Poprzednie">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="galeria-ig-arrow" id="ig-next" aria-label="Następne">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
+<!-- SEKCJA 1: tekst lewo / zdjęcie prawo, w siatce 1200px, zdjęcie przycięte do wysokości tekstu -->
+<section class="neon-sizes neon-sizes--white">
+  <div class="container neon-sizes-inner">
+    <div class="neon-sizes-content">
+      <h2 class="neon-heading">Galeria</h2>
+      <p class="neon-text">Nasza firma powstała z jednym celem – spełnianie oczekiwań naszych klientów. Rozumiemy, że dla Was ważne jest spersonalizowane podejście do tworzenia narzędzi promocyjnych, takich jak ledony. Dlatego, opierając się na naszych doświadczeniach, tworzymy rozwiązania dostosowane do profilu działalności klienta i uwzględniamy ich sugestie dotyczące poszczególnych elementów.</p>
     </div>
+    <figure class="neon-photo neon-sizes-media">
+      <img src="assets/images/paleta/niebieski.jpg" alt="Niebieski neon LED „ciasno” w oknie lokalu" style="object-position: 50% 13%">
+    </figure>
   </div>
+</section>
 
-  <div class="galeria-ig-track-wrap" id="ig-track-wrap">
-    <div class="galeria-ig-track" id="ig-track">
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_0305.JPG" alt="Litery LED TU — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_0881.JPG" alt="Project Beauty kaseton — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_1234.JPG" alt="Mionetto neon — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_1612.JPG" alt="Aququ litery przestrzenne — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_3451.JPG" alt="Project Kanto litery halo — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
-      <a href="https://www.instagram.com/neofox.pl/" target="_blank" rel="noopener" class="galeria-ig-card">
-        <img src="assets/images/IMG_1403.JPG" alt="Medicadent neon nocny — realizacja NEOFOX">
-        <div class="galeria-ig-overlay">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </a>
-
+<!-- SEKCJA 2: zdjęcie lewo / tekst prawo, czarne tło (układ jak np. #pcv na logo-plexi.html) -->
+<section class="neon-colors">
+  <div class="container neon-colors-inner">
+    <figure class="neon-photo neon-colors-media">
+      <img src="assets/images/neony-led/barber.jpg" alt="Neon LED „Barber” ze słupkiem barberskim i nożyczkami" style="object-position: 50% 40%" loading="lazy">
+    </figure>
+    <div class="neon-colors-content">
+      <h2 class="neon-heading">Projekty indywidualne: <span class="accent-text">Autorskie neony i&nbsp;grafiki w&nbsp;technologii LED</span></h2>
+      <p class="neon-text">Jednak nie narzucamy żadnych rozwiązań. Oferujemy również artykuły na zamówienie, które produkujemy zgodnie z ściśle określonymi wytycznymi klienta. Dzięki temu macie pewność, że Wasza reklama będzie dokładnie taka, jakiej sobie wymarzyliście.</p>
+      <p class="neon-text">Jeśli masz własny pomysł, przekaż go nam, a my stworzymy projekt, który zrealizujemy po akceptacji. Gwarantujemy, że zamówiony napis neonowy będzie estetyczny, trwały i dopasowany do Twoich potrzeb. Możesz wybierać spośród różnych kolorów, stylów i kształtów. Nie musisz ograniczać się jedynie do liter. Chętnie przygotujemy także grafiki czy logo w technologii ledowej, które uzupełnią wizualnie Twoje logo.</p>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="galeria-cta">
-  <div class="container galeria-cta-inner">
-    <h2 class="galeria-cta-heading">Zobacz wszystkie<br>realizacje</h2>
-    <p class="galeria-cta-text">Setki projektów zrealizowanych dla firm z całej Polski — od kameralnych neonów kawiarnianych po wielkoformatowe szyldy sieciowe.</p>
-    <a href="index.html#wycena" class="btn btn-primary">Wyceń swój projekt</a>
+<!-- REALIZACJE — jedna ciągła mozaika, zdjęcia ułożone kategoriami oferty (kolejność jak w dropdownie „Oferta B2B”) -->
+<section class="neon-gallery" id="realizacje">
+  <div class="neon-gallery-head">
+    <div class="container neon-head-center">
+      <h2 class="neon-heading">Zobacz wszystkie <span class="accent-text">realizacje</span></h2>
+      <p class="neon-text">Setki projektów zrealizowanych dla firm z całej Polski — od kameralnych neonów kawiarnianych po wielkoformatowe szyldy sieciowe.</p>
+    </div>
   </div>
-</section>
 
-<!-- GALERIA GRID -->
-<section class="galeria-grid-section">
   <div class="gallery-grid">
-    <a href="assets/images/IMG_0882.JPG" class="gallery-item">
-      <img src="assets/images/IMG_0882.JPG" alt="Project Beauty kaseton złoty — realizacja NEOFOX">
+    <!-- Neony LED -->
+    <a href="assets/images/neony-led/kantor-pomaranczarnia.jpg" class="gallery-item">
+      <img src="assets/images/neony-led/kantor-pomaranczarnia.jpg" alt="Zewnętrzny neon LED „Kantor Pomarańczarnia” nad witryną lokalu nocą" style="object-position: 50% 27%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Kantor Pomarańczarnia</strong><span>Neon zewnętrzny · witryna lokalu</span></span>
     </a>
-    <a href="assets/images/IMG_2977.JPG" class="gallery-item">
-      <img src="assets/images/IMG_2977.JPG" alt="Neon fioletowy Fajnie że jesteś — realizacja NEOFOX">
+    <a href="assets/images/neony-led/czesc-piekna.jpg" class="gallery-item">
+      <img src="assets/images/neony-led/czesc-piekna.jpg" alt="Odręczny napis neonowy „Cześć piękna!”" style="object-position: 50% 7%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Cześć piękna!</strong><span>Napis odręczny · transparentna plexi</span></span>
     </a>
-    <a href="assets/images/IMG_3103.JPG" class="gallery-item">
-      <img src="assets/images/IMG_3103.JPG" alt="cutcut szyld — realizacja NEOFOX">
+    <a href="assets/images/neony-led/egoist-barber-shop.jpg" class="gallery-item">
+      <img src="assets/images/neony-led/egoist-barber-shop.jpg" alt="Neon LED z logo barber shopu EGOIST na okrągłej plexi zamocowanej dystansami" style="object-position: 50% 23%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>EGOIST Barber Shop</strong><span>Logo · plexi docięta do koła</span></span>
     </a>
-    <a href="assets/images/IMG_1813.JPG" class="gallery-item">
-      <img src="assets/images/IMG_1813.JPG" alt="NFX litery złote halo — realizacja NEOFOX">
+    <a href="assets/images/neony-led/vape-shop.jpg" class="gallery-item">
+      <img src="assets/images/neony-led/vape-shop.jpg" alt="Neon LED „Vape Shop” z kolorową, nadrukowaną grafiką kaktusa" style="object-position: 50% 20%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Vape Shop</strong><span>Nadruk · podkład docięty do kształtu</span></span>
     </a>
-    <a href="assets/images/IMG_0531.JPG" class="gallery-item">
-      <img src="assets/images/IMG_0531.JPG" alt="Veni Andro szyld fasada — realizacja NEOFOX">
+    <a href="assets/images/neony-led/sun-and-fun.jpg" class="gallery-item">
+      <img src="assets/images/neony-led/sun-and-fun.jpg" alt="Wieloelementowa realizacja neonowa „#Sun&amp;Fun” na ścianie strefy rekreacji" style="object-position: 50% 44%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>#Sun&amp;Fun</strong><span>Realizacja wieloelementowa · strefa rekreacji</span></span>
     </a>
-    <a href="assets/images/IMG_1370.JPG" class="gallery-item">
-      <img src="assets/images/IMG_1370.JPG" alt="JUAMO kaseton okrągły — realizacja NEOFOX">
+    <!-- Backlit -->
+    <a href="assets/images/backlit-halo/velora-boutique.jpg" class="gallery-item">
+      <img src="assets/images/backlit-halo/velora-boutique.jpg" alt="Złote litery „VELORA boutique” na ciemnej płycie nad witryną butiku" style="object-position: 50% 15%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>VELORA boutique</strong><span>Złote litery na ciemnej płycie · elewacja</span></span>
     </a>
-    <a href="assets/images/IMG_3389.JPG" class="gallery-item">
-      <img src="assets/images/IMG_3389.JPG" alt="Melanin Nails montaż — realizacja NEOFOX">
+    <a href="assets/images/backlit-halo/omorfia-recepcja-wnetrze-poziomy.jpg" class="gallery-item galeria-item--wide">
+      <img src="assets/images/backlit-halo/omorfia-recepcja-wnetrze-poziomy.jpg" alt="Napis „OMORFIA” z ciepłą poświatą na kamiennej ścianie recepcji" style="object-position: 50% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>OMORFIA</strong><span>Napis na kamiennej ścianie recepcji</span></span>
     </a>
-    <a href="assets/images/IMG_2539.JPG" class="gallery-item">
-      <img src="assets/images/IMG_2539.JPG" alt="Kwiatuszek Flower Shop szyld — realizacja NEOFOX">
+    <a href="assets/images/backlit-halo/nex-zlote-litery.jpg" class="gallery-item">
+      <img src="assets/images/backlit-halo/nex-zlote-litery.jpg" alt="Złote, lustrzane litery „NEX” z ciepłą poświatą" style="object-position: 50% 65%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>NEX</strong><span>Złote, lustrzane litery</span></span>
     </a>
-    <a href="assets/images/IMG_2313.JPG" class="gallery-item">
-      <img src="assets/images/IMG_2313.JPG" alt="Mionetto Prosecco neony produkcja — realizacja NEOFOX">
+    <a href="assets/images/backlit-halo/guilty-pleasure.jpg" class="gallery-item">
+      <img src="assets/images/backlit-halo/guilty-pleasure.jpg" alt="Niebieskie litery „Guilty Pleasure” w stylu retro" style="object-position: 50% 70%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Guilty Pleasure</strong><span>Niebieskie litery w stylu retro</span></span>
     </a>
-    <a href="assets/images/IMG_3427.JPG" class="gallery-item">
-      <img src="assets/images/IMG_3427.JPG" alt="Magnus Koci Sklep neon — realizacja NEOFOX">
+    <!-- Frontlit -->
+    <a href="assets/images/frontlit/momys.jpg" class="gallery-item">
+      <img src="assets/images/frontlit/momys.jpg" alt="Białe, podświetlone litery „momy's” na czarnym szyldzie nad witryną lokalu nocą" style="object-position: 50% 24%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>momy's</strong><span>Białe litery na czarnym szyldzie · nocą</span></span>
     </a>
-    <a href="assets/images/IMG_3468.JPG" class="gallery-item">
-      <img src="assets/images/IMG_3468.JPG" alt="Halo backlit close-up — realizacja NEOFOX">
+    <a href="assets/images/frontlit/costa-coffee.jpg" class="gallery-item">
+      <img src="assets/images/frontlit/costa-coffee.jpg" alt="Czerwono podświetlone logo „COSTA COFFEE” na okrągłej, transparentnej płycie" style="object-position: 50% 46%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>COSTA COFFEE</strong><span>Logo na okrągłej, transparentnej płycie</span></span>
     </a>
-    <a href="assets/images/IMG_2864.JPG" class="gallery-item">
-      <img src="assets/images/IMG_2864.JPG" alt="USPI Work kaseton — realizacja NEOFOX">
+    <a href="assets/images/frontlit/notino-szyld.jpg" class="gallery-item">
+      <img src="assets/images/frontlit/notino-szyld.jpg" alt="Turkusowo podświetlone litery „NOTINO” z czarnymi bokami na czarnym szyldzie" style="object-position: 50% 25%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>NOTINO</strong><span>Turkusowe litery na czarnym szyldzie</span></span>
     </a>
+    <a href="assets/images/frontlit/tunnel.jpg" class="gallery-item">
+      <img src="assets/images/frontlit/tunnel.jpg" alt="Czerwono podświetlony napis „TUNNEL Cyber Lounge” w ciemnym wnętrzu" style="object-position: 50% 52%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>TUNNEL Cyber Lounge</strong><span>Czerwony napis w ciemnym wnętrzu</span></span>
+    </a>
+    <!-- Kasetony -->
+    <a href="assets/images/kasetony/am-market.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/am-market.jpg" alt="Niebieski kaseton z podświetlonymi literami przestrzennymi „AM MARKET” nad witryną sklepu" style="object-position: 50% 30%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>AM MARKET</strong><span>Niebieski kaseton z literami przestrzennymi</span></span>
+    </a>
+    <a href="assets/images/kasetony/beer-funtasy.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/beer-funtasy.jpg" alt="Czarny semafor z białym logo „BEER FUNTASY” na elewacji kamienicy" style="object-position: 45% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>BEER FUNTASY</strong><span>Czarny semafor na elewacji</span></span>
+    </a>
+    <a href="assets/images/kasetony/melanin.jpg" class="gallery-item galeria-item--wide">
+      <img src="assets/images/kasetony/melanin.jpg" alt="Granatowy kaseton ze złotym logo i literami „Melanin Nails &amp; Lux” na żółtej elewacji, w świetle dziennym" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Melanin</strong><span>Kaseton ze złotym logo na elewacji</span></span>
+    </a>
+    <a href="assets/images/kasetony/barber-pro.jpg" class="gallery-item">
+      <img src="assets/images/kasetony/barber-pro.jpg" alt="Czarny kaseton ze świecącymi literami „BARBER PRO” w galerii handlowej" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>BARBER PRO</strong><span>Świecące litery na czarnym kasetonie</span></span>
+    </a>
+    <!-- Litery z tworzyw -->
+    <a href="assets/images/litery-tworzywa/la-farina.jpg" class="gallery-item">
+      <img src="assets/images/litery-tworzywa/la-farina.jpg" alt="Złote, szczotkowane litery „LA FARINA ITALIANA” na zielonej ścianie" style="object-position: 45% 40%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Styrodur z licem z kompozytu Dibond</strong><span>LA FARINA ITALIANA · złoty szczotkowany</span></span>
+    </a>
+    <a href="assets/images/litery-tworzywa/bulldog.jpg" class="gallery-item">
+      <img src="assets/images/litery-tworzywa/bulldog.jpg" alt="Białe litery „BULLDOG LONDON DRY GIN” na czarnej, błyszczącej płycie" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Litery z PCV na Dibondzie</strong><span>BULLDOG · czarna płyta</span></span>
+    </a>
+    <a href="assets/images/litery-tworzywa/faworytka.jpg" class="gallery-item">
+      <img src="assets/images/litery-tworzywa/faworytka.jpg" alt="Brązowe logo „Faworytka” z deserem na owalnej, przezroczystej płycie z brązowym obramowaniem, na elewacji budynku" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Litery z PCV na plexi</strong><span>Faworytka · logo na elewacji</span></span>
+    </a>
+    <a href="assets/images/litery-tworzywa/swa-braz.jpg" class="gallery-item">
+      <img src="assets/images/litery-tworzywa/swa-braz.jpg" alt="Brązowe litery przestrzenne i grafika ułożone na szarym blacie" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Styrodur z licem z plexi</strong><span>Brązowe litery i grafika</span></span>
+    </a>
+    <!-- Logo z plexi -->
+    <a href="assets/images/logo-plexi/glowly.jpg" class="gallery-item">
+      <img src="assets/images/logo-plexi/glowly.jpg" alt="Złote, lustrzane logo „Glowly” w podwójnym okręgu z ciepłą poświatą" style="object-position: 50% 54%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Glowly</strong><span>Złote lustrzane logo · poświata LED</span></span>
+    </a>
+    <a href="assets/images/logo-plexi/inezja.jpg" class="gallery-item">
+      <img src="assets/images/logo-plexi/inezja.jpg" alt="Czarna, błyszcząca tablica ze złotym logo „INEZJA salon fryzjerski”" style="object-position: 50% 55%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>INEZJA</strong><span>Złote logo na czarnej tablicy</span></span>
+    </a>
+    <a href="assets/images/logo-plexi/weranda-poziomy.jpg" class="gallery-item galeria-item--wide">
+      <img src="assets/images/logo-plexi/weranda-poziomy.jpg" alt="Fragment okrągłego logo „WERANDA moments &amp; wine” z ciepłą poświatą wokół krawędzi, leżącego na betonowej posadzce" style="object-position: 50% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>WERANDA</strong><span>Okrągłe logo · poświata LED</span></span>
+    </a>
+    <!-- Banery -->
+    <a href="assets/images/banery/montaz-baneru.jpg" class="gallery-item">
+      <img src="assets/images/banery/montaz-baneru.jpg" alt="Mężczyzna na drabinie zawiesza na ścianie czarny baner z kwiatami wiśni; drugi mężczyzna pomaga przy dolnej krawędzi" style="object-position: 50% 0%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Montaż banera</strong><span>Baner z kwiatami wiśni na ścianie</span></span>
+    </a>
+    <a href="assets/images/banery/druk-roland.jpg" class="gallery-item">
+      <img src="assets/images/banery/druk-roland.jpg" alt="Drukarka wielkoformatowa Roland drukująca czarny baner z napisem i zdjęciem" style="object-position: 50% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Druk wielkoformatowy</strong><span>Drukarka Roland w pracowni</span></span>
+    </a>
+    <!-- Oklejanie witryn -->
+    <a href="assets/images/oklejanie/brave-beauty.jpg" class="gallery-item">
+      <img src="assets/images/oklejanie/brave-beauty.jpg" alt="Witryna „BRAVE beauty” oklejona matową folią z logo w okręgu" style="object-position: 50% 52%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>BRAVE beauty</strong><span>Matowa folia z logo na witrynie</span></span>
+    </a>
+    <a href="assets/images/oklejanie/identa-witryna.jpg" class="gallery-item">
+      <img src="assets/images/oklejanie/identa-witryna.jpg" alt="Witryna „iDenta” z kolorową grafiką zęba i białymi godzinami pracy" style="object-position: 50% 45%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>iDenta</strong><span>Kolorowa grafika i godziny pracy</span></span>
+    </a>
+    <a href="assets/images/oklejanie/kwiatuszek.jpg" class="gallery-item">
+      <img src="assets/images/oklejanie/kwiatuszek.jpg" alt="Szklane drzwi kwiaciarni „Kwiatuszek” z białymi napisami i godzinami otwarcia" style="object-position: 50% 65%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Kwiatuszek</strong><span>Napisy i godziny otwarcia na drzwiach</span></span>
+    </a>
+    <!-- Montaż -->
+    <a href="assets/images/montaz/bajgiel-montaz.jpg" class="gallery-item">
+      <img src="assets/images/montaz/bajgiel-montaz.jpg" alt="Dwóch mężczyzn mocuje okrągły neon „Bajgiel” do ściany" style="object-position: 50% 40%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>Bajgiel</strong><span>Montaż neonu na ścianie</span></span>
+    </a>
+    <a href="assets/images/montaz/faneco-montaz.jpg" class="gallery-item">
+      <img src="assets/images/montaz/faneco-montaz.jpg" alt="Dłonie montujące świecący neon „faneco” na ścianie" style="object-position: 55% 50%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>faneco</strong><span>Montaż neonu LED</span></span>
+    </a>
+    <a href="assets/images/montaz/sanctyouary-montaz.jpg" class="gallery-item galeria-item--wide">
+      <img src="assets/images/montaz/sanctyouary-montaz.jpg" alt="Montażysta NEOFOX na drabinie przy logo i literach „SANCTYOUARY” na drewnianej elewacji" style="object-position: 50% 40%" loading="lazy">
+      <span class="neon-gallery-caption"><strong>SANCTYOUARY</strong><span>Montaż liter na elewacji</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- FORMULARZ — ta sama sekcja co #zamow na podstronach ofertowych, bez domyślnego produktu -->
+<section class="nl-cta neon-cta" id="zamow">
+  <div class="container nl-cta-inner">
+
+    <div class="nl-cta-left">
+      <h2 class="nl-cta-heading">Napisz do nas <span class="accent-text">i&nbsp;wyceń swój projekt</span></h2>
+      <p class="nl-cta-text">Opisz swój pomysł, podaj orientacyjny wymiar i miejsce montażu. Przygotujemy propozycję technologii, materiałów i wykończenia.</p>
+      <a href="tel:+48730627143" class="nl-cta-phone">+48 730 627 143</a>
+      <div class="nl-cta-cards">
+        <div class="nl-cta-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:neofox.pl@gmail.com">neofox.pl@gmail.com</a>
+        </div>
+        <div class="nl-cta-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>ul. Garbary 46/U1, 61-869 Poznań</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nl-cta-form-col">
+      <!-- te same pola, etykiety i opcje co formularz w kontakt.html -->
+      <form class="nl-cta-form" action="#" method="post" novalidate>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="nl-name" class="kf-label">Imię i nazwisko*</label>
+            <input type="text" id="nl-name" name="name" placeholder="np. Jan Kowalski" required>
+          </div>
+          <div class="kf-field">
+            <label for="nl-email" class="kf-label">E-mail*</label>
+            <input type="email" id="nl-email" name="email" placeholder="twoj@email.pl" required>
+          </div>
+        </div>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="nl-phone" class="kf-label">Numer telefonu*</label>
+            <input type="tel" id="nl-phone" name="phone" placeholder="+48 000 000 000" required>
+          </div>
+          <div class="kf-field">
+            <label for="nl-product" class="kf-label">Czego dotyczy zapytanie?*</label>
+            <select id="nl-product" name="product" required>
+              <option value="" disabled selected>Wybierz produkt lub usługę</option>
+              <option value="neon-led">Neony LED</option>
+              <option value="frontlit">Frontlit — litery podświetlane przestrzenne 3D</option>
+              <option value="backlit">Backlit — litery podświetlane z efektem „HALO"</option>
+              <option value="kaseton-semafor">Kasetony i Semafory</option>
+              <option value="litery-tworzywa">Litery z tworzyw sztucznych, styroduru, PCV</option>
+              <option value="logo-plexi">Logo z plexi</option>
+              <option value="naklejki">Naklejki na szyby</option>
+              <option value="banery">Banery</option>
+              <option value="konsultacja">Dobór rozwiązania / konsultacja</option>
+              <option value="inne">Inne</option>
+            </select>
+          </div>
+        </div>
+        <div class="kf-row">
+          <div class="kf-field">
+            <label for="nl-lokalizacja-typ" class="kf-label">Gdzie produkt będzie zamontowany?*</label>
+            <select id="nl-lokalizacja-typ" name="lokalizacja-typ" required>
+              <option value="" disabled selected>Wybierz</option>
+              <option value="wewnatrz">Wewnątrz</option>
+              <option value="zewnatrz">Na zewnątrz</option>
+            </select>
+          </div>
+          <div class="kf-field">
+            <label for="nl-rozmiar" class="kf-label">Rozmiar*</label>
+            <input type="text" id="nl-rozmiar" name="rozmiar" placeholder="np. 120 × 60 cm" required>
+          </div>
+        </div>
+        <div class="kf-field kf-field-full">
+          <label class="kf-checkbox">
+            <input type="checkbox" id="nl-montaz" name="montaz">
+            <span>Jestem zainteresowany/a montażem</span>
+          </label>
+        </div>
+        <div class="kf-field kf-field-full kf-lokalizacja" id="nl-lokalizacja-wrap">
+          <label for="nl-lokalizacja" class="kf-label">Lokalizacja montażu</label>
+          <input type="text" id="nl-lokalizacja" name="lokalizacja" placeholder="np. Poznań, ul. Przykładowa 1">
+        </div>
+        <div class="kf-field kf-field-full">
+          <label for="nl-message" class="kf-label">Opis*</label>
+          <textarea id="nl-message" name="message" rows="5" placeholder="Opisz swoje zapytanie..." required></textarea>
+        </div>
+        <div class="kf-actions">
+          <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
+        </div>
+        <label class="checkbox-field checkbox-fine-print nl-cta-consent">
+          <input type="checkbox" id="nl-consent" name="consent" required>
+          <span>
+            Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
+            w formularzu kontaktowym w celu otrzymania odpowiedzi na przesłane
+            zapytanie oraz w celu nawiązania i utrzymania kontaktu, zgodnego z
+            ofertą. <a href="#">Polityka prywatności*</a>
+          </span>
+        </label>
+      </form>
+    </div>
+
   </div>
 </section>
 
@@ -317,40 +442,71 @@
   </div>
 </footer>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
-  <img id="lightbox-img" src="" alt="">
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <figure class="galeria-lb-figure">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-caption" class="galeria-lb-caption"></figcaption>
+  </figure>
+  <button type="button" class="galeria-lb-btn galeria-lb-prev" id="lightbox-prev" aria-label="Poprzednie zdjęcie">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button type="button" class="galeria-lb-btn galeria-lb-next" id="lightbox-next" aria-label="Następne zdjęcie">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button type="button" class="galeria-lb-btn galeria-lb-close" aria-label="Zamknij">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
 </div>
 
 <script src="js/main.js"></script>
 <script>
-  // Instagram carousel arrows
-  const igWrap = document.getElementById('ig-track-wrap');
-  const CARD_STEP = 260 + 16; // card width + gap
-  document.getElementById('ig-prev').addEventListener('click', function () {
-    igWrap.scrollBy({ left: -CARD_STEP * 2, behavior: 'smooth' });
-  });
-  document.getElementById('ig-next').addEventListener('click', function () {
-    igWrap.scrollBy({ left: CARD_STEP * 2, behavior: 'smooth' });
+  // Formularz — pole lokalizacji pokazuje się po zaznaczeniu montażu (ten sam wzorzec co kontakt.html)
+  document.getElementById('nl-montaz').addEventListener('change', function () {
+    document.getElementById('nl-lokalizacja-wrap').classList.toggle('is-visible', this.checked);
   });
 
+  // Lightbox — podpis + strzałki przewijające całą galerię
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
-  document.querySelectorAll('.gallery-item').forEach(function (item) {
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  let lbIndex = 0;
+
+  function showItem(index) {
+    lbIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[lbIndex];
+    const caption = item.querySelector('.neon-gallery-caption');
+    lightboxImg.src = item.getAttribute('href');
+    lightboxImg.alt = item.querySelector('img').alt;
+    lightboxCaption.textContent = caption.querySelector('strong').textContent + ' — ' + caption.querySelector('span').textContent;
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+  }
+
+  galleryItems.forEach(function (item, index) {
     item.addEventListener('click', function (e) {
       e.preventDefault();
-      lightboxImg.src = this.getAttribute('href');
+      showItem(index);
       lightbox.classList.add('is-open');
     });
   });
-  lightbox.addEventListener('click', function () {
-    this.classList.remove('is-open');
-    lightboxImg.src = '';
+  lightbox.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', function (e) {
+    e.stopPropagation();
+    showItem(lbIndex - 1);
+  });
+  document.getElementById('lightbox-next').addEventListener('click', function (e) {
+    e.stopPropagation();
+    showItem(lbIndex + 1);
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      lightbox.classList.remove('is-open');
-      lightboxImg.src = '';
-    }
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showItem(lbIndex - 1);
+    if (e.key === 'ArrowRight') showItem(lbIndex + 1);
   });
 </script>
 </body>
